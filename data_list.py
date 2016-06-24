@@ -6,7 +6,11 @@ import warnings
 
 train_ratio=.9
 
-folders = [cfgs.data_path]
+folders = [os.path.join(cfgs.data_path,cfgs.train_data_path)]
+if os.path.exists(cfgs.data_list_path):
+    pass
+else:
+    os.system("mkdir "+cfgs.data_list_path)
 fid_train = open(os.path.join(cfgs.data_list_path,'train.txt'), 'w')
 fid_val = open(os.path.join(cfgs.data_list_path,'val.txt'), 'w')
 
@@ -17,6 +21,7 @@ random.seed(0)
 
 
 for folder in folders:
+    print folder
     for img in os.listdir(folder):
         if len(img) == 0:
             raise ValueError("invalid name")
