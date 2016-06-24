@@ -74,9 +74,9 @@ class CaffeSolver:
                 sp[i]='"'+sp[i]+'"'
             elif isinstance(sp[i],bool):
                 if sp[i]==True:
-                    sp[i]='"true"'
+                    sp[i]='true'
                 else:
-                    sp[i]='"false"'
+                    sp[i]='false'
             else:
                 sp[i]=str(sp[i])
         return sp

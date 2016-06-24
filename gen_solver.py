@@ -23,7 +23,7 @@ solver.sp['test_iter']=20
 solver.sp['test_interval']=40
 solver.sp['display']=20
 
-solver.sp['snapshot_prefix']=os.path.join(cfgs.usr_dir,model)
+solver.sp['snapshot_prefix']=os.path.join('/mnt/data1/yihuihe/ultrasound-nerve')
 solver.sp['train_net']=os.path.join(model,tr_pt)
 solver.sp['test_net']=os.path.join(model,te_pt)
 solver.write(os.path.join(model,solver_name))

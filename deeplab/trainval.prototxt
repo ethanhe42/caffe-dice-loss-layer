@@ -25,7 +25,7 @@ layer {
     scale: 0.00392156862745
   }
   data_param {
-    source: "/mnt/data1/yihuihe/selected_data/gen_shantian12_pos_and_neg/lmdb_train_val/train_data"
+    source: "/mnt/data1/yihuihe/ultrasound-nerve/lmdb_train_val/train_data"
     batch_size: 8
     backend: LMDB
   }
@@ -35,7 +35,7 @@ layer {
   type: "Data"
   top: "geo"
   data_param {
-    source: "/mnt/data1/yihuihe/selected_data/gen_shantian12_pos_and_neg/lmdb_train_val/train_mask"
+    source: "/mnt/data1/yihuihe/ultrasound-nerve/lmdb_train_val/train_mask"
     batch_size: 8
     backend: LMDB
   }

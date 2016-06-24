@@ -8,10 +8,10 @@ max_iter: 200000
 momentum: 0.9
 power: 0.9
 snapshot: 5000
-snapshot_prefix: "home/yihuihe/deeplab"
-test_initialization: "true"
+snapshot_prefix: "/mnt/data1/yihuihe/ultrasound-nerve"
+test_initialization: true
 test_interval: 40
 test_iter: 20
-test_net: "deeplab/test.prototxt"
-train_net: "deeplab/trainval.prototxt"
+test_net: "test.prototxt"
+train_net: "trainval.prototxt"
 weight_decay: 0.0005
