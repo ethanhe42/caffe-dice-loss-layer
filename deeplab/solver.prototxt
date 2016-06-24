@@ -1,19 +1,17 @@
-train_net: "trainval.prototxt"
-test_net: "test.prototxt"
-
-test_iter: 20
-test_interval:40
-display:20
-
 average_loss: 20
+base_lr: 1e-06
+display: 20
+gamma: 1
+iter_size: 1
 lr_policy: "poly"
-
-power: 0.9
-base_lr: 1e-6
-
 max_iter: 200000
 momentum: 0.9
-weight_decay: 0.0005
-test_initialization: false
+power: 0.9
 snapshot: 5000
-snapshot_prefix: "/home/yihuihe/ultrasound"
+snapshot_prefix: "home/yihuihe/deeplab"
+test_initialization: "true"
+test_interval: 40
+test_iter: 20
+test_net: "testnet.prototxt"
+train_net: "trainnet.prototxt"
+weight_decay: 0.0005
