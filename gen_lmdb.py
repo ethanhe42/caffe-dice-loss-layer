@@ -123,10 +123,11 @@ with in_db.begin(write=True) as in_txn:
         ''' -------------------------------------------------- '''
 
         if debug:
-            cv2.imshow('debug.png', im)
-            cv2.waitKey(-1)
+            pass
+            #cv2.imshow('debug.png', im)
+            #cv2.waitKey(-1)
         #fit into caffe
-        im[im>0]=0
+        im[im>0]=1# TODO: some values are between 0 and 1 unknow why
         ''' mask channel is 1 '''
         # since im has only two axis, we need to have 3 axis
         tmp = np.uint8(np.zeros(im[:,:,np.newaxis].shape)) # new a tmp image

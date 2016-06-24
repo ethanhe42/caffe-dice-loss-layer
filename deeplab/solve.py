@@ -1,4 +1,5 @@
 import sys
+import pandas as pd
 sys.path.append("/home/yihuihe/Ultrasound-Nerve-Segmentation")
 sys.path.insert(0, "/home/yihuihe/deeplab-public-ver2/python")
 print sys.path
@@ -10,6 +11,7 @@ import score
 import surgery
 
 debug=False
+inspect_layers=['geo_shrink','loss_geo','convf']
 # import setproctitle
 # setproctitle.setproctitle(os.path.basename(os.getcwd()))
 
@@ -31,10 +33,11 @@ surgery.interp(solver.net, interp_layers)
 #test = np.loadtxt('../data/sift-flow/test.txt', dtype=str)
 
 for _ in range(50*2000):
-    solver.step(1)
     if debug:
-        for i in solver.net.blobs:
-            print i,solver.net.blobs[i].data
+        print pd.value_counts(solver.net.blobs[inspect_layers[0]].data.flatten())
+        for i in inspect_layers:
+            print i, solver.net.blobs[i].data.shape
+    solver.step(1)
     # N.B. metrics on the semantic labels are off b.c. of missing classes;
     # score manually from the histogram instead for proper evaluation
     # score.seg_tests(solver, False, test, layer='score_geo', gt='geo')

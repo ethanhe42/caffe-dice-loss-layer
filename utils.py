@@ -28,7 +28,7 @@ class CaffeSolver:
         self.sp['snapshot_prefix'] = 'snapshot'  # string withing a string!
 
         # learning rate policy
-        self.sp['lr_policy'] = 'fixed' # poly steps
+        self.sp['lr_policy'] = 'fixed' # poly steps, see caffe proto
 
         # important, but rare:
         self.sp['gamma'] = 1 # If learning rate policy: drop the learning rate in "steps" by a factor of gamma every stepsize iterations drop the learning rate by a factor of gamma

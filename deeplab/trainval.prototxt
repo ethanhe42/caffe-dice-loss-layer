@@ -42,10 +42,10 @@ layer {
 }
 ###################### DeepLab ####################
 layer {
-  name: "conv1_1"
+  name: "conv1"
   type: "Convolution"
   bottom: "data"
-  top: "conv1_1"
+  top: "conv1"
   param {
     lr_mult: 1
     decay_mult: 1
@@ -63,13 +63,13 @@ layer {
 layer {
   name: "relu1_1"
   type: "ReLU"
-  bottom: "conv1_1"
-  top: "conv1_1"
+  bottom: "conv1"
+  top: "conv1"
 }
 layer {
   name: "conv1_2"
   type: "Convolution"
-  bottom: "conv1_1"
+  bottom: "conv1"
   top: "conv1_2"
   param {
     lr_mult: 1
@@ -855,23 +855,12 @@ layer {
   name: "geo_shrink"
   type: "Interp"
   interp_param {
-    shrink_factor: 4
+    shrink_factor: 8
     pad_beg: 0
     pad_end: 0
   }
 }
-#layer {
-#  bottom: "geo"
-#  top: "geo_shrink"
-#  name: "geo_shrink"
-#  type: "Pooling"
-#  pooling_param {
-#    pool: AVE
-#    kernel_size:4
-#    stride: 4
-#    pad: 2 # TODO: ok? blank
-#  }
-#}
+
 layer {
   name: "loss_geo"
   type: "SoftmaxWithLoss"
