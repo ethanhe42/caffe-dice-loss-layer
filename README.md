@@ -12,4 +12,4 @@ Kaggle
 - [ ] lmdb
 - [ ] lmdb
 - [ ] lmdb
-- [ ] lmdb
+- [x] lmdb

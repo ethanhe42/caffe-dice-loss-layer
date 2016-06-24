@@ -18,8 +18,8 @@ import os
 import cv2
 import sys
 
-# for overfitting of 4 images
-debug=False
+
+debug=False # for overfitting of 4 images
 ''' image resizing using PIL'''
 def imresize(im,sz):
     pil_im = Image.fromarray(np.uint8(im))
@@ -109,7 +109,7 @@ with in_db.begin(write=True) as in_txn:
             break
 
         if in_idx%100 == 0: print "%d masks have been processed" %in_idx
-        path = os.path.join(os.path.dirname(in_).replace('png', 'mask'), os.path.basename(in_))
+        path = os.path.join(os.path.dirname(in_).replace('png', 'mask'), os.path.basename(in_)) #TODO: replace is a potential bug
         print path
         im = np.array(Image.open(path), dtype=np.float32)
 
