@@ -1,5 +1,5 @@
 import sys
-sys.path.append("/home/yihuihe/medical-image-segmentation")
+sys.path.append("/home/yihuihe/Ultrasound-Nerve-Segmentation")
 sys.path.insert(0, "/home/yihuihe/deeplab-public-ver2/python")
 print sys.path
 import caffe
@@ -13,7 +13,7 @@ debug=False
 # import setproctitle
 # setproctitle.setproctitle(os.path.basename(os.getcwd()))
 
-weights = 'init.caffemodel'
+weights = '/home/yihuihe/medical-image-segmentation/deeplab/init.caffemodel'
 
 # init
 caffe.set_device(int(sys.argv[1]))
@@ -28,7 +28,7 @@ interp_layers = [k for k in solver.net.params.keys() if 'up' in k]
 surgery.interp(solver.net, interp_layers)
 
 # scoring
-test = np.loadtxt('../data/sift-flow/test.txt', dtype=str)
+#test = np.loadtxt('../data/sift-flow/test.txt', dtype=str)
 
 for _ in range(50*2000):
     solver.step(1)

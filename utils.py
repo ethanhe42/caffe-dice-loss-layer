@@ -11,8 +11,8 @@ class CaffeSolver:
     def __init__(self, debug=False):
 
         self.sp = {}
-        self.testnet_prototxt_path="testnet.prototxt"
-        self.trainnet_prototxt_path="trainnet.prototxt"
+        self.sp['test_net']="testnet.prototxt"
+        self.sp['train_net']="trainnet.prototxt"
         
         # critical:
         self.sp['base_lr'] = 0.001
@@ -33,8 +33,6 @@ class CaffeSolver:
         # important, but rare:
         self.sp['gamma'] = 1 # If learning rate policy: drop the learning rate in "steps" by a factor of gamma every stepsize iterations drop the learning rate by a factor of gamma
         self.sp['weight_decay'] = 0.0005
-        self.sp['train_net'] = self.trainnet_prototxt_path
-        self.sp['test_net'] = self.testnet_prototxt_path
 
         # pretty much never change these.
         self.sp['max_iter'] = 100000
