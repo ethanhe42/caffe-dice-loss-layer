@@ -11,6 +11,7 @@ NOTE: label has already been resized to their targetedSize, like say 256x256 in 
 '''
 
 import caffe
+import cfgs
 # import lmdb
 from PIL import Image
 import numpy as np
@@ -30,15 +31,15 @@ def imresize(im,sz):
 ''' input param '''
 input_ = sys.argv[1] #'train'
 #input_ = 'val'
-data_root = './'
+data_root = cfgs.lmdb_path
 lmdb = 'lmdb_train_val'
 ''' ------------------------------------------------- '''
 
 
 
 ''' resize dim '''
-sz_data = (256,256) # image data
-sz_mask = (128,128)
+#sz_data = (256,256) # image data
+#sz_mask = (128,128)
 
 
 ''' path '''
@@ -54,7 +55,7 @@ if not os.path.exists(save_mask_lmdb_root): os.mkdir(save_mask_lmdb_root)
 
 
 ''' read train or val txt files '''
-train_val_list = os.path.join(data_root, input_lst)
+train_val_list = os.path.join(cfgs.data_list_path, input_lst)
 f = open(train_val_list, 'r')
 inputs = f.read().splitlines() # read lines in file
 f.close()
@@ -75,18 +76,20 @@ with in_db.begin(write=True) as in_txn:
         if in_idx%100 == 0: print "%d images have been processed" %in_idx
         path = in_
         try: 
-            img = np.array(Image.open(path), dtype=np.float32) # check if opened successfully
+            im = np.array(Image.open(path), dtype=np.float32) # check if opened successfully
         except:
             # print in_
             print 'image is damaged'
             continue
         # print img.shape
         # from psd we get 4-channel image, RGBA
-        im = img[:,:,0:3] # ignore A channel
-        im = imresize(im,sz_data)
-        im = im[:,:,::-1] # in BGR (switch from RGB), opencv in the form of BGR
-        im = im.swapaxes(1,2).swapaxes(0,1) # in Channel x Height x Width order (switch from H x W x C)
-        im_dat = caffe.io.array_to_datum(im) # convert to caffe friendly data format
+        # im = img[:,:,0:3] # ignore A channel
+        # im = imresize(im,sz_data) # can't resize it 
+        # im = im[:,:,::-1] # in BGR (switch from RGB), opencv in the form of BGR
+        tmp = np.uint8(np.zeros(im[:,:,np.newaxis].shape))
+        tmp[:,:,0]=im
+        tmp = tmp.swapaxes(1,2).swapaxes(0,1) # in Channel x Height x Width order (switch from H x W x C)
+        im_dat = caffe.io.array_to_datum(tmp) # convert to caffe friendly data format
         # in_idx is the key; im_dat is the value; in_idx keeps track of the lmdb data index
         in_txn.put('{:0>10d}'.format(in_idx), im_dat.SerializeToString())
     
@@ -107,11 +110,11 @@ with in_db.begin(write=True) as in_txn:
     for in_idx, in_ in enumerate(inputs):
         if in_idx>3 and debug==True:
             break
-
+            
         if in_idx%100 == 0: print "%d masks have been processed" %in_idx
-        path = os.path.join(os.path.dirname(in_).replace('png', 'mask'), os.path.basename(in_)) #TODO: replace is a potential bug
+        path = os.path.join(os.path.dirname(in_).replace('train_data', 'train_mask'), os.path.basename(in_).replace('.tif','_mask.tif')) #TODO: replace is a potential bug
         print path
-        im = np.array(Image.open(path), dtype=np.float32)
+        im = np.array(Image.open(path), dtype=np.uint8)
 
         ''' -------------------------------------------------- '''
         # im = imresize(img,sz_mask)
@@ -119,21 +122,15 @@ with in_db.begin(write=True) as in_txn:
         # instead, it must be done by label_down_sample.py 
         ''' -------------------------------------------------- '''
 
-        all_pos = np.where(im!=0)
-
-
-        tgt_im = np.zeros((sz_mask[0], sz_mask[1]), dtype=np.uint8)
-
-        if len(all_pos):
-            tgt_im[all_pos[0] * sz_mask[0] / im.shape[0], all_pos[1] * sz_mask[1] / im.shape[1]] = 1
-
-        #cv2.imshow('debug.png', tgt_im*255)
-        #cv2.waitKey(-1)
-        
-        im = tgt_im
+        if debug:
+            cv2.imshow('debug.png', im)
+            cv2.waitKey(-1)
+        #fit into caffe
+        im[im>0]=0
         ''' mask channel is 1 '''
         # since im has only two axis, we need to have 3 axis
         tmp = np.uint8(np.zeros(im[:,:,np.newaxis].shape)) # new a tmp image
+        
         # print tmp.shape
         tmp[:,:,0] = im  
         # print tmp.shape
