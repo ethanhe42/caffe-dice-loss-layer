@@ -14,4 +14,4 @@ momentum: 0.9
 weight_decay: 0.0005
 test_initialization: false
 snapshot: 5000
-snapshot_prefix: "/home/yihuihe/medical-image-segmentation"
+snapshot_prefix: "/home/yihuihe/ultrasound"
