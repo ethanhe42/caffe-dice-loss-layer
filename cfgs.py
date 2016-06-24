@@ -5,3 +5,6 @@ train_mask_path="train_mask"
 data_list_path="data"
 
 lmdb_path=data_path
+
+usr_dir="home/yihuihe"
+

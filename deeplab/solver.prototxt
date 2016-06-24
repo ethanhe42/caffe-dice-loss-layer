@@ -1,8 +1,10 @@
 train_net: "trainval.prototxt"
 test_net: "test.prototxt"
+
 test_iter: 20
 test_interval:40
 display:20
+
 average_loss: 20
 lr_policy: "poly"
 
