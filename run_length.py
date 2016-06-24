@@ -1,62 +1,81 @@
-# This Python 3 environment comes with many helpful analytics libraries installed
-# It is defined by the kaggle/python docker image: https://github.com/kaggle/docker-python
-# For example, here's several helpful packages to load in 
+#-.-encoding=utf-8-.-``
+# Yihui He, https://yihui-he.github.io
 
-import numpy as np # linear algebra
-import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+import numpy as np
 import cv2
+import caffe
+from utils import Data
 
-# Input data files are available in the "../input/" directory.
-# For example, running this (by clicking run or pressing Shift+Enter) will list the files in the input directory
+debug=False
+def classifier(c_img, net,thresh=0.5):
+    c_img   = c_img.swapaxes(1,2).swapaxes(0,1) 
+    c_img   = (np.single(c_img) - np.single(128)) / 100.0
+    c_img   = c_img.reshape((1,3,c_img.shape[1],c_img.shape[2]))
 
-from subprocess import check_output
-print(check_output(["ls", "../input"]).decode("utf8"))
+    # make prediction
+    prediction    = net.forward_all(**{net.inputs[0]: c_img})
+    pd = np.single(prediction['prob'][0,1,:,:])
+    if debug:
+        print pd.min(),pd.max()
 
-# Any results you write to the current directory are saved as output.
-def RLenc(img,order='F',format=True):
-    """
-    img is binary mask image, shape (r,c)
-    order is down-then-right, i.e. Fortran
-    format determines if the order needs to be preformatted (according to submission rules) or not
+    return pd
+
+def prep(img):
+    img = img.astype('float32')
+    img = cv2.threshold(img, 0.5, 1., cv2.THRESH_BINARY)[1].astype(np.uint8)
+    img = cv2.resize(img, (image_cols, image_rows))
+    return img
+
+
+def run_length_enc(label):
+    from itertools import chain
+    x = label.transpose().flatten()
+    y = np.where(x > 0)[0]
+    if len(y) < 10:  # consider as empty
+        return ''
+    z = np.where(np.diff(y) > 1)[0]
+    start = np.insert(y[z+1], 0, y[0])
+    end = np.append(y[z], y[-1])
+    length = end - start
+    res = [[s+1, l+1] for s, l in zip(list(start), list(length))]
+    res = list(chain.from_iterable(res))
+    return ' '.join([str(r) for r in res])
+
+
+def submission():
+    from data import load_test_data
+    imgs_test, imgs_id_test = load_test_data()
+    imgs_test = np.load('imgs_mask_test.npy')
+
+    argsort = np.argsort(imgs_id_test)
+    imgs_id_test = imgs_id_test[argsort]
+    imgs_test = imgs_test[argsort]
+
+    total = imgs_test.shape[0]
+    ids = []
+    rles = []
+    for i in range(total):
+        img = imgs_test[i, 0]
+        img = prep(img)
+        rle = run_length_enc(img)
+
+        rles.append(rle)
+        ids.append(imgs_id_test[i])
+
+        if i % 100 == 0:
+            print i
+
+    first_row = 'img,pixels'
+    file_name = 'submission.csv'
+
+    with open(file_name, 'w+') as f:
+        f.write(first_row + '\n')
+        for i in range(total):
+            s = str(ids[i]) + ',' + rles[i]
+            f.write(s + '\n')
+
+
     
-    returns run length as an array or string (if format is True)
-    """
-    bytes = img.reshape(img.shape[0] * img.shape[1], order=order)
-    runs = [] ## list of run lengths
-    r = 0     ## the current run length
-    pos = 1   ## count starts from 1 per WK
-    for c in bytes:
-        if ( c == 0 ):
-            if r != 0:
-                runs.append((pos, r))
-                pos+=r
-                r=0
-            pos+=1
-        else:
-            r+=1
 
-    #if last run is unsaved (i.e. data ends with 1)
-    if r != 0:
-        runs.append((pos, r))
-        pos += r
-        r = 0
-
-    if format:
-        z = ''
-    
-        for rr in runs:
-            z+='{} {} '.format(rr[0],rr[1])
-        return z[:-1]
-    else:
-        return runs
-
-mask = cv2.imread('../input/train/1_1_mask.tif',cv2.IMREAD_GRAYSCALE)
-mask_rle = RLenc(mask)
-
-#check output
-print(mask_rle[:100])
-''' from train_masks.csv
-subject,img,pixels
-1,1,168153 9 168570 15 168984 22 169401 26 169818 30 170236 34 170654 36 171072 39 171489 42 ...
-'''
-print('168153 9 168570 15 168984 22 169401 26 169818 30 170236 34 170654 36 171072 39 171489 42 ...')
+if __name__ == '__main__':
+    submission()

@@ -1,4 +1,11 @@
+#-.-encoding=utf-8-.-``
+# Yihui He, https://yihui-he.github.io
 ''' My caffe helper'''
+import os
+import warnings
+import cv2
+import numpy as np
+import PIL.Image as Image
 class CaffeSolver:
     
     """
@@ -80,3 +87,53 @@ class CaffeSolver:
             else:
                 sp[i]=str(sp[i])
         return sp
+
+class Data:
+    """Helper for dealing with DIY data"""
+    def __init__(self):
+        pass
+
+    @staticmethod
+    def folder_opt(folder, func):
+        """A func operate on each image then return a list"""
+        all_list=[]
+        for img in os.listdir(folder):
+            if len(img) == 0:
+                raise ValueError("invalid name")
+            if len(img.replace(' ','')) != len(img):
+                warnings.warn("whitespace in name")
+            filename = os.path.join(folder, img)
+            all_list.append(func(filename))
+        return all_list
+
+class NetHelper:
+    """Helper for dealing with net"""
+    def __init__(self, net):
+        self.net=net
+
+    def prediction(self,c_img):
+        """make prediction on single img"""
+        if len(c_img.shape)==3:
+            # color img
+            pass
+        else:
+            # grey img
+            tmp = np.uint8(np.zeros(c_img[:,:,np.newaxis].shape))
+            tmp[:,:,0]=c_img
+        c_img  = c_img.swapaxes(1,2).swapaxes(0,1) 
+        # in Channel x Height x Width order (switch from H x W x C)
+        c_img  = c_img.reshape((1,3,c_img.shape[1],c_img.shape[2]))
+        # 1 means batch size one
+        prediction = self.net.forward_all(**{net.inputs[0]: c_img})
+        return prediction
+
+    def bin_pred_map(self,c_img, last_layer='prob',prediction_map=1):
+        """get binary probability map prediction"""
+        pred=self.prediction(c_img)
+        prob_map=np.single(pred[last_layer][0,prediction_map,:,:])
+        return prob_map
+
+class Inspect:
+    """Helper for inspect net"""
+    def __init__(self,net):
+        self.net=net

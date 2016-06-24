@@ -20,7 +20,7 @@ import cv2
 import sys
 
 
-debug=False # for overfitting of 4 images
+debug=False  # for overfitting of 4 images
 ''' image resizing using PIL'''
 def imresize(im,sz):
     pil_im = Image.fromarray(np.uint8(im))
@@ -127,7 +127,7 @@ with in_db.begin(write=True) as in_txn:
             #cv2.imshow('debug.png', im)
             #cv2.waitKey(-1)
         #fit into caffe
-        im[im>0]=1# TODO: some values are between 0 and 1 unknow why
+        im[im>0]=1
         ''' mask channel is 1 '''
         # since im has only two axis, we need to have 3 axis
         tmp = np.uint8(np.zeros(im[:,:,np.newaxis].shape)) # new a tmp image
