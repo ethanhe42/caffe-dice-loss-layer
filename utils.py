@@ -1,6 +1,7 @@
 #-.-encoding=utf-8-.-``
 # Yihui He, https://yihui-he.github.io
 ''' My caffe helper'''
+import caffe
 import os
 import warnings
 import cv2
@@ -110,6 +111,10 @@ class NetHelper:
     """Helper for dealing with net"""
     def __init__(self, net):
         self.net=net
+
+    @staticmethod
+    def netFromFile(deploy_file,model_file,mode=caffe.TEST):
+        return caffe.Net(deploy_file,model_file,mode)
 
     def prediction(self,c_img):
         """make prediction on single img"""

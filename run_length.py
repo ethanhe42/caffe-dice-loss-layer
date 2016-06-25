@@ -4,17 +4,11 @@
 import numpy as np
 import cv2
 import caffe
-from utils import Data
+from utils import Data, NetHelper
 
 debug=False
 def classifier(c_img, net,thresh=0.5):
-    c_img   = c_img.swapaxes(1,2).swapaxes(0,1) 
-    c_img   = (np.single(c_img) - np.single(128)) / 100.0
-    c_img   = c_img.reshape((1,3,c_img.shape[1],c_img.shape[2]))
-
-    # make prediction
-    prediction    = net.forward_all(**{net.inputs[0]: c_img})
-    pd = np.single(prediction['prob'][0,1,:,:])
+    pd=NetHelper(net).bin_pred_map(c_img)
     if debug:
         print pd.min(),pd.max()
 
