@@ -58,6 +58,9 @@ layer {
     num_output: 64
     pad: 1
     kernel_size: 3
+    weight_filler {
+      type: "msra"
+    }
   }
 }
 layer {
@@ -846,6 +849,9 @@ layer {
     num_output: 2
     pad: 0
     kernel_size: 2
+    weight_filler {
+      type: "msra"
+    }
   }
 }
 #################

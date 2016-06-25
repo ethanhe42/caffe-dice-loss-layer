@@ -9,6 +9,7 @@ import numpy as np
 import PIL.Image as Image
 import sys
 import lmdb
+import random
 
 class CaffeSolver:
     
@@ -135,7 +136,57 @@ class Data:
         dir=os.path.dirname(file)
         name,ext=os.path.splitext(base)
         return dir,name,ext
-        
+    
+    @classmethod
+    def splitDataset(cls,folder,train_ratio=.9, save_dir=None, seed=0):
+        """split DIY data in a folder into train and val"""
+        if isinstance(folder, str):
+            folders=[folder]
+        else:
+            folders=folder
+        if save_dir is None:
+            save_dir=os.path.join(os.path.dirname(folder),os.path.basename(folder)+"_list")
+        if not os.path.exists(save_dir):
+            os.mkdir(save_dir)
+
+        all_list = []
+        train_list = []
+        val_list = []
+        if seed is not None:
+            random.seed(seed)
+
+        for folder in folders:
+            print folder
+            for img in os.listdir(folder):
+                if len(img) == 0:
+                    raise ValueError("invalid name")
+                if len(img.replace(' ','')) != len(img):
+                    warnings.warn("whitespace in name")
+                filename = os.path.join(folder, img)
+                all_list.append(filename) 
+
+        random.shuffle(all_list)
+        data_len=len(all_list)
+        print 'length of name list',data_len 
+        train_list=all_list[: int(data_len*train_ratio)]
+        print 'len_train_list', len(train_list)
+        val_list=all_list[int(data_len*train_ratio) :]
+        print 'len_val_list', len(val_list)
+
+        fid_train = open(os.path.join(save_dir,'train.txt'), 'w')
+        fid_val = open(os.path.join(save_dir,'val.txt'), 'w')
+        for line in train_list:
+            fid_train.write(line + '\n')
+        fid_train.close()
+
+        for line in val_list:
+            fid_val.write(line + '\n')
+        fid_val.close()
+
+        @classmethod
+        def im2lmdb():
+            """lmdb from DIY images"""
+            
 
 class NetHelper:
     """Helper for dealing with net"""
@@ -173,6 +224,9 @@ class NetHelper:
         prob_map=np.single(pred[last_layer][0,prediction_map,:,:])
         return prob_map
     
-    def inspect(self):
-        """inspect network params"""
-        pass
+    def hist(self,layer,bins=10):
+        """inspect network params via histogram"""
+        response=self.net.blobs[layer].data
+        cnts,boundary = np.histogram(response.flatten(),bins=bins)
+        print layer,cnts
+        print boundary

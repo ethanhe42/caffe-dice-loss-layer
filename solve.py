@@ -1,3 +1,5 @@
+#-.-encoding=utf-8-.-``
+# Yihui He, https://yihui-he.github.io
 import sys
 import pandas as pd
 sys.path.append("/home/yihuihe/Ultrasound-Nerve-Segmentation")
@@ -6,23 +8,31 @@ print sys.path
 import caffe
 print caffe.__file__
 import numpy as np
-
+import cv2
+from utils import NetHelper, CaffeSolver
+import cfgs
 import score
 import surgery
+import os
 
-debug=False
+# gen solver prototxt
+solver=CaffeSolver(debug=cfgs.debug)
+solver.sp=cfgs.sp.copy()
+solver.write(cfgs.solver_pt)
+
+debug=True
 inspect_layers=['geo_shrink','loss_geo','convf']
 # import setproctitle
 # setproctitle.setproctitle(os.path.basename(os.getcwd()))
 
-weights = '/home/yihuihe/medical-image-segmentation/deeplab/init.caffemodel'
+weights = cfgs.init
 
 # init
-caffe.set_device(int(sys.argv[1]))
+caffe.set_device(int(1))
 caffe.set_mode_gpu()
 # caffe.set_mode_cpu()
 
-solver = caffe.SGDSolver('solver.prototxt')
+solver = caffe.SGDSolver(cfgs.solver_pt)
 solver.net.copy_from(weights)
 
 # surgeries
@@ -32,11 +42,13 @@ surgery.interp(solver.net, interp_layers)
 # scoring
 #test = np.loadtxt('../data/sift-flow/test.txt', dtype=str)
 
-for _ in range(50*2000):
+for iter in range(50*2000):
     if debug:
-        print pd.value_counts(solver.net.blobs[inspect_layers[0]].data.flatten())
-        for i in inspect_layers:
-            print i, solver.net.blobs[i].data.shape
+        if iter % 40 == 0:
+            nethelper=NetHelper(solver.net)
+            nethelper.hist(inspect_layers[2])
+            nethelper.hist('geo')
+            
     solver.step(1)
     # N.B. metrics on the semantic labels are off b.c. of missing classes;
     # score manually from the histogram instead for proper evaluation

@@ -12,12 +12,13 @@ usr_dir="home/yihuihe"
 
 # prototxt
 pt_folder="deeplab"
-tr_pt=os.path.join(pt_folder,"trainval.txt")
+tr_pt=os.path.join(pt_folder,"trainval.prototxt")
 te_pt=os.path.join(pt_folder,"test.prototxt")
 solver_pt=os.path.join(pt_folder,"solver.prototxt")
 deploy_pt=os.path.join(pt_folder,"deploy.prototxt")
 
 # saved model
+init='/home/yihuihe/medical-image-segmentation/deeplab/init.caffemodel'
 model_name="ultrasound-nerve"
 model_save_path="/mnt/data1/yihuihe"
 best_model=5
@@ -32,7 +33,7 @@ sp=dict()
 sp['average_loss']=20
 sp['lr_policy']="poly"
 sp['power']=.9
-sp['base_lr']=1e-6
+sp['base_lr']=1e-10
 sp['max_iter']=200000
 sp['momentum']=.9
 sp['weight_decay']=0.0005
@@ -40,7 +41,7 @@ sp['test_initialization']= True
 sp['snapshot']=5000
 if debug:
     sp['test_iter']=20
-    sp['test_interval']=40
+    sp['test_interval']=1000
     sp['display']=20
 sp['snapshot_prefix']=os.path.join('/mnt/data1/yihuihe',model_name)
 sp['train_net']=tr_pt
