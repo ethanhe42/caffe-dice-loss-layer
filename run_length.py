@@ -75,6 +75,6 @@ def submission():
 
 if __name__ == '__main__':
     #submission()
-    NetHelper.netFromFile()
+    NetHelper.netFromFile(cfgs.deploy_pt,cfgs.best_model_dir)
     
     

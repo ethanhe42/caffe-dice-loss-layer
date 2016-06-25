@@ -10,9 +10,10 @@ usr_dir="home/yihuihe"
 
 # prototxt
 pt_folder="deeplab"
-tr_pt="trainval.prototxt"
-te_pt="test.prototxt"
-solver_pt="solver.prototxt"
+tr_pt=os.path.join(pt_folder,"trainval.txt")
+te_pt=os.path.join(pt_folder,"test.prototxt")
+solver_pt=os.path.join(pt_folder,"solver.prototxt")
+deploy_pt=os.path.join(pt_folder,"deploy.prototxt")
 
 # saved model
 model_name="ultrasound-nerve"
@@ -23,9 +24,6 @@ best_model_dir=os.path.join(model_save_path,
 
 # solver
 model="deeplab"
-tr_pt="trainval.prototxt"
-te_pt="test.prototxt"
-solver_name="solver.prototxt"
 
 debug=True
 sp=dict()
@@ -43,6 +41,6 @@ if debug:
     sp['test_interval']=40
     sp['display']=20
 sp['snapshot_prefix']=os.path.join('/mnt/data1/yihuihe',model_name)
-sp['train_net']=os.path.join(model,tr_pt)
-sp['test_net']=os.path.join(model,te_pt)
+sp['train_net']=tr_pt
+sp['test_net']=te_pt
 
