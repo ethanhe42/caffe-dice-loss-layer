@@ -7,6 +7,7 @@ import warnings
 import cv2
 import numpy as np
 import PIL.Image as Image
+
 class CaffeSolver:
     
     """
@@ -137,8 +138,7 @@ class NetHelper:
         pred=self.prediction(c_img)
         prob_map=np.single(pred[last_layer][0,prediction_map,:,:])
         return prob_map
-
-class Inspect:
-    """Helper for inspect net"""
-    def __init__(self,net):
-        self.net=net
+    
+    def inspect(self):
+        """inspect network params"""
+        pass

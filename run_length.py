@@ -5,10 +5,12 @@ import numpy as np
 import cv2
 import caffe
 from utils import Data, NetHelper
+import cfgs
 
 debug=False
 def classifier(c_img, net,thresh=0.5):
     pd=NetHelper(net).bin_pred_map(c_img)
+    
     if debug:
         print pd.min(),pd.max()
 
@@ -72,4 +74,7 @@ def submission():
     
 
 if __name__ == '__main__':
-    submission()
+    #submission()
+    NetHelper.netFromFile()
+    
+    
