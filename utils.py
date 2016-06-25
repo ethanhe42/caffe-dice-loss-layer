@@ -7,6 +7,8 @@ import warnings
 import cv2
 import numpy as np
 import PIL.Image as Image
+import sys
+import lmdb
 
 class CaffeSolver:
     
@@ -108,6 +110,21 @@ class Data:
             all_list.append(func(filename))
         return all_list
 
+    
+    @staticmethod
+    def imFromFile(path,dtype=np.float32):
+        """load image as array from path"""
+        return np.array(Image.open(path),dtype=dtype)
+
+    @classmethod
+    def showIm(cls,im,wait=-1,name='image.png'):
+        """show arr image or image from directory and wait"""
+        if isinstance(im,str):
+            im=cls.imFromFile(im)
+        cv2.imshow(name,im)
+        cv2.waitKey(wait)
+        
+
 class NetHelper:
     """Helper for dealing with net"""
     def __init__(self, net):
@@ -121,16 +138,21 @@ class NetHelper:
         """make prediction on single img"""
         if len(c_img.shape)==3:
             # color img
+            depth=c_img.shape[2]
             pass
-        else:
+        elif len(c_img.shape)==2:
             # grey img
             tmp = np.uint8(np.zeros(c_img[:,:,np.newaxis].shape))
             tmp[:,:,0]=c_img
+            c_img=tmp
+            depth=1
+        else:
+            raise ValueError("abnormal image")
         c_img  = c_img.swapaxes(1,2).swapaxes(0,1) 
         # in Channel x Height x Width order (switch from H x W x C)
-        c_img  = c_img.reshape((1,3,c_img.shape[1],c_img.shape[2]))
+        c_img  = c_img.reshape((1,depth,c_img.shape[1],c_img.shape[2]))
         # 1 means batch size one
-        prediction = self.net.forward_all(**{net.inputs[0]: c_img})
+        prediction = self.net.forward_all(**{self.net.inputs[0]: c_img})
         return prediction
 
     def bin_pred_map(self,c_img, last_layer='prob',prediction_map=1):

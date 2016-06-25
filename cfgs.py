@@ -4,6 +4,7 @@ import os
 data_path = "/mnt/data1/yihuihe/ultrasound-nerve"
 train_data_path="train_data"
 train_mask_path="train_mask"
+test_data_path=os.path.join(data_path,"Ultrasound-Nerve-Segmentation-test")
 data_list_path="data"
 lmdb_path=data_path
 usr_dir="home/yihuihe"
@@ -43,4 +44,8 @@ if debug:
 sp['snapshot_prefix']=os.path.join('/mnt/data1/yihuihe',model_name)
 sp['train_net']=tr_pt
 sp['test_net']=te_pt
+
+# net
+inShape=(420,580,1)
+outShape=(420,580,1)
 

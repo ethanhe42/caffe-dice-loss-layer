@@ -5,7 +5,7 @@ layer {
   transform_param {
     scale: 0.00392156862745
   }
-  input_param { shape: { dim: 1 dim: 3 dim: 256 dim: 256 } }
+  input_param { shape: { dim: 1 dim: 1 dim: 420 dim: 580 } }
 }
 
 ###################### DeepLab ####################

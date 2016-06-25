@@ -6,6 +6,8 @@ import cv2
 import caffe
 from utils import Data, NetHelper
 import cfgs
+import os
+from PIL import Image
 
 debug=False
 def classifier(c_img, net,thresh=0.5):
@@ -75,6 +77,14 @@ def submission():
 
 if __name__ == '__main__':
     #submission()
-    NetHelper.netFromFile(cfgs.deploy_pt,cfgs.best_model_dir)
+
+    net=NetHelper.netFromFile(cfgs.deploy_pt,cfgs.best_model_dir)
+    img_dir=os.path.join(cfgs.test_data_path,"40.tif")
+    img=Data.imFromFile(img_dir)
+    #Data.showIm(img)
+    predi=classifier(img,net)
+    print predi
+    #Data.showIm(img)
+
     
     
