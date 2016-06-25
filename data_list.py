@@ -6,7 +6,7 @@ import warnings
 
 train_ratio=.9
 
-folders = [os.path.join(cfgs.data_path,cfgs.train_data_path)]
+folders = [cfgs.train_data_path]
 if os.path.exists(cfgs.data_list_path):
     pass
 else:

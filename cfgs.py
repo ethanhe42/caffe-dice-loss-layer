@@ -2,9 +2,10 @@
 import os
 # data
 data_path = "/mnt/data1/yihuihe/ultrasound-nerve"
-train_data_path="train_data"
-train_mask_path="train_mask"
+train_data_path=os.path.join(data_path,"train_data")
+train_mask_path=os.path.join(data_path,"train_mask")
 test_data_path=os.path.join(data_path,"Ultrasound-Nerve-Segmentation-test")
+test_pred_path=os.path.join(data_path,"test_mask")
 data_list_path="data"
 lmdb_path=data_path
 usr_dir="home/yihuihe"
@@ -19,7 +20,7 @@ deploy_pt=os.path.join(pt_folder,"deploy.prototxt")
 # saved model
 model_name="ultrasound-nerve"
 model_save_path="/mnt/data1/yihuihe"
-best_model=10
+best_model=5
 best_model_dir=os.path.join(model_save_path,
     model_name+'_iter_'+str(best_model)+'000.caffemodel')
 

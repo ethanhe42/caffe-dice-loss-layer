@@ -98,7 +98,7 @@ class Data:
         pass
 
     @staticmethod
-    def folder_opt(folder, func):
+    def folder_opt(folder, func, *args):
         """A func operate on each image then return a list"""
         all_list=[]
         for img in os.listdir(folder):
@@ -107,10 +107,9 @@ class Data:
             if len(img.replace(' ','')) != len(img):
                 warnings.warn("whitespace in name")
             filename = os.path.join(folder, img)
-            all_list.append(func(filename))
+            all_list.append(func(filename, *args))
         return all_list
 
-    
     @staticmethod
     def imFromFile(path,dtype=np.float32):
         """load image as array from path"""
@@ -123,6 +122,19 @@ class Data:
             im=cls.imFromFile(im)
         cv2.imshow(name,im)
         cv2.waitKey(wait)
+    
+    @classmethod
+    def saveIm(cls,im,path=''):
+        """save im to path"""
+        pass
+
+    @classmethod
+    def splitPath(cls,file):
+
+        base=os.path.basename(file)
+        dir=os.path.dirname(file)
+        name,ext=os.path.splitext(base)
+        return dir,name,ext
         
 
 class NetHelper:

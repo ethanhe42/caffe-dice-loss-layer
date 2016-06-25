@@ -8,20 +8,19 @@ from utils import Data, NetHelper
 import cfgs
 import os
 from PIL import Image
+import pandas as pd
 
 debug=False
-def classifier(c_img, net,thresh=0.5):
+def classifier(c_img, net,thresh=0.1):
     pd=NetHelper(net).bin_pred_map(c_img)
-    
-    if debug:
-        print pd.min(),pd.max()
-
+    print sum(sum(pd))
+    pd[pd>thresh]=1
+    pd[pd<=thresh]=0
     return pd
 
 def prep(img):
     img = img.astype('float32')
-    img = cv2.threshold(img, 0.5, 1., cv2.THRESH_BINARY)[1].astype(np.uint8)
-    img = cv2.resize(img, (image_cols, image_rows))
+    img = cv2.resize(img, (cfgs.inShape[0], cfgs.inShape[0]))
     return img
 
 
@@ -39,19 +38,18 @@ def run_length_enc(label):
     res = list(chain.from_iterable(res))
     return ' '.join([str(r) for r in res])
 
+def func(filename, net):
+    _,idx,_=Data.splitPath(filename)
+    idx=int(idx)
+    img=Data.imFromFile(filename)
+    predi=classifier(img,net)
+    result=run_length_enc(prep(predi))
+    print idx,sum(sum(predi)),result
+
+    return (idx,result)
 
 def submission():
-    from data import load_test_data
-    imgs_test, imgs_id_test = load_test_data()
-    imgs_test = np.load('imgs_mask_test.npy')
 
-    argsort = np.argsort(imgs_id_test)
-    imgs_id_test = imgs_id_test[argsort]
-    imgs_test = imgs_test[argsort]
-
-    total = imgs_test.shape[0]
-    ids = []
-    rles = []
     for i in range(total):
         img = imgs_test[i, 0]
         img = prep(img)
@@ -77,14 +75,13 @@ def submission():
 
 if __name__ == '__main__':
     #submission()
+    img=Data.imFromFile(os.path.join(cfgs.train_data_path,"1_1.tif"))
+    Data.showIm(img)
+    #net=NetHelper.netFromFile(cfgs.deploy_pt,cfgs.best_model_dir)
+    #img=classifier(img,net,0.05)
 
-    net=NetHelper.netFromFile(cfgs.deploy_pt,cfgs.best_model_dir)
-    img_dir=os.path.join(cfgs.test_data_path,"40.tif")
-    img=Data.imFromFile(img_dir)
-    #Data.showIm(img)
-    predi=classifier(img,net)
-    print predi
-    #Data.showIm(img)
+    cv2.imwrite(os.path.join(cfgs.test_pred_path,"40.png"),img*255)
+    # Data.folder_opt(cfgs.test_data_path,func,net)
 
     
     
