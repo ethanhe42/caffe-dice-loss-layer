@@ -11,11 +11,13 @@ from PIL import Image
 import pandas as pd
 
 debug=False
-def classifier(c_img, net,thresh=0.1):
-    pd=NetHelper(net).bin_pred_map(c_img)
-    print sum(sum(pd))
+def classifier(c_img, nh,thresh=0.985,showIm=True):
+    pd=nh.bin_pred_map(c_img)
+    print np.histogram(pd)
     pd[pd>thresh]=1
     pd[pd<=thresh]=0
+    if showIm:
+        Data.showIm(pd)
     return pd
 
 def prep(img):
@@ -38,13 +40,13 @@ def run_length_enc(label):
     res = list(chain.from_iterable(res))
     return ' '.join([str(r) for r in res])
 
-def func(filename, net):
+def func(filename, nh):
     _,idx,_=Data.splitPath(filename)
     idx=int(idx)
     img=Data.imFromFile(filename)
-    predi=classifier(img,net)
+    predi=classifier(img,nh)
     result=run_length_enc(prep(predi))
-    print idx,sum(sum(predi)),result
+    print idx,result
 
     return (idx,result)
 
@@ -70,18 +72,20 @@ def submission():
             s = str(ids[i]) + ',' + rles[i]
             f.write(s + '\n')
 
-
+def testSingleImg():
+    NetHelper.gpu()
+    #submission()
+    nh=NetHelper(deploy=cfgs.deploy_pt,model=cfgs.best_model_dir)
+    img=Data.imFromFile(os.path.join(cfgs.train_mask_path,"1_1_mask.tif"))
+    res=nh.bin_pred_map(img)
+    print np.histogram(res)
     
 
 if __name__ == '__main__':
+    NetHelper.gpu()
     #submission()
-    img=Data.imFromFile(os.path.join(cfgs.train_data_path,"1_1.tif"))
-    Data.showIm(img)
-    #net=NetHelper.netFromFile(cfgs.deploy_pt,cfgs.best_model_dir)
-    #img=classifier(img,net,0.05)
-
-    cv2.imwrite(os.path.join(cfgs.test_pred_path,"40.png"),img*255)
-    # Data.folder_opt(cfgs.test_data_path,func,net)
+    nh=NetHelper(deploy=cfgs.deploy_pt,model=cfgs.best_model_dir)
+    Data.folder_opt(cfgs.test_data_path,func,nh)
 
     
     

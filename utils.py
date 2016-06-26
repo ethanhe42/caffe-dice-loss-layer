@@ -117,10 +117,12 @@ class Data:
         return np.array(Image.open(path),dtype=dtype)
 
     @classmethod
-    def showIm(cls,im,wait=-1,name='image.png'):
+    def showIm(cls,im,wait=-1,name='image'):
         """show arr image or image from directory and wait"""
         if isinstance(im,str):
             im=cls.imFromFile(im)
+        if im.max()>1:
+            im=im/255.0
         cv2.imshow(name,im)
         cv2.waitKey(wait)
     
@@ -186,17 +188,26 @@ class Data:
         @classmethod
         def im2lmdb():
             """lmdb from DIY images"""
-            
+            pass
+
 
 class NetHelper:
     """Helper for dealing with net"""
-    def __init__(self, net):
-        self.net=net
+    def __init__(self, net=None,deploy=None,model=None):
+        if net is not None:
+            self.net=net
+        else:
+            self.netFromFile(deploy,model)
 
-    @staticmethod
-    def netFromFile(deploy_file,model_file,mode=caffe.TEST):
-        return caffe.Net(deploy_file,model_file,mode)
+    def netFromFile(self,deploy_file,model_file,mode=caffe.TEST):
+        self.net=caffe.Net(deploy_file,model_file,mode)
 
+    @classmethod
+    def gpu(cls,id=0):
+        """open GPU"""
+        caffe.set_device(id)
+        caffe.set_mode_gpu()
+        
     def prediction(self,c_img):
         """make prediction on single img"""
         if len(c_img.shape)==3:
@@ -218,7 +229,7 @@ class NetHelper:
         prediction = self.net.forward_all(**{self.net.inputs[0]: c_img})
         return prediction
 
-    def bin_pred_map(self,c_img, last_layer='prob',prediction_map=1):
+    def bin_pred_map(self,c_img, last_layer='prob',prediction_map=0):
         """get binary probability map prediction"""
         pred=self.prediction(c_img)
         prob_map=np.single(pred[last_layer][0,prediction_map,:,:])
