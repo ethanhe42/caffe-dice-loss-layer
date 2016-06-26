@@ -241,3 +241,8 @@ class NetHelper:
         cnts,boundary = np.histogram(response.flatten(),bins=bins)
         print layer,cnts
         print boundary
+    
+    def showFilter(self,layer,filter=0,wait=-1,name='image'):
+        """imshow filter"""
+        response=self.net.blobs[layer].data[0,filter,:,:]
+        Data.showIm(response,wait=wait,name=name)
