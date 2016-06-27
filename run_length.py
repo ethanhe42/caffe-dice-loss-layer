@@ -78,10 +78,10 @@ def submission():
     file_name = 'submission.csv'
 
     with open(file_name, 'w+') as f:
-        f.write(first_row + '\n')
+        f.write(first_row)
         for i in l:
             s = str(i[0]) + ',' + i[1]
-            f.write((s + '\n').encode('ascii'))
+            f.write(('\n'+s))
 
 def testSingleImg():
     NetHelper.gpu()
