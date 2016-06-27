@@ -44,10 +44,9 @@ surgery.interp(solver.net, interp_layers)
 
 for iter in range(50*2000):
     if debug:
-        if iter % 1 == 0:
+        if iter % 400 == 0:
             nethelper=NetHelper(solver.net)
-            nethelper.layerShape('loss_geo')
-
+            nethelper.hist('convf', filters=True)
             
     solver.step(1)
     # N.B. metrics on the semantic labels are off b.c. of missing classes;

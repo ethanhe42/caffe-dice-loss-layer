@@ -18,6 +18,8 @@ layer {
 
 import caffe
 import numpy as np
+import warnings
+
 class perClassLossLayer(caffe.Layer):
     """
     self designed loss layer for segmentation. Class weighted, per pixel loss
@@ -27,6 +29,8 @@ class perClassLossLayer(caffe.Layer):
         # check input pair
         if len(bottom) != 2:
             raise Exception("Need two inputs to compute distance.")
+        if len(top) !=2:
+            warnings.warn("depth more than 2")
 
     def reshape(self, bottom, top):
         # check input dimensions match

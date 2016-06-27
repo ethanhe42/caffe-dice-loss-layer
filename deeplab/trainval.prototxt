@@ -26,7 +26,7 @@ layer {
   }
   data_param {
     source: "/mnt/data1/yihuihe/ultrasound-nerve/lmdb_train_val/train_data"
-    batch_size: 1
+    batch_size: 8
     backend: LMDB
   }
 }
@@ -36,7 +36,7 @@ layer {
   top: "geo"
   data_param {
     source: "/mnt/data1/yihuihe/ultrasound-nerve/lmdb_train_val/train_mask"
-    batch_size: 1
+    batch_size: 8
     backend: LMDB
   }
 }
@@ -869,8 +869,7 @@ layer {
 
 layer {
   name: "loss_geo"
-  type: "SoftmaxWithLoss"
-#  bottom: "fc8_voc12"
+  type: "WeightedSoftmaxWithLoss"
   bottom: "convf"
   bottom: "geo_shrink"
   top: "loss_geo"
@@ -881,6 +880,9 @@ layer {
     ignore_label: 255
     normalize: false
   }
+  softmax_param {
+    pos_cid: 0
+    pos_mult: 0.04
+  }
 }
-
 

@@ -236,12 +236,26 @@ class NetHelper:
         prob_map=np.single(pred[last_layer][0,prediction_map,:,:])
         return prob_map
     
-    def hist(self,layer,bins=10):
-        """inspect network params via histogram"""
+    def hist(self,layer, filters=None, bins=10):
+        """
+        inspect network response
+        Args:
+            filters: True will draw hist of every depth
+        """
         response=self.net.blobs[layer].data
-        cnts,boundary = np.histogram(response.flatten(),bins=bins)
-        print layer,cnts
-        print boundary
+        if filters is None:
+            # show response of this layer together
+            cnts,boundary = np.histogram(response.flatten(),bins=bins)
+            print layer,cnts
+            print boundary
+        else:
+            # print every filter
+            response=response.swapaxes(0,1)
+            for filter in range(response.shape[0]):
+                cnts, boundary = np.histogram(response[filter,:,:,:].flatten(),bins=bins)
+                print layer, cnts
+                print boundary
+                
 
     
     def layerShape(self,layer):
