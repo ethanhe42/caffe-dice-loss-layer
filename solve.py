@@ -20,7 +20,7 @@ solver=CaffeSolver(debug=cfgs.debug)
 solver.sp=cfgs.sp.copy()
 solver.write(cfgs.solver_pt)
 
-debug=False
+debug=True
 inspect_layers=['geo_shrink','loss_geo','convf']
 # import setproctitle
 # setproctitle.setproctitle(os.path.basename(os.getcwd()))
@@ -46,8 +46,8 @@ for iter in range(50*2000):
     if debug:
         if iter % 1 == 0:
             nethelper=NetHelper(solver.net)
-            nethelper.showFilter('data',wait=0,name='raw')
-            nethelper.showFilter('geo_shrink')
+            nethelper.layerShape('loss_geo')
+
             
     solver.step(1)
     # N.B. metrics on the semantic labels are off b.c. of missing classes;

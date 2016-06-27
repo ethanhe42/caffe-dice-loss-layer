@@ -1,5 +1,5 @@
 average_loss: 20
-base_lr: 1e-10
+base_lr: 1e-11
 display: 20
 lr_policy: "poly"
 max_iter: 200000

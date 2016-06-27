@@ -21,7 +21,7 @@ deploy_pt=os.path.join(pt_folder,"deploy.prototxt")
 init='/home/yihuihe/medical-image-segmentation/deeplab/init.caffemodel'
 model_name="ultrasound-nerve"
 model_save_path="/mnt/data1/yihuihe"
-best_model=15
+best_model=80
 best_model_dir=os.path.join(model_save_path,
     model_name+'_iter_'+str(best_model)+'000.caffemodel')
 
@@ -33,7 +33,7 @@ sp=dict()
 sp['average_loss']=20
 sp['lr_policy']="poly"
 sp['power']=.9
-sp['base_lr']=1e-10
+sp['base_lr']=1e-11
 sp['max_iter']=200000
 sp['momentum']=.9
 sp['weight_decay']=0.0005

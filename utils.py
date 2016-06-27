@@ -2,6 +2,7 @@
 # Yihui He, https://yihui-he.github.io
 ''' My caffe helper'''
 import caffe
+from caffe import layers as L
 import os
 import warnings
 import cv2
@@ -241,8 +242,15 @@ class NetHelper:
         cnts,boundary = np.histogram(response.flatten(),bins=bins)
         print layer,cnts
         print boundary
+
+    
+    def layerShape(self,layer):
+        """inspect network params shape"""
+        response=self.net.blobs[layer].data
+        print response.shape
     
     def showFilter(self,layer,filter=0,wait=-1,name='image'):
         """imshow filter"""
         response=self.net.blobs[layer].data[0,filter,:,:]
         Data.showIm(response,wait=wait,name=name)
+

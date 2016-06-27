@@ -42,8 +42,9 @@ def run_length_enc(label):
 
 def func(filename, nh):
     _,idx,_=Data.splitPath(filename)
-    idx=int(idx)
+    # idx=int(idx)
     img=Data.imFromFile(filename)
+    Data.showIm(os.path.join(cfgs.train_mask_path,idx+"_mask.tif"))
     predi=classifier(img,nh)
     result=run_length_enc(prep(predi))
     print idx,result
@@ -85,7 +86,7 @@ if __name__ == '__main__':
     NetHelper.gpu()
     #submission()
     nh=NetHelper(deploy=cfgs.deploy_pt,model=cfgs.best_model_dir)
-    Data.folder_opt(cfgs.test_data_path,func,nh)
+    Data.folder_opt(cfgs.train_data_path,func,nh)
 
     
     
