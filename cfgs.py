@@ -21,7 +21,7 @@ deploy_pt=os.path.join(pt_folder,"deploy.prototxt")
 init='/home/yihuihe/medical-image-segmentation/deeplab/init.caffemodel'
 model_name="ultrasound-nerve"
 model_save_path="/mnt/data1/yihuihe"
-best_model=80
+best_model=5
 best_model_dir=os.path.join(model_save_path,
     model_name+'_iter_'+str(best_model)+'000.caffemodel')
 
@@ -50,4 +50,9 @@ sp['test_net']=te_pt
 # net
 inShape=(420,580,1)
 outShape=(420,580,1)
+
+
+
+#-----------------------------------Global vars
+cnt=0
 

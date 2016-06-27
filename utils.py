@@ -110,7 +110,10 @@ class Data:
             if len(img.replace(' ','')) != len(img):
                 warnings.warn("whitespace in name")
             filename = os.path.join(folder, img)
-            all_list.append(func(filename, *args))
+            ret=func(filename, *args)
+            if ret is None:
+                continue
+            all_list.append(ret)
         return all_list
 
     @staticmethod
@@ -231,7 +234,7 @@ class NetHelper:
         prediction = self.net.forward_all(**{self.net.inputs[0]: c_img})
         return prediction
 
-    def bin_pred_map(self,c_img, last_layer='prob',prediction_map=0):
+    def bin_pred_map(self,c_img, last_layer='prob',prediction_map=1):
         """get binary probability map prediction"""
         pred=self.prediction(c_img)
         prob_map=np.single(pred[last_layer][0,prediction_map,:,:])

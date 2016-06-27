@@ -1,4 +1,3 @@
-#-.-encoding=utf-8-.-``
 # Yihui He, https://yihui-he.github.io
 
 import numpy as np
@@ -9,16 +8,15 @@ import cfgs
 import os
 from PIL import Image
 import pandas as pd
+import matplotlib.pyplot as plt
 
 debug=False
-def classifier(c_img, nh,thresh=0.985,showIm=True):
-    pd=nh.bin_pred_map(c_img)
-    print np.histogram(pd)
-    pd[pd>thresh]=1
-    pd[pd<=thresh]=0
-    if showIm:
-        Data.showIm(pd)
-    return pd
+def classifier(c_img, nh,thresh=0.999,showIm=True):
+    pred=nh.bin_pred_map(c_img)
+    pred_bin=pred.copy()
+    pred_bin[pred>thresh]=1
+    pred_bin[pred<=thresh]=0
+    return pred_bin,pred
 
 def prep(img):
     img = img.astype('float32')
@@ -38,40 +36,52 @@ def run_length_enc(label):
     length = end - start
     res = [[s+1, l+1] for s, l in zip(list(start), list(length))]
     res = list(chain.from_iterable(res))
-    return ' '.join([str(r) for r in res])
+    ret=' '.join([str(r) for r in res])
+    return ret
 
 def func(filename, nh):
-    _,idx,_=Data.splitPath(filename)
+    _,idx,ext=Data.splitPath(filename)
+    if ext!=".tif": 
+        return None
     # idx=int(idx)
     img=Data.imFromFile(filename)
-    Data.showIm(os.path.join(cfgs.train_mask_path,idx+"_mask.tif"))
-    predi=classifier(img,nh)
-    result=run_length_enc(prep(predi))
-    print idx,result
+    pred_bin,pred=classifier(img,nh)
+    result=run_length_enc(prep(pred_bin))
+    if debug:
+        hist=np.histogram(pred)
+        print pd.DataFrame(hist[0],index=hist[1][1:]).T
+        mask=plt.imread(os.path.join(cfgs.train_mask_path,idx+"_mask.tif"))
+        plt.figure(1)
+        plt.subplot(221)
+        plt.imshow(mask)
+        plt.subplot(222)
+        plt.imshow(pred_bin)
+        plt.subplot(223)
+        plt.imshow(img)
+        plt.subplot(224)
+        plt.imshow(pred)
+        plt.show()
+        print idx,result
 
     return (idx,result)
 
 def submission():
 
-    for i in range(total):
-        img = imgs_test[i, 0]
-        img = prep(img)
-        rle = run_length_enc(img)
-
-        rles.append(rle)
-        ids.append(imgs_id_test[i])
-
-        if i % 100 == 0:
-            print i
+    NetHelper.gpu()
+    #submission()
+    nh=NetHelper(deploy=cfgs.deploy_pt,model=cfgs.best_model_dir)
+    l=Data.folder_opt(cfgs.test_data_path,func,nh)
+    l=np.array(l,dtype=[('x',int),('y',object)])
+    l.sort(order='x')
 
     first_row = 'img,pixels'
     file_name = 'submission.csv'
 
     with open(file_name, 'w+') as f:
         f.write(first_row + '\n')
-        for i in range(total):
-            s = str(ids[i]) + ',' + rles[i]
-            f.write(s + '\n')
+        for i in l:
+            s = str(i[0]) + ',' + i[1]
+            f.write((s + '\n').encode('ascii'))
 
 def testSingleImg():
     NetHelper.gpu()
@@ -83,10 +93,6 @@ def testSingleImg():
     
 
 if __name__ == '__main__':
-    NetHelper.gpu()
-    #submission()
-    nh=NetHelper(deploy=cfgs.deploy_pt,model=cfgs.best_model_dir)
-    Data.folder_opt(cfgs.train_data_path,func,nh)
-
+    submission()
     
     
