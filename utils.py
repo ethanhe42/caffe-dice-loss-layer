@@ -7,6 +7,7 @@ import os
 import warnings
 import cv2
 import numpy as np
+import pandas as pd
 import PIL.Image as Image
 import sys
 import lmdb
@@ -246,15 +247,15 @@ class NetHelper:
         if filters is None:
             # show response of this layer together
             cnts,boundary = np.histogram(response.flatten(),bins=bins)
-            print layer,cnts
-            print boundary
+            ret=pd.DataFrame(cnts,index=boundary,columns=[layer])
+            print ret.T
         else:
             # print every filter
             response=response.swapaxes(0,1)
             for filter in range(response.shape[0]):
                 cnts, boundary = np.histogram(response[filter,:,:,:].flatten(),bins=bins)
-                print layer, cnts
-                print boundary
+                ret=pd.DataFrame(cnts,index=boundary,columns=[layer])
+                print ret.T
                 
 
     

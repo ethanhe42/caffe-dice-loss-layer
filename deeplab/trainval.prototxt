@@ -886,3 +886,9 @@ layer {
   }
 }
 
+layer {
+  name: "prob"
+  type: "Softmax"
+  bottom: "convf"
+  top: "prob"
+}
