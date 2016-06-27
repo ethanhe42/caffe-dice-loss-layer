@@ -41,12 +41,13 @@ surgery.interp(solver.net, interp_layers)
 
 # scoring
 #test = np.loadtxt('../data/sift-flow/test.txt', dtype=str)
+os.environ['GLOG_minloglevel'] = '2' 
 
 for iter in range(50*2000):
     if debug:
         if iter % 400 == 0:
             nethelper=NetHelper(solver.net)
-            nethelper.hist('convf', filters=True)
+            nethelper.hist('prob', filters=True)
             
     solver.step(1)
     # N.B. metrics on the semantic labels are off b.c. of missing classes;

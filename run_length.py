@@ -1,5 +1,5 @@
 # Yihui He, https://yihui-he.github.io
-
+from __future__ import print_function
 import numpy as np
 import cv2
 import caffe
@@ -9,7 +9,7 @@ import os
 from PIL import Image
 import pandas as pd
 import matplotlib.pyplot as plt
-
+import sys
 debug=False
 def classifier(c_img, nh,thresh=0.999,showIm=True):
     pred=nh.bin_pred_map(c_img)
@@ -20,7 +20,7 @@ def classifier(c_img, nh,thresh=0.999,showIm=True):
 
 def prep(img):
     img = img.astype('float32')
-    img = cv2.resize(img, (cfgs.inShape[0], cfgs.inShape[1]))
+    img = cv2.resize(img, (cfgs.inShape[1], cfgs.inShape[0]))
     return img
 
 
@@ -43,13 +43,15 @@ def func(filename, nh):
     _,idx,ext=Data.splitPath(filename)
     if ext!=".tif": 
         return None
-    # idx=int(idx)
+    cfgs.cnt+=1
+    print(cfgs.cnt)
+    idx=int(idx)
     img=Data.imFromFile(filename)
     pred_bin,pred=classifier(img,nh)
     result=run_length_enc(prep(pred_bin))
     if debug:
         hist=np.histogram(pred)
-        print pd.DataFrame(hist[0],index=hist[1][1:]).T
+        print(pd.DataFrame(hist[0],index=hist[1][1:]).T)
         mask=plt.imread(os.path.join(cfgs.train_mask_path,idx+"_mask.tif"))
         plt.figure(1)
         plt.subplot(221)
@@ -61,7 +63,7 @@ def func(filename, nh):
         plt.subplot(224)
         plt.imshow(pred)
         plt.show()
-        print idx,result
+        print(idx,result)
 
     return (idx,result)
 
@@ -89,7 +91,7 @@ def testSingleImg():
     nh=NetHelper(deploy=cfgs.deploy_pt,model=cfgs.best_model_dir)
     img=Data.imFromFile(os.path.join(cfgs.train_mask_path,"1_1_mask.tif"))
     res=nh.bin_pred_map(img)
-    print np.histogram(res)
+    print(np.histogram(res))
     
 
 if __name__ == '__main__':

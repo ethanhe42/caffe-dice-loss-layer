@@ -257,7 +257,7 @@ class NetHelper:
             response=response.swapaxes(0,1)
             for filter in range(response.shape[0]):
                 cnts, boundary = np.histogram(response[filter,:,:,:].flatten(),bins=bins)
-                ret=pd.DataFrame(cnts,index=boundary,columns=[layer])
+                ret=pd.DataFrame(cnts,index=boundary[1:],columns=[layer])
                 print ret.T
                 
 
