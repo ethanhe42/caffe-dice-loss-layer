@@ -20,7 +20,7 @@ def classifier(c_img, nh,thresh=0.999,showIm=True):
 
 def prep(img):
     img = img.astype('float32')
-    img = cv2.resize(img, (cfgs.inShape[0], cfgs.inShape[0]))
+    img = cv2.resize(img, (cfgs.inShape[0], cfgs.inShape[1]))
     return img
 
 
