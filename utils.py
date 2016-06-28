@@ -42,10 +42,20 @@ class CaffeSolver:
         self.sp['snapshot_prefix'] = 'snapshot'  # string withing a string!
 
         # learning rate policy
-        self.sp['lr_policy'] = 'fixed' # poly steps, see caffe proto
+        self.sp['lr_policy'] = 'fixed' # see caffe proto
+#   //    - fixed: always return base_lr.
+#   //    - step: return base_lr * gamma ^ (floor(iter / step))
+#   //    - exp: return base_lr * gamma ^ iter
+#   //    - inv: return base_lr * (1 + gamma * iter) ^ (- power)
+#   //    - multistep: similar to step but it allows non uniform steps defined by
+#   //      stepvalue
+#   //    - poly: the effective learning rate follows a polynomial decay, to be
+#   //      zero by the max_iter. return base_lr (1 - iter/max_iter) ^ (power)
+#   //    - sigmoid: the effective learning rate follows a sigmod decay
+#   //      return base_lr ( 1/(1 + exp(-gamma * (iter - stepsize))))
+        
+        self.sp['gamma'] = 1   
 
-        # important, but rare:
-        self.sp['gamma'] = 1 # If learning rate policy: drop the learning rate in "steps" by a factor of gamma every stepsize iterations drop the learning rate by a factor of gamma
         self.sp['weight_decay'] = 0.0005
 
         # pretty much never change these.
@@ -321,6 +331,9 @@ class segmentation:
         print name,np.array(metric).mean()
         print np.histogram(metric)
 
-        
+class factory:
+    """Helper for building network"""        
+    def __init__(self):
+        pass
 
 

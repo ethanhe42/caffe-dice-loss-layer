@@ -11,7 +11,12 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import sys
 
-debug=True
+if len(sys.argv)==1:
+    debug=False
+else:
+    debug=int(sys.argv[1])
+
+
 def classifier(c_img, nh,thresh=0.999,showIm=True):
     pred=nh.bin_pred_map(c_img)
     pred_bin=pred.copy()
@@ -70,7 +75,7 @@ def func(filename, nh):
 
 def submission():
 
-    NetHelper.gpu()
+    NetHelper.gpu(1)
     #submission()
     nh=NetHelper(deploy=cfgs.deploy_pt,model=cfgs.best_model_dir)
     if debug:
