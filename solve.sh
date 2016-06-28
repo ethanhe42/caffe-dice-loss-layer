@@ -1,0 +1,1 @@
+~/deeplab-public-ver2/build/tools/caffe train -solver deeplab/solver.prototxt -gpu all -weights ~/medical-image-segmentation/deeplab/init.caffemodel

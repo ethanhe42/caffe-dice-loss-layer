@@ -9,6 +9,7 @@ test_pred_path=os.path.join(data_path,"test_mask")
 data_list_path="data"
 lmdb_path=data_path
 usr_dir="home/yihuihe"
+proj=os.path.join(usr_dir,"Ultrasound-Nerve-Segmentation")
 
 # prototxt
 pt_folder="deeplab"

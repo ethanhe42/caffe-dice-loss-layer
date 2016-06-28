@@ -11,8 +11,8 @@ import numpy as np
 import cv2
 from utils import NetHelper, CaffeSolver
 import cfgs
-import score
-import surgery
+#import score
+#import surgery
 import os
 
 # gen solver prototxt
@@ -20,7 +20,7 @@ solver=CaffeSolver(debug=cfgs.debug)
 solver.sp=cfgs.sp.copy()
 solver.write(cfgs.solver_pt)
 
-debug=True
+debug=False
 inspect_layers=['geo_shrink','loss_geo','convf']
 # import setproctitle
 # setproctitle.setproctitle(os.path.basename(os.getcwd()))
@@ -28,7 +28,7 @@ inspect_layers=['geo_shrink','loss_geo','convf']
 weights = cfgs.init
 
 # init
-caffe.set_device(int(1))
+caffe.set_device(0)
 caffe.set_mode_gpu()
 # caffe.set_mode_cpu()
 
@@ -36,12 +36,11 @@ solver = caffe.SGDSolver(cfgs.solver_pt)
 solver.net.copy_from(weights)
 
 # surgeries
-interp_layers = [k for k in solver.net.params.keys() if 'up' in k]
-surgery.interp(solver.net, interp_layers)
+# interp_layers = [k for k in solver.net.params.keys() if 'up' in k]
+# surgery.interp(solver.net, interp_layers)
 
 # scoring
 #test = np.loadtxt('../data/sift-flow/test.txt', dtype=str)
-os.environ['GLOG_minloglevel'] = '2' 
 
 for iter in range(50*2000):
     if debug:

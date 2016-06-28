@@ -882,13 +882,6 @@ layer {
   }
   softmax_param {
     pos_cid: 0
-    pos_mult: 0.2
+    pos_mult: 0.3
   }
-}
-
-layer {
-  name: "prob"
-  type: "Softmax"
-  bottom: "convf"
-  top: "convf"
 }
