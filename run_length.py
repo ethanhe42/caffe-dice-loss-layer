@@ -10,7 +10,8 @@ from PIL import Image
 import pandas as pd
 import matplotlib.pyplot as plt
 import sys
-debug=False
+
+debug=True
 def classifier(c_img, nh,thresh=0.999,showIm=True):
     pred=nh.bin_pred_map(c_img)
     pred_bin=pred.copy()
@@ -45,7 +46,7 @@ def func(filename, nh):
         return None
     cfgs.cnt+=1
     print(cfgs.cnt)
-    idx=int(idx)
+    #idx=int(idx)
     img=Data.imFromFile(filename)
     pred_bin,pred=classifier(img,nh)
     result=run_length_enc(prep(pred_bin))
@@ -72,7 +73,10 @@ def submission():
     NetHelper.gpu()
     #submission()
     nh=NetHelper(deploy=cfgs.deploy_pt,model=cfgs.best_model_dir)
-    l=Data.folder_opt(cfgs.test_data_path,func,nh)
+    if debug:
+        l=Data.folder_opt(cfgs.train_data_path,func,nh)
+    else:
+        l=Data.folder_opt(cfgs.test_data_path,func,nh)
     l=np.array(l,dtype=[('x',int),('y',object)])
     l.sort(order='x')
 

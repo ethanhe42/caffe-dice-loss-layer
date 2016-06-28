@@ -272,3 +272,55 @@ class NetHelper:
         response=self.net.blobs[layer].data[0,filter,:,:]
         Data.showIm(response,wait=wait,name=name)
 
+class segmentation:
+    """package for image segmentation"""
+    def __init__(self):
+        self.dices=[]
+        self.recall=[]
+        self.precision=[]
+        self.neg_recall=[]
+        self.cnt=0
+    
+    def update(self,pred,label):
+        """
+        update evaluation info using new pred and label, they must be the same size
+        """
+        if pred.shape!=label.shape:
+            raise ValueError("pred and label not the same shape")
+        intersection=np.sum(pred & label)
+        pixelSum=np.sum(pred)+np.sum(label)
+        if pixelSum==0:
+            Dice=1.0
+        else:
+            Dice=2.0*intersection/pixelSum
+        self.dices.append(Dice)
+
+        if label.sum()==0:
+            self.recall.append(1.0)
+        else:
+            self.recall.append(intersection*1.0/label.sum())
+        
+        if pred.sum()==0:
+            self.recall.append(1.0)
+        else:
+            self.recall.append(intersection*1.0/pred.sum())
+            
+        self.neg_recall.append(np.sum((~pred)&(~label))*1.0/(~label).sum())
+        # bug: base on no all positive label
+        self.cnt+=1
+
+    def show(self):
+        """show histogram and metrics"""
+        self.__print(self.dices,"dice")
+        self.__print(self.recall,"recall")
+        self.__print(self.precision,"precision")
+        self.__print(self.neg_recall,"neg recall")
+
+    def __print(self,metric,name='metric'):
+        """print metric and hist"""
+        print name,np.array(metric).mean()
+        print np.histogram(metric)
+
+        
+
+
