@@ -21,7 +21,7 @@ deploy_pt=os.path.join(pt_folder,"deploy.prototxt")
 # saved model
 model_name="ultrasound-nerve"
 model_save_path="/mnt/data1/yihuihe"
-best_model=10000
+best_model=29297
 best_model_dir=os.path.join(model_save_path,
     model_name+'_iter_'+str(best_model)+'.caffemodel')
 #init='/home/yihuihe/medical-image-segmentation/deeplab/init.caffemodel'
