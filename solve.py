@@ -20,7 +20,7 @@ solver=CaffeSolver(debug=cfgs.debug)
 solver.sp=cfgs.sp.copy()
 solver.write(cfgs.solver_pt)
 
-debug=False
+debug=True
 inspect_layers=['geo_shrink','loss_geo','convf']
 # import setproctitle
 # setproctitle.setproctitle(os.path.basename(os.getcwd()))
@@ -28,7 +28,7 @@ inspect_layers=['geo_shrink','loss_geo','convf']
 weights = cfgs.init
 
 # init
-caffe.set_device(0)
+caffe.set_device(1)
 caffe.set_mode_gpu()
 # caffe.set_mode_cpu()
 
@@ -44,9 +44,12 @@ solver.net.copy_from(weights)
 
 for iter in range(50*2000):
     if debug:
-        if iter % 400 == 0:
+        if iter % 10 == 0:
             nethelper=NetHelper(solver.net)
-            nethelper.hist('prob', filters=True)
+            nethelper.hist('fc8_voc12_1', filters=2,attr="param")
+            # nethelper.hist('fc8_voc12', filters=2,attr="param")
+            nethelper.hist('convff', filters=2,attr="param")
+            nethelper.hist('prob', filters=2,attr="blobs")
             
     solver.step(1)
     # N.B. metrics on the semantic labels are off b.c. of missing classes;

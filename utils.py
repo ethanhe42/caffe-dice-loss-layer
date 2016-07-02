@@ -250,13 +250,18 @@ class NetHelper:
         prob_map=np.single(pred[last_layer][0,prediction_map,:,:])
         return prob_map
     
-    def hist(self,layer, filters=None, bins=10):
+    def hist(self,layer, filters=None, bins=8, attr="blobs"):
         """
         inspect network response
         Args:
             filters: True will draw hist of every depth
         """
-        response=self.net.blobs[layer].data
+        if attr=="params" or attr=="param":
+            response=self.net.params[layer][0].data
+        elif attr=="diff":
+            response=self.net.blobs[layer].diff
+        else:
+            response=self.net.blobs[layer].data
         if filters is None:
             # show response of this layer together
             cnts,boundary = np.histogram(response.flatten(),bins=bins)
@@ -265,7 +270,7 @@ class NetHelper:
         else:
             # print every filter
             response=response.swapaxes(0,1)
-            for filter in range(response.shape[0]):
+            for filter in range(np.minimum(filters, response.shape[0])):
                 cnts, boundary = np.histogram(response[filter,:,:,:].flatten(),bins=bins)
                 ret=pd.DataFrame(cnts,index=boundary[1:],columns=[layer])
                 print ret.T

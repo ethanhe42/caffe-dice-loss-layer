@@ -29,21 +29,18 @@ class perClassLossLayer(caffe.Layer):
         # check input pair
         if len(bottom) != 2:
             raise Exception("Need two inputs to compute distance.")
-        if len(top) !=2:
-            warnings.warn("depth more than 2")
 
     def reshape(self, bottom, top):
         # check input dimensions match
-        if bottom[0].count != bottom[1].count:
+        if bottom[0].count!=bottom[1].count:
             raise Exception("Inputs must have the same dimension.")
-        # difference is shape of inputs
-        self.diff = np.zeros_like(bottom[0].data, dtype=np.float32)
         # loss output is scalar
         top[0].reshape(1)
 
     def forward(self, bottom, top):
-        self.diff[...] = bottom[0].data - bottom[1].data
-        top[0].data[...] = np.sum(self.diff**2) / bottom[0].num / 2.
+        self.sum=bottom[0].data.sum()+bottom[1].data.sum()+1.
+        self.dice=(2.* (bottom[0].data * bottom [1].data).sum()+1.)/self.sum
+        top[0].data[...] = 1.- self.dice
 
     def backward(self, top, propagate_down, bottom):
         for i in range(2):
@@ -53,6 +50,7 @@ class perClassLossLayer(caffe.Layer):
                 sign = 1
             else:
                 sign = -1
-            bottom[i].diff[...] = sign * self.diff / bottom[i].num
+            bottom[i].diff[...] = sign * (-2*bottom[1].data+self.dice)/self.sum
+            print np.histogram(bottom[i].diff[...])
 
 
