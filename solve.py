@@ -10,7 +10,8 @@ print caffe.__file__
 import numpy as np
 import cv2
 from utils import NetHelper, CaffeSolver
-import cfgs
+# import cfgs
+import unet_cfgs as cfgs
 #import score
 #import surgery
 import os
@@ -30,15 +31,14 @@ caffe.set_mode_gpu()
 # caffe.set_mode_cpu()
 
 solver = caffe.SGDSolver(cfgs.solver_pt)
-solver.net.copy_from(weights)
+# solver.net.copy_from(weights)
 
 for iter in range(50*2000):
     if debug:
         if iter % 10 == 0:
             nethelper=NetHelper(solver.net)
-            nethelper.hist('fc8_voc12_1', filters=2,attr="diff")
+            nethelper.hist('prob', filters=2,attr="blob")
+            # TODO: label has float
+            # nethelper.hist('label', filters=2,attr="blob")
             
     solver.step(1)
-    # N.B. metrics on the semantic labels are off b.c. of missing classes;
-    # score manually from the histogram instead for proper evaluation
-    # score.seg_tests(solver, False, test, layer='score_geo', gt='geo')

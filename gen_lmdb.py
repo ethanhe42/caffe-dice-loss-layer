@@ -38,7 +38,7 @@ lmdb = 'lmdb_train_val'
 
 
 ''' resize dim '''
-#sz_data = (256,256) # image data
+sz_data = (,256) # image data
 #sz_mask = (128,128)
 
 
@@ -84,7 +84,7 @@ with in_db.begin(write=True) as in_txn:
         # print img.shape
         # from psd we get 4-channel image, RGBA
         # im = img[:,:,0:3] # ignore A channel
-        # im = imresize(im,sz_data) # can't resize it 
+        im = imresize(im,sz_data) # can't resize it 
         # im = im[:,:,::-1] # in BGR (switch from RGB), opencv in the form of BGR
         tmp = np.uint8(np.zeros(im[:,:,np.newaxis].shape))
         tmp[:,:,0]=im

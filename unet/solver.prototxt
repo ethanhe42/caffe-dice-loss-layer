@@ -1,5 +1,5 @@
 average_loss: 20
-base_lr: 1
+base_lr: 0.001
 display: 20
 lr_policy: "poly"
 max_iter: 200000
@@ -10,6 +10,6 @@ snapshot_prefix: "/mnt/data1/yihuihe/ultrasound-nerve"
 test_initialization: true
 test_interval: 1000
 test_iter: 20
-test_net: "deeplab/test.prototxt"
-train_net: "deeplab/trainval.prototxt"
+test_net: "unet/test.prototxt"
+train_net: "unet/trainval.prototxt"
 weight_decay: 0.0005

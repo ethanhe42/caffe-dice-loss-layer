@@ -246,7 +246,7 @@ class NetHelper:
         prediction = self.net.forward_all(**{self.net.inputs[0]: c_img})
         return prediction
 
-    def bin_pred_map(self,c_img, last_layer='prob',prediction_map=1):
+    def bin_pred_map(self,c_img, last_layer='prob',prediction_map=0):
         """get binary probability map prediction"""
         pred=self.prediction(c_img)
         prob_map=np.single(pred[last_layer][0,prediction_map,:,:])
@@ -351,24 +351,48 @@ class factory:
         name='data', 
         scale=1,
         batch_size=32,
-        backend='LMDB'):
-        p=[('name',name),
-           ('type',"Data"),
-           ('top',name),
-           ('include',[
-               ('phase','TRAIN')
-           ]),
+        backend='LMDB',
+        new_height=None,
+        new_width=None,
+        is_color=False,
+        label="nothing"):
+        p=[('name',name)]
+        if backend=="LMDB":
+            p+=[('type','Data'),
+                ('top',name)]
+        elif backend=="image":
+            p+=[('type',"ImageData"),
+                ('top',name),
+                ('top',label)]
+        p+=[
+            # ('include',[
+            #    ('phase','TRAIN')
+            # ]),
            ('transform_param',[
-                ('mean_file',mean_file),
+                # ('mean_file',mean_file),
                 ('scale',scale)
-           ]),
-           ('data_param',[
+           ])
+           ]
+        if backend=="LMDB":
+            p+=[
+            ('data_param',[
                ('source',source),
                ('batch_size',batch_size),
                ('backend',backend)
            ])]
-        self.proto+=self.__printList(p)
-        self.bottom=name
+        elif backend=='image' or backend=='images':
+            image_data_param=[
+                    ('source',source),
+                    ('batch_size',batch_size),
+                    ('is_color',is_color),
+                    ('shuffle',False)
+                ]            
+            if new_height is not None and new_width is not None:
+                image_data_param+=[('new_height',new_height),('new_width',new_width)]
+            p+=[('image_data_param',image_data_param)]
+        else:
+            raise Exception("no implementation")
+        self.__end(p,name)
 
     #-------------------------Core----------------------------------
     def Convolution(self,
@@ -384,15 +408,15 @@ class factory:
         if bottom is None:
             bottom=self.bottom
         conv_param=[
-               ('num_output',64),
-               ('pad',1),
+               ('num_output',num_output),
+               ('pad',pad),
                ('kernel_size',kernel_size),
                ('weight_filler',[
                    ('type',weight_filler)
                ])
            ]
         if dilation is not None:
-            conv_param+=[('dilation',2)]
+            conv_param+=[('dilation',dilation)]
         p=[('name',name),
            ('type',"Convolution"),
            ('bottom',bottom),
@@ -410,7 +434,9 @@ class factory:
         self.proto+=self.__printList(p)
         self.bottom=name
     
-    def Deconvolution(self, name, num_output, bottom=None, stride=2,kernel_size=4, weight_filler="msra"):
+    def Deconvolution(self, name, num_output, bottom=None, stride=2,kernel_size=2, weight_filler="msra"):
+        if bottom is None:
+            bottom=self.bottom
         name=self.__start(name,'up')
         conv_param=[
                ('num_output',num_output),
@@ -439,13 +465,14 @@ class factory:
            ('type',"ReLU"),
            ('bottom',self.bottom),
            ('top',self.bottom)]
-        self.__end(p,name)
+        self.proto+=self.__printList(p)
     
     def Pooling(self,name,pool="MAX",kernel_size=2,stride=2):
         name=self.__start(name,'pool')
         p=[('name',name),
            ('type','Pooling'),
            ('bottom',self.bottom),
+           ('top',name),
            ('pooling_param',[
                ('pool',pool),
                ('kernel_size',kernel_size),
@@ -528,13 +555,20 @@ class factory:
                 if isinstance(i[1], list):
                     ret+=' '*2*depth+i[0]+' {\n'+self.__printList(i[1],depth=depth+1)+' '*2*depth+'}\n'
                 else:
-                    if isinstance(i[1], str):
+                    field=i[1]
+                    if isinstance(field,bool):
+                        if field==True:
+                            field='true'
+                        elif field==False:
+                            field='false'
+                    
+                    if isinstance(field, str):
                         if i[0] in self.string_field:
-                            ret+=' '*2*depth+i[0]+': "'+i[1]+'"\n'
+                            ret+=' '*2*depth+i[0]+': "'+field+'"\n'
                         else:
-                            ret+=' '*2*depth+i[0]+': '+i[1]+'\n'
+                            ret+=' '*2*depth+i[0]+': '+field+'\n'
                     else:
-                        ret+=' '*2*depth+i[0]+': '+str(i[1])+'\n'
+                        ret+=' '*2*depth+i[0]+': '+str(field)+'\n'
             return ret
 
         

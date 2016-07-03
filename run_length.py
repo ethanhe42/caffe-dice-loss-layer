@@ -4,7 +4,7 @@ import numpy as np
 import cv2
 import caffe
 from utils import Data, NetHelper
-import cfgs
+import unet_cfgs as cfgs
 import os
 from PIL import Image
 import pandas as pd
@@ -53,7 +53,7 @@ def func(filename, nh):
     print(cfgs.cnt)
     #idx=int(idx)
     img=Data.imFromFile(filename)
-    pred_bin,pred=classifier(img,nh)
+    pred_bin,pred=classifier(prep(img),nh)
     result=run_length_enc(prep(pred_bin))
     if debug:
         hist=np.histogram(pred)
