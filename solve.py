@@ -21,9 +21,6 @@ solver.sp=cfgs.sp.copy()
 solver.write(cfgs.solver_pt)
 
 debug=True
-inspect_layers=['geo_shrink','loss_geo','convf']
-# import setproctitle
-# setproctitle.setproctitle(os.path.basename(os.getcwd()))
 
 weights = cfgs.init
 
@@ -35,21 +32,11 @@ caffe.set_mode_gpu()
 solver = caffe.SGDSolver(cfgs.solver_pt)
 solver.net.copy_from(weights)
 
-# surgeries
-# interp_layers = [k for k in solver.net.params.keys() if 'up' in k]
-# surgery.interp(solver.net, interp_layers)
-
-# scoring
-#test = np.loadtxt('../data/sift-flow/test.txt', dtype=str)
-
 for iter in range(50*2000):
     if debug:
         if iter % 10 == 0:
             nethelper=NetHelper(solver.net)
-            nethelper.hist('fc8_voc12_1', filters=2,attr="param")
-            # nethelper.hist('fc8_voc12', filters=2,attr="param")
-            nethelper.hist('convff', filters=2,attr="param")
-            nethelper.hist('prob', filters=2,attr="blobs")
+            nethelper.hist('fc8_voc12_1', filters=2,attr="diff")
             
     solver.step(1)
     # N.B. metrics on the semantic labels are off b.c. of missing classes;

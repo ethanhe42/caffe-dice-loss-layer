@@ -2,6 +2,7 @@
 import caffe
 from caffe import layers as L, params as P
 from caffe.coord_map import crop
+from utils import factory
 
 def conv_relu(bottom, nout, ks=3, stride=1, pad=1):
     conv = L.Convolution(bottom, kernel_size=ks, stride=stride,
@@ -62,4 +63,37 @@ def make_net():
         f.write(str(fcn('/mnt/data1/yihuihe/selected_data/gen_shantian12_pos_and_neg/lmdb_train_val/val_data','/mnt/data1/yihuihe/selected_data/gen_shantian12_pos_and_neg/lmdb_train_val/val_mask',1)))
 
 if __name__ == '__main__':
-    make_net()
+    n=factory('unet')
+    
+    n.Data("/mnt/data1/yihuihe/ultrasound-nerve/lmdb_train_val/train_data",mean_file="data/data_mean.binaryproto",scale=0.01578412369702059)
+    n_filter=32
+    for i in range(1,5):
+        n.conv_relu(i,i,n_filter)
+        n.conv_relu(i*10+1,i*10+1,n_filter)
+        n.Pooling(i)
+        n_filter*=2
+        
+    i=5
+    n.conv_relu(i,i,n_filter)
+    n.conv_relu(i*10+1,i*10+1,i*n_filter)
+    n_filter/=2
+
+    for i in range(6,10):
+        n.Deconvolution(i, n_filter, bottom='relu'+str((i-1)*10+1))
+        n.Concat(i,bottom1=n.bottom,bottom2='conv'+str(10-i))
+        n.conv_relu(i,i,n_filter)
+        n.conv_relu(i*10+1,i*10+1,n_filter)
+        n_filter/=2
+
+    n.Convolution(10,num_output=1,kernel_size=1,pad=0)
+    n.Sigmoid()
+
+    n.Data("/mnt/data1/yihuihe/ultrasound-nerve/lmdb_train_val/train_data",name='label',mean_file="data/mask_mean.binaryproto")
+    n.diceLoss('prob','label')
+    
+
+    n.totxt('unet/trainval.prototxt')
+
+
+
+

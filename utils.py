@@ -12,6 +12,7 @@ import PIL.Image as Image
 import sys
 import lmdb
 import random
+from easydict import EasyDict as edict
 
 class CaffeSolver:
     
@@ -216,6 +217,7 @@ class NetHelper:
 
     def netFromFile(self,deploy_file,model_file,mode=caffe.TEST):
         self.net=caffe.Net(deploy_file,model_file,mode)
+    
 
     @classmethod
     def gpu(cls,id=0):
@@ -250,7 +252,7 @@ class NetHelper:
         prob_map=np.single(pred[last_layer][0,prediction_map,:,:])
         return prob_map
     
-    def hist(self,layer, filters=None, bins=8, attr="blobs"):
+    def hist(self,layer, filters=None, bins=4, attr="blobs"):
         """
         inspect network response
         Args:
@@ -338,7 +340,209 @@ class segmentation:
 
 class factory:
     """Helper for building network"""        
-    def __init__(self):
-        pass
+    def __init__(self, name='network'):
+        self.proto='name: "'+name+'"\n'
+        self.bottom=name
+        self.string_field=set(['name','type','bottom','top','source','mean_file','module','layer'])
+
+    def Data(self, 
+        source,
+        mean_file,
+        name='data', 
+        scale=1,
+        batch_size=32,
+        backend='LMDB'):
+        p=[('name',name),
+           ('type',"Data"),
+           ('top',name),
+           ('include',[
+               ('phase','TRAIN')
+           ]),
+           ('transform_param',[
+                ('mean_file',mean_file),
+                ('scale',scale)
+           ]),
+           ('data_param',[
+               ('source',source),
+               ('batch_size',batch_size),
+               ('backend',backend)
+           ])]
+        self.proto+=self.__printList(p)
+        self.bottom=name
+
+    #-------------------------Core----------------------------------
+    def Convolution(self,
+        name,
+        num_output,
+        bottom=None,
+        kernel_size=3,
+        pad=1,
+        weight_filler="msra",
+        dilation=None):
+        name=self.__start(name,'conv')
+
+        if bottom is None:
+            bottom=self.bottom
+        conv_param=[
+               ('num_output',64),
+               ('pad',1),
+               ('kernel_size',kernel_size),
+               ('weight_filler',[
+                   ('type',weight_filler)
+               ])
+           ]
+        if dilation is not None:
+            conv_param+=[('dilation',2)]
+        p=[('name',name),
+           ('type',"Convolution"),
+           ('bottom',bottom),
+           ('top',name),
+           ('param',[
+               ('lr_mult',1),
+               ('decay_mult',1)
+           ]),
+           ('param',[
+               ('lr_mult',2),
+               ('decay_mult',0)
+           ]),
+           ('convolution_param',conv_param)
+           ]
+        self.proto+=self.__printList(p)
+        self.bottom=name
+    
+    def Deconvolution(self, name, num_output, bottom=None, stride=2,kernel_size=4, weight_filler="msra"):
+        name=self.__start(name,'up')
+        conv_param=[
+               ('num_output',num_output),
+               ('bias_term','false'),
+               ('kernel_size',kernel_size),
+               ('stride',stride),
+               ('weight_filler',[
+                   ('type',weight_filler)
+               ])
+           ]
+        p=[('name',name),
+           ('type',"Deconvolution"),
+           ('bottom',bottom),
+           ('top',name),
+           ('param',[
+               ('lr_mult',1)
+           ]),
+           ('convolution_param',conv_param)
+           ]
+        self.__end(p,name)
 
 
+    def ReLU(self,name):
+        name=self.__start(name,'relu')
+        p=[('name',name),
+           ('type',"ReLU"),
+           ('bottom',self.bottom),
+           ('top',self.bottom)]
+        self.__end(p,name)
+    
+    def Pooling(self,name,pool="MAX",kernel_size=2,stride=2):
+        name=self.__start(name,'pool')
+        p=[('name',name),
+           ('type','Pooling'),
+           ('bottom',self.bottom),
+           ('pooling_param',[
+               ('pool',pool),
+               ('kernel_size',kernel_size),
+               ('stride',stride)
+           ])]
+        self.__end(p,name)
+
+    def conv_relu(self,conv,relu,
+            num_output,
+            bottom=None,
+            kernel_size=3,
+            pad=1,
+            weight_filler="msra",
+            dilation=None):
+        self.Convolution(conv,num_output,bottom,kernel_size,pad,weight_filler,dilation)
+        self.ReLU(relu)
+
+    #-------------------------Loss----------------------------------
+    def Sigmoid(self,name="prob",bottom=None):
+        if bottom is None:
+            bottom=self.bottom
+        p=[('name',name),
+           ('type','Sigmoid'),
+           ('bottom',bottom),
+           ('top',name)]
+
+        self.__end(p,name)
+
+    def diceLoss(self,pred,label):
+        name="loss"
+        p=[('name',name),
+           ('type',"Python"),
+           ('top',"loss"),
+           ('bottom',pred),
+           ('bottom',label),
+           ('python_param',[
+               ('module',"perClassLoss"),
+               ('layer',"perClassLossLayer")
+           ]),
+           ('loss_weight',1)]
+
+        self.__end(p,name)
+
+    #-------------------------operation----------------------------------
+    def Concat(self,name,bottom1,bottom2, top=None,axis=1):
+        name=self.__start(name,'concat')
+        if top is None:
+            top=name
+        p=[('name',name),
+           ('type','Concat'),
+           ('bottom',bottom1),
+           ('bottom',bottom2),
+           ('top',top),
+           ('concat_param',[
+               ('axis',axis)
+           ])]
+        self.__end(p,name)
+
+
+    def __start(self,name,Type):
+        if isinstance(name,int):
+            name=Type+str(name)
+        return name
+
+    def __end(self,p,name):
+        self.proto+=self.__printList(p)
+        self.bottom=name
+        
+    def totxt(self, filename):
+        with open(filename,"w") as f:
+            f.write(self.proto)
+    
+
+    def __printList(self,List,depth=0):
+        if depth==0:
+            return 'layer {\n'+self.__printList(List,depth=1)+'}\n\n'
+        else:
+            ret=''
+            for i in List:
+                if isinstance(i[1], list):
+                    ret+=' '*2*depth+i[0]+' {\n'+self.__printList(i[1],depth=depth+1)+' '*2*depth+'}\n'
+                else:
+                    if isinstance(i[1], str):
+                        if i[0] in self.string_field:
+                            ret+=' '*2*depth+i[0]+': "'+i[1]+'"\n'
+                        else:
+                            ret+=' '*2*depth+i[0]+': '+i[1]+'\n'
+                    else:
+                        ret+=' '*2*depth+i[0]+': '+str(i[1])+'\n'
+            return ret
+
+        
+ 
+        
+        
+        
+        
+                    
+
+        

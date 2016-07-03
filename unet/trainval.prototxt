@@ -1,31 +1,27 @@
+name: "unet"
 layer {
   name: "data"
   type: "Data"
   top: "data"
+  include {
+    phase: TRAIN
+  }
   transform_param {
-    scale: 0.00392156862745
+    mean_file: "data/data_mean.binaryproto"
+    scale: 0.015784123697
   }
   data_param {
-    source: "/mnt/data1/yihuihe/selected_data/gen_shantian12_pos_and_neg/lmdb_train_val/train_data"
-    batch_size: 8
+    source: "/mnt/data1/yihuihe/ultrasound-nerve/lmdb_train_val/train_data"
+    batch_size: 32
     backend: LMDB
   }
 }
+
 layer {
-  name: "geo"
-  type: "Data"
-  top: "geo"
-  data_param {
-    source: "/mnt/data1/yihuihe/selected_data/gen_shantian12_pos_and_neg/lmdb_train_val/train_mask"
-    batch_size: 8
-    backend: LMDB
-  }
-}
-layer {
-  name: "conv1_1"
+  name: "conv1"
   type: "Convolution"
   bottom: "data"
-  top: "conv1_1"
+  top: "conv1"
   param {
     lr_mult: 1
     decay_mult: 1
@@ -35,26 +31,27 @@ layer {
     decay_mult: 0
   }
   convolution_param {
-    num_output: 32
+    num_output: 64
     pad: 1
     kernel_size: 3
-    stride: 1
     weight_filler {
       type: "msra"
     }
   }
 }
+
 layer {
-  name: "relu1_1"
+  name: "relu1"
   type: "ReLU"
-  bottom: "conv1_1"
-  top: "conv1_1"
+  bottom: "conv1"
+  top: "conv1"
 }
+
 layer {
-  name: "conv1_2"
+  name: "conv11"
   type: "Convolution"
-  bottom: "conv1_1"
-  top: "conv1_2"
+  bottom: "relu1"
+  top: "conv11"
   param {
     lr_mult: 1
     decay_mult: 1
@@ -64,37 +61,38 @@ layer {
     decay_mult: 0
   }
   convolution_param {
-    num_output: 32
+    num_output: 64
     pad: 1
     kernel_size: 3
-    stride: 1
     weight_filler {
       type: "msra"
     }
   }
 }
+
 layer {
-  name: "relu1_2"
+  name: "relu11"
   type: "ReLU"
-  bottom: "conv1_2"
-  top: "conv1_2"
+  bottom: "conv11"
+  top: "conv11"
 }
+
 layer {
   name: "pool1"
   type: "Pooling"
-  bottom: "conv1_2"
-  top: "pool1"
+  bottom: "relu11"
   pooling_param {
     pool: MAX
     kernel_size: 2
     stride: 2
   }
 }
+
 layer {
-  name: "conv2_1"
+  name: "conv2"
   type: "Convolution"
   bottom: "pool1"
-  top: "conv2_1"
+  top: "conv2"
   param {
     lr_mult: 1
     decay_mult: 1
@@ -107,23 +105,24 @@ layer {
     num_output: 64
     pad: 1
     kernel_size: 3
-    stride: 1
     weight_filler {
       type: "msra"
     }
   }
 }
+
 layer {
-  name: "relu2_1"
+  name: "relu2"
   type: "ReLU"
-  bottom: "conv2_1"
-  top: "conv2_1"
+  bottom: "conv2"
+  top: "conv2"
 }
+
 layer {
-  name: "conv2_2"
+  name: "conv21"
   type: "Convolution"
-  bottom: "conv2_1"
-  top: "conv2_2"
+  bottom: "relu2"
+  top: "conv21"
   param {
     lr_mult: 1
     decay_mult: 1
@@ -136,34 +135,35 @@ layer {
     num_output: 64
     pad: 1
     kernel_size: 3
-    stride: 1
     weight_filler {
       type: "msra"
     }
   }
 }
+
 layer {
-  name: "relu2_2"
+  name: "relu21"
   type: "ReLU"
-  bottom: "conv2_2"
-  top: "conv2_2"
+  bottom: "conv21"
+  top: "conv21"
 }
+
 layer {
   name: "pool2"
   type: "Pooling"
-  bottom: "conv2_2"
-  top: "pool2"
+  bottom: "relu21"
   pooling_param {
     pool: MAX
     kernel_size: 2
     stride: 2
   }
 }
+
 layer {
-  name: "conv3_1"
+  name: "conv3"
   type: "Convolution"
   bottom: "pool2"
-  top: "conv3_1"
+  top: "conv3"
   param {
     lr_mult: 1
     decay_mult: 1
@@ -173,26 +173,27 @@ layer {
     decay_mult: 0
   }
   convolution_param {
-    num_output: 128
+    num_output: 64
     pad: 1
     kernel_size: 3
-    stride: 1
     weight_filler {
       type: "msra"
     }
   }
 }
+
 layer {
-  name: "relu3_1"
+  name: "relu3"
   type: "ReLU"
-  bottom: "conv3_1"
-  top: "conv3_1"
+  bottom: "conv3"
+  top: "conv3"
 }
+
 layer {
-  name: "conv3_2"
+  name: "conv31"
   type: "Convolution"
-  bottom: "conv3_1"
-  top: "conv3_2"
+  bottom: "relu3"
+  top: "conv31"
   param {
     lr_mult: 1
     decay_mult: 1
@@ -202,37 +203,38 @@ layer {
     decay_mult: 0
   }
   convolution_param {
-    num_output: 128
+    num_output: 64
     pad: 1
     kernel_size: 3
-    stride: 1
     weight_filler {
       type: "msra"
     }
   }
 }
+
 layer {
-  name: "relu3_2"
+  name: "relu31"
   type: "ReLU"
-  bottom: "conv3_2"
-  top: "conv3_2"
+  bottom: "conv31"
+  top: "conv31"
 }
+
 layer {
   name: "pool3"
   type: "Pooling"
-  bottom: "conv3_2"
-  top: "pool3"
+  bottom: "relu31"
   pooling_param {
     pool: MAX
     kernel_size: 2
     stride: 2
   }
 }
+
 layer {
-  name: "conv4_1"
+  name: "conv4"
   type: "Convolution"
   bottom: "pool3"
-  top: "conv4_1"
+  top: "conv4"
   param {
     lr_mult: 1
     decay_mult: 1
@@ -242,26 +244,27 @@ layer {
     decay_mult: 0
   }
   convolution_param {
-    num_output: 256
+    num_output: 64
     pad: 1
     kernel_size: 3
-    stride: 1
     weight_filler {
       type: "msra"
     }
   }
 }
+
 layer {
-  name: "relu4_1"
+  name: "relu4"
   type: "ReLU"
-  bottom: "conv4_1"
-  top: "conv4_1"
+  bottom: "conv4"
+  top: "conv4"
 }
+
 layer {
-  name: "conv4_2"
+  name: "conv41"
   type: "Convolution"
-  bottom: "conv4_1"
-  top: "conv4_2"
+  bottom: "relu4"
+  top: "conv41"
   param {
     lr_mult: 1
     decay_mult: 1
@@ -271,37 +274,38 @@ layer {
     decay_mult: 0
   }
   convolution_param {
-    num_output: 256
+    num_output: 64
     pad: 1
     kernel_size: 3
-    stride: 1
     weight_filler {
       type: "msra"
     }
   }
 }
+
 layer {
-  name: "relu4_2"
+  name: "relu41"
   type: "ReLU"
-  bottom: "conv4_2"
-  top: "conv4_2"
+  bottom: "conv41"
+  top: "conv41"
 }
+
 layer {
   name: "pool4"
   type: "Pooling"
-  bottom: "conv4_2"
-  top: "pool4"
+  bottom: "relu41"
   pooling_param {
     pool: MAX
     kernel_size: 2
     stride: 2
   }
 }
+
 layer {
-  name: "conv5_1"
+  name: "conv5"
   type: "Convolution"
   bottom: "pool4"
-  top: "conv5_1"
+  top: "conv5"
   param {
     lr_mult: 1
     decay_mult: 1
@@ -311,26 +315,27 @@ layer {
     decay_mult: 0
   }
   convolution_param {
-    num_output: 512
+    num_output: 64
     pad: 1
     kernel_size: 3
-    stride: 1
     weight_filler {
       type: "msra"
     }
   }
 }
+
 layer {
-  name: "relu5_1"
+  name: "relu5"
   type: "ReLU"
-  bottom: "conv5_1"
-  top: "conv5_1"
+  bottom: "conv5"
+  top: "conv5"
 }
+
 layer {
-  name: "conv5_2"
+  name: "conv51"
   type: "Convolution"
-  bottom: "conv5_1"
-  top: "conv5_2"
+  bottom: "relu5"
+  top: "conv51"
   param {
     lr_mult: 1
     decay_mult: 1
@@ -340,41 +345,440 @@ layer {
     decay_mult: 0
   }
   convolution_param {
-    num_output: 512
+    num_output: 64
     pad: 1
     kernel_size: 3
-    stride: 1
     weight_filler {
       type: "msra"
     }
   }
 }
+
 layer {
-  name: "relu5_2"
+  name: "relu51"
   type: "ReLU"
-  bottom: "conv5_2"
-  top: "conv5_2"
+  bottom: "conv51"
+  top: "conv51"
 }
-layer {
-  name: "Interp1"
-  type: "Interp"
-  bottom: "conv5_2"
-  top: "Interp1"
-}
+
 layer {
   name: "up6"
-  type: "Concat"
-  bottom: "Interp1"
-  bottom: "conv5_2"
+  type: "Deconvolution"
+  bottom: "relu51"
   top: "up6"
-}
-layer {
-  name: "loss_geo"
-  type: "SoftmaxWithLoss"
-  bottom: "up6"
-  bottom: "geo"
-  top: "loss_geo"
-  loss_param {
-    normalize: false
+  param {
+    lr_mult: 1
+  }
+  convolution_param {
+    num_output: 256
+    bias_term: false
+    kernel_size: 4
+    stride: 2
+    weight_filler {
+      type: "msra"
+    }
   }
 }
+
+layer {
+  name: "concat6"
+  type: "Concat"
+  bottom: "up6"
+  bottom: "conv4"
+  top: "concat6"
+  concat_param {
+    axis: 1
+  }
+}
+
+layer {
+  name: "conv6"
+  type: "Convolution"
+  bottom: "concat6"
+  top: "conv6"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 64
+    pad: 1
+    kernel_size: 3
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+
+layer {
+  name: "relu6"
+  type: "ReLU"
+  bottom: "conv6"
+  top: "conv6"
+}
+
+layer {
+  name: "conv61"
+  type: "Convolution"
+  bottom: "relu6"
+  top: "conv61"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 64
+    pad: 1
+    kernel_size: 3
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+
+layer {
+  name: "relu61"
+  type: "ReLU"
+  bottom: "conv61"
+  top: "conv61"
+}
+
+layer {
+  name: "up7"
+  type: "Deconvolution"
+  bottom: "relu61"
+  top: "up7"
+  param {
+    lr_mult: 1
+  }
+  convolution_param {
+    num_output: 128
+    bias_term: false
+    kernel_size: 4
+    stride: 2
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+
+layer {
+  name: "concat7"
+  type: "Concat"
+  bottom: "up7"
+  bottom: "conv3"
+  top: "concat7"
+  concat_param {
+    axis: 1
+  }
+}
+
+layer {
+  name: "conv7"
+  type: "Convolution"
+  bottom: "concat7"
+  top: "conv7"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 64
+    pad: 1
+    kernel_size: 3
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+
+layer {
+  name: "relu7"
+  type: "ReLU"
+  bottom: "conv7"
+  top: "conv7"
+}
+
+layer {
+  name: "conv71"
+  type: "Convolution"
+  bottom: "relu7"
+  top: "conv71"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 64
+    pad: 1
+    kernel_size: 3
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+
+layer {
+  name: "relu71"
+  type: "ReLU"
+  bottom: "conv71"
+  top: "conv71"
+}
+
+layer {
+  name: "up8"
+  type: "Deconvolution"
+  bottom: "relu71"
+  top: "up8"
+  param {
+    lr_mult: 1
+  }
+  convolution_param {
+    num_output: 64
+    bias_term: false
+    kernel_size: 4
+    stride: 2
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+
+layer {
+  name: "concat8"
+  type: "Concat"
+  bottom: "up8"
+  bottom: "conv2"
+  top: "concat8"
+  concat_param {
+    axis: 1
+  }
+}
+
+layer {
+  name: "conv8"
+  type: "Convolution"
+  bottom: "concat8"
+  top: "conv8"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 64
+    pad: 1
+    kernel_size: 3
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+
+layer {
+  name: "relu8"
+  type: "ReLU"
+  bottom: "conv8"
+  top: "conv8"
+}
+
+layer {
+  name: "conv81"
+  type: "Convolution"
+  bottom: "relu8"
+  top: "conv81"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 64
+    pad: 1
+    kernel_size: 3
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+
+layer {
+  name: "relu81"
+  type: "ReLU"
+  bottom: "conv81"
+  top: "conv81"
+}
+
+layer {
+  name: "up9"
+  type: "Deconvolution"
+  bottom: "relu81"
+  top: "up9"
+  param {
+    lr_mult: 1
+  }
+  convolution_param {
+    num_output: 32
+    bias_term: false
+    kernel_size: 4
+    stride: 2
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+
+layer {
+  name: "concat9"
+  type: "Concat"
+  bottom: "up9"
+  bottom: "conv1"
+  top: "concat9"
+  concat_param {
+    axis: 1
+  }
+}
+
+layer {
+  name: "conv9"
+  type: "Convolution"
+  bottom: "concat9"
+  top: "conv9"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 64
+    pad: 1
+    kernel_size: 3
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+
+layer {
+  name: "relu9"
+  type: "ReLU"
+  bottom: "conv9"
+  top: "conv9"
+}
+
+layer {
+  name: "conv91"
+  type: "Convolution"
+  bottom: "relu9"
+  top: "conv91"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 64
+    pad: 1
+    kernel_size: 3
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+
+layer {
+  name: "relu91"
+  type: "ReLU"
+  bottom: "conv91"
+  top: "conv91"
+}
+
+layer {
+  name: "conv10"
+  type: "Convolution"
+  bottom: "relu91"
+  top: "conv10"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 64
+    pad: 1
+    kernel_size: 1
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+
+layer {
+  name: "prob"
+  type: "Sigmoid"
+  bottom: "conv10"
+  top: "prob"
+}
+
+layer {
+  name: "label"
+  type: "Data"
+  top: "label"
+  include {
+    phase: TRAIN
+  }
+  transform_param {
+    mean_file: "data/mask_mean.binaryproto"
+    scale: 1
+  }
+  data_param {
+    source: "/mnt/data1/yihuihe/ultrasound-nerve/lmdb_train_val/train_data"
+    batch_size: 32
+    backend: LMDB
+  }
+}
+
+layer {
+  name: "loss"
+  type: "Python"
+  top: "loss"
+  bottom: "prob"
+  bottom: "label"
+  python_param {
+    module: "perClassLoss"
+    layer: "perClassLossLayer"
+  }
+  loss_weight: 1
+}
+

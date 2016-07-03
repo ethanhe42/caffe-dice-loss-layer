@@ -22,11 +22,12 @@ layer {
   type: "Data"
   top: "data"
   transform_param {
-    scale: 0.00392156862745
+    scale: 0.01578412369702059
+    mean_file: "data/data_mean.binaryproto"
   }
   data_param {
     source: "/mnt/data1/yihuihe/ultrasound-nerve/lmdb_train_val/train_data"
-    batch_size: 4
+    batch_size: 1
     backend: LMDB
   }
 }
@@ -36,7 +37,7 @@ layer {
   top: "geo"
   data_param {
     source: "/mnt/data1/yihuihe/ultrasound-nerve/lmdb_train_val/train_mask"
-    batch_size: 4
+    batch_size: 1
     backend: LMDB
   }
 }
@@ -873,17 +874,6 @@ layer {
   top: "prob"
 }
 
-#layer {
-#  name: "loss_geo"
-#  type: "WeightedSoftmaxWithLoss"
-#  bottom: "prob"
-#  bottom: "geo_shrink"
-#  top: "loss_geo"
-#  include {
-#    phase: TRAIN
-#  }
-#   loss_weight: 1
-#}
 layer {
   type: 'Python'
   name: 'loss'
