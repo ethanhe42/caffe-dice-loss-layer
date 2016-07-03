@@ -24,9 +24,9 @@ def classifier(c_img, nh,thresh=0.999,showIm=True):
     pred_bin[pred<=thresh]=0
     return pred_bin,pred
 
-def prep(img):
+def prep(img, width,height):
     img = img.astype('float32')
-    img = cv2.resize(img, (cfgs.inShape[1], cfgs.inShape[0]))
+    img = cv2.resize(img, (width, height))
     return img
 
 
@@ -53,8 +53,8 @@ def func(filename, nh):
     print(cfgs.cnt)
     #idx=int(idx)
     img=Data.imFromFile(filename)
-    pred_bin,pred=classifier(prep(img),nh)
-    result=run_length_enc(prep(pred_bin))
+    pred_bin,pred=classifier(prep(img,cfgs.inShape[1],cfgs.inShape[0]),nh)
+    result=run_length_enc(prep(pred_bin,cfgs.outShape[1],cfgs.outShape[0]))
     if debug:
         hist=np.histogram(pred)
         print(pd.DataFrame(hist[0],index=hist[1][1:]).T)
