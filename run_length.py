@@ -17,7 +17,7 @@ else:
     debug=int(sys.argv[1])
 
 
-def classifier(c_img, nh,thresh=0.5,showIm=True):
+def classifier(c_img, nh,thresh=0.99,showIm=True):
     pred=nh.bin_pred_map(c_img)
     pred_bin=pred.copy()
     pred_bin[pred>thresh]=1
