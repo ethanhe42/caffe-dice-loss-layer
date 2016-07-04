@@ -17,7 +17,7 @@ else:
     debug=int(sys.argv[1])
 
 
-def classifier(c_img, nh,thresh=0.9,showIm=True):
+def classifier(c_img, nh,thresh=0.5,showIm=True):
     pred=nh.bin_pred_map(c_img)
     pred_bin=pred.copy()
     pred_bin[pred>thresh]=1
@@ -34,7 +34,7 @@ def run_length_enc(label):
     from itertools import chain
     x = label.transpose().flatten()
     y = np.where(x > 0)[0]
-    if len(y) < 10:  # consider as empty
+    if len(y) < 50:  # consider as empty
         return ''
     z = np.where(np.diff(y) > 1)[0]
     start = np.insert(y[z+1], 0, y[0])
