@@ -48,7 +48,7 @@ class perClassLossLayer(caffe.Layer):
         if propagate_down[1]:
             raise Exception("label not diff")
         elif propagate_down[0]:
-            bottom[0].diff[...] = (-2*self.diff+self.dice)/self.sum
+            bottom[0].diff[...] = (-2.*self.diff+self.dice)/self.sum
         else:
             raise Exception("no diff")
 

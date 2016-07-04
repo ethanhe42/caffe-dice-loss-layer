@@ -83,7 +83,7 @@ layer {
   bottom: "conv11"
   top: "conv11"
   dropout_param {
-    dropout_ratio: 0.5
+    dropout_ratio: 0.3
   }
 }
 
@@ -165,7 +165,7 @@ layer {
   bottom: "conv21"
   top: "conv21"
   dropout_param {
-    dropout_ratio: 0.5
+    dropout_ratio: 0.3
   }
 }
 
@@ -247,7 +247,7 @@ layer {
   bottom: "conv31"
   top: "conv31"
   dropout_param {
-    dropout_ratio: 0.5
+    dropout_ratio: 0.3
   }
 }
 
@@ -329,7 +329,7 @@ layer {
   bottom: "conv41"
   top: "conv41"
   dropout_param {
-    dropout_ratio: 0.5
+    dropout_ratio: 0.3
   }
 }
 
@@ -501,7 +501,7 @@ layer {
   bottom: "conv61"
   top: "conv61"
   dropout_param {
-    dropout_ratio: 0.5
+    dropout_ratio: 0.3
   }
 }
 
@@ -601,7 +601,7 @@ layer {
   bottom: "conv71"
   top: "conv71"
   dropout_param {
-    dropout_ratio: 0.5
+    dropout_ratio: 0.3
   }
 }
 
@@ -701,7 +701,7 @@ layer {
   bottom: "conv81"
   top: "conv81"
   dropout_param {
-    dropout_ratio: 0.5
+    dropout_ratio: 0.3
   }
 }
 
@@ -801,7 +801,7 @@ layer {
   bottom: "conv91"
   top: "conv91"
   dropout_param {
-    dropout_ratio: 0.5
+    dropout_ratio: 0.3
   }
 }
 

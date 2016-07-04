@@ -35,7 +35,7 @@ solver = caffe.SGDSolver(cfgs.solver_pt)
 
 for iter in range(500*2000):
     if debug:
-        if iter % 10 == 0:
+        if iter % 100 == 0:
             nethelper=NetHelper(solver.net)
             nethelper.hist('prob', filters=2,attr="blob")
             # TODO: label has float
