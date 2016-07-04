@@ -39,7 +39,7 @@ if sp['lr_policy']=="step":
     sp['gamma']=.1
     sp['stepsize']=300
     sp['power']=1.0
-sp['base_lr']=1e-3
+sp['base_lr']=1e-4
 sp['max_iter']=200000
 sp['momentum']=.9
 sp['weight_decay']=0.0005

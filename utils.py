@@ -364,10 +364,11 @@ class factory:
             p+=[('type',"ImageData"),
                 ('top',name),
                 ('top',label)]
-                
+
         transform_param=[('scale',scale)]
         if mean_file is not None:
             transform_param+=[('mean_file',mean_file)]
+        p+=[('transform_param',transform_param)]
             
         if backend=="LMDB":
             p+=[
@@ -488,6 +489,17 @@ class factory:
             dilation=None):
         self.Convolution(conv,num_output,bottom,kernel_size,pad,weight_filler,dilation)
         self.ReLU(relu)
+    
+    def Dropout(self,name,omit=0.5):
+        name=self.__start(name,'drop')
+        p=[('name',name),
+           ('type',"Dropout"),
+           ('bottom',self.bottom),
+           ('top',self.bottom)]
+        p+=[('dropout_param',[
+            ('dropout_ratio',omit)
+        ])]
+        self.proto+=self.__printList(p)
 
     #-------------------------Loss----------------------------------
     def Sigmoid(self,name="prob",bottom=None):
@@ -534,6 +546,7 @@ class factory:
         p=[('name','silence'),('type','Silence')]
         for i in bottom:
             p+=[('bottom',i)]
+        self.proto+=self.__printList(p)
 
     #-------------------------private----------------------------------
 

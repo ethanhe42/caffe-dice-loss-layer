@@ -3,7 +3,7 @@
 import sys
 import pandas as pd
 sys.path.append("/home/yihuihe/Ultrasound-Nerve-Segmentation")
-sys.path.insert(0, "/home/yihuihe/deeplab-public-ver2/python")
+# sys.path.insert(0, "/home/yihuihe/deeplab-public-ver2/python")
 print sys.path
 import caffe
 print caffe.__file__

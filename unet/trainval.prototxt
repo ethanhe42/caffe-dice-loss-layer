@@ -78,6 +78,16 @@ layer {
 }
 
 layer {
+  name: "drop1"
+  type: "Dropout"
+  bottom: "conv11"
+  top: "conv11"
+  dropout_param {
+    dropout_ratio: 0.5
+  }
+}
+
+layer {
   name: "pool1"
   type: "Pooling"
   bottom: "conv11"
@@ -147,6 +157,16 @@ layer {
   type: "ReLU"
   bottom: "conv21"
   top: "conv21"
+}
+
+layer {
+  name: "drop2"
+  type: "Dropout"
+  bottom: "conv21"
+  top: "conv21"
+  dropout_param {
+    dropout_ratio: 0.5
+  }
 }
 
 layer {
@@ -222,6 +242,16 @@ layer {
 }
 
 layer {
+  name: "drop3"
+  type: "Dropout"
+  bottom: "conv31"
+  top: "conv31"
+  dropout_param {
+    dropout_ratio: 0.5
+  }
+}
+
+layer {
   name: "pool3"
   type: "Pooling"
   bottom: "conv31"
@@ -291,6 +321,16 @@ layer {
   type: "ReLU"
   bottom: "conv41"
   top: "conv41"
+}
+
+layer {
+  name: "drop4"
+  type: "Dropout"
+  bottom: "conv41"
+  top: "conv41"
+  dropout_param {
+    dropout_ratio: 0.5
+  }
 }
 
 layer {
@@ -388,7 +428,7 @@ layer {
   name: "concat6"
   type: "Concat"
   bottom: "up6"
-  bottom: "conv4"
+  bottom: "conv41"
   top: "concat6"
   concat_param {
     axis: 1
@@ -456,6 +496,16 @@ layer {
 }
 
 layer {
+  name: "drop6"
+  type: "Dropout"
+  bottom: "conv61"
+  top: "conv61"
+  dropout_param {
+    dropout_ratio: 0.5
+  }
+}
+
+layer {
   name: "up7"
   type: "Deconvolution"
   bottom: "conv61"
@@ -478,7 +528,7 @@ layer {
   name: "concat7"
   type: "Concat"
   bottom: "up7"
-  bottom: "conv3"
+  bottom: "conv31"
   top: "concat7"
   concat_param {
     axis: 1
@@ -546,6 +596,16 @@ layer {
 }
 
 layer {
+  name: "drop7"
+  type: "Dropout"
+  bottom: "conv71"
+  top: "conv71"
+  dropout_param {
+    dropout_ratio: 0.5
+  }
+}
+
+layer {
   name: "up8"
   type: "Deconvolution"
   bottom: "conv71"
@@ -568,7 +628,7 @@ layer {
   name: "concat8"
   type: "Concat"
   bottom: "up8"
-  bottom: "conv2"
+  bottom: "conv21"
   top: "concat8"
   concat_param {
     axis: 1
@@ -636,6 +696,16 @@ layer {
 }
 
 layer {
+  name: "drop8"
+  type: "Dropout"
+  bottom: "conv81"
+  top: "conv81"
+  dropout_param {
+    dropout_ratio: 0.5
+  }
+}
+
+layer {
   name: "up9"
   type: "Deconvolution"
   bottom: "conv81"
@@ -658,7 +728,7 @@ layer {
   name: "concat9"
   type: "Concat"
   bottom: "up9"
-  bottom: "conv1"
+  bottom: "conv11"
   top: "concat9"
   concat_param {
     axis: 1
@@ -726,6 +796,16 @@ layer {
 }
 
 layer {
+  name: "drop9"
+  type: "Dropout"
+  bottom: "conv91"
+  top: "conv91"
+  dropout_param {
+    dropout_ratio: 0.5
+  }
+}
+
+layer {
   name: "conv10"
   type: "Convolution"
   bottom: "conv91"
@@ -771,6 +851,13 @@ layer {
     new_height: 96
     new_width: 128
   }
+}
+
+layer {
+  name: "silence"
+  type: "Silence"
+  bottom: "nothing"
+  bottom: "aaa"
 }
 
 layer {
