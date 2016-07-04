@@ -75,7 +75,7 @@ def func(filename, nh):
 
 def submission():
 
-    NetHelper.gpu(1)
+    NetHelper.gpu(2)
     #submission()
     nh=NetHelper(deploy=cfgs.deploy_pt,model=cfgs.best_model_dir)
     if debug:

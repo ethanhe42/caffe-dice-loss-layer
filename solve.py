@@ -33,7 +33,7 @@ caffe.set_mode_gpu()
 solver = caffe.SGDSolver(cfgs.solver_pt)
 # solver.net.copy_from(weights)
 
-for iter in range(50*2000):
+for iter in range(500*2000):
     if debug:
         if iter % 10 == 0:
             nethelper=NetHelper(solver.net)

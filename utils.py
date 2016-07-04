@@ -347,7 +347,7 @@ class factory:
 
     def Data(self, 
         source,
-        mean_file,
+        mean_file=None,
         name='data', 
         scale=1,
         batch_size=32,
@@ -364,15 +364,11 @@ class factory:
             p+=[('type',"ImageData"),
                 ('top',name),
                 ('top',label)]
-        p+=[
-            # ('include',[
-            #    ('phase','TRAIN')
-            # ]),
-           ('transform_param',[
-                # ('mean_file',mean_file),
-                ('scale',scale)
-           ])
-           ]
+                
+        transform_param=[('scale',scale)]
+        if mean_file is not None:
+            transform_param+=[('mean_file',mean_file)]
+            
         if backend=="LMDB":
             p+=[
             ('data_param',[
@@ -394,6 +390,9 @@ class factory:
             raise Exception("no implementation")
         self.__end(p,name)
 
+    def Input(self,height,width,scale=1,name="data"):
+        p=[('name',name),('type','Input'),('top',name),]
+        self.__end(p,name)
     #-------------------------Core----------------------------------
     def Convolution(self,
         name,
@@ -530,6 +529,13 @@ class factory:
                ('axis',axis)
            ])]
         self.__end(p,name)
+
+    def silence(self,*bottom):
+        p=[('name','silence'),('type','Silence')]
+        for i in bottom:
+            p+=[('bottom',i)]
+
+    #-------------------------private----------------------------------
 
 
     def __start(self,name,Type):

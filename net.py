@@ -2,6 +2,15 @@
 import caffe
 from utils import factory
 
+def trainval():
+    pass
+
+def deploy():
+    pass
+
+def net():
+    
+
 if __name__ == '__main__':
     n=factory('unet')
     h=96
@@ -31,6 +40,7 @@ if __name__ == '__main__':
     n.Sigmoid()
 
     n.Data("data/mask.txt",name='label',mean_file="data/mask_mean.binaryproto",backend='image',new_height=h,new_width=w,batch_size=batch_size, scale=1./255)
+    n.silence('nothing','aaa')
     n.diceLoss('prob','label')
     
 

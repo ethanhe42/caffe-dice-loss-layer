@@ -5,7 +5,7 @@ lr_policy: "poly"
 max_iter: 200000
 momentum: 0.9
 power: 0.9
-snapshot: 2000
+snapshot: 8000
 snapshot_prefix: "/mnt/data1/yihuihe/ultrasound-nerve"
 test_initialization: true
 test_interval: 1000
