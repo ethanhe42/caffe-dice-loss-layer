@@ -554,6 +554,11 @@ class factory:
     def __start(self,name,Type):
         if isinstance(name,int):
             name=Type+str(name)
+        elif isinstance(name,list):
+            tmp=Type
+            for i in name:
+                tmp+='_'+str(i)
+            name=tmp
         return name
 
     def __end(self,p,name):

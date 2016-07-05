@@ -26,7 +26,7 @@ debug=True
 weights = cfgs.init
 
 # init
-caffe.set_device(1)
+caffe.set_device(2)
 caffe.set_mode_gpu()
 # caffe.set_mode_cpu()
 
@@ -39,6 +39,6 @@ for iter in range(500*2000):
             nethelper=NetHelper(solver.net)
             nethelper.hist('prob', filters=2,attr="blob")
             # TODO: label has float
-            # nethelper.hist('label', filters=2,attr="blob")
+            nethelper.hist('label', filters=2,attr="blob")
             
     solver.step(1)
