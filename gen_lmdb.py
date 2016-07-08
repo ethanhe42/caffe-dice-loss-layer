@@ -11,7 +11,7 @@ NOTE: label has already been resized to their targetedSize, like say 256x256 in 
 '''
 
 import caffe
-import cfgs
+import unet_cfgs as cfgs
 # import lmdb
 from PIL import Image
 import numpy as np

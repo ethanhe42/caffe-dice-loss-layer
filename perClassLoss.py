@@ -29,6 +29,7 @@ class perClassLossLayer(caffe.Layer):
         # check input pair
         if len(bottom) != 2:
             raise Exception("Need two inputs to compute distance.")
+        self.batch_size=bottom[1].data.shape[0]
 
     def reshape(self, bottom, top):
         # check input dimensions match
@@ -40,6 +41,12 @@ class perClassLossLayer(caffe.Layer):
 
     def forward(self, bottom, top):
         self.diff[...]=bottom[1].data
+        # self.sum=np.ndarray(self.batch_size)
+        # self.dice=np.ndarray(self.batch_size)
+        # for idx in range(self.batch_size):
+        #     self.sum[idx]=bottom[0].data[idx].sum()+bottom[1].data[idx].sum()+1.
+        #     self.
+            
         self.sum=bottom[0].data.sum()+bottom[1].data.sum()+1.
         self.dice=(2.* (bottom[0].data * bottom [1].data).sum()+1.)/self.sum
         top[0].data[...] = 1.- self.dice

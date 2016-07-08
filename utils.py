@@ -251,7 +251,10 @@ class NetHelper:
         pred=self.prediction(c_img)
         prob_map=np.single(pred[last_layer][0,prediction_map,:,:])
         return prob_map
-    
+
+    def value_counts(self,layer): 
+        print pd.value_counts(self.net.blobs[layer].data.flatten())
+        
     def hist(self,layer, filters=None, bins=4, attr="blobs"):
         """
         inspect network response

@@ -2,6 +2,8 @@
 from __future__ import print_function
 import numpy as np
 import cv2
+import sys
+sys.path.insert(0, "/home/yihuihe/deeplab-public-ver2/python")
 import caffe
 from utils import Data, NetHelper
 import unet_cfgs as cfgs
@@ -17,7 +19,7 @@ else:
     debug=int(sys.argv[1])
 
 
-def classifier(c_img, nh,thresh=0.99,showIm=True):
+def classifier(c_img, nh,thresh=0.5,showIm=True):
     pred=nh.bin_pred_map(c_img)
     pred_bin=pred.copy()
     pred_bin[pred>thresh]=1
@@ -25,7 +27,7 @@ def classifier(c_img, nh,thresh=0.99,showIm=True):
     return pred_bin,pred
 
 def prep(img, width,height):
-    img = img.astype('float32')
+    img = img.astype('float32') # 1./255
     img = cv2.resize(img, (width, height))
     return img
 
@@ -53,11 +55,16 @@ def func(filename, nh):
     print(cfgs.cnt)
     #idx=int(idx)
     img=Data.imFromFile(filename)
-    pred_bin,pred=classifier(prep(img,cfgs.inShape[1],cfgs.inShape[0]),nh)
+    ready=prep(img,cfgs.inShape[1],cfgs.inShape[0]) 
+    pred_bin,pred=classifier(ready,nh)
     result=run_length_enc(prep(pred_bin,cfgs.outShape[1],cfgs.outShape[0]))
     if debug:
+        hist=np.histogram(pred_bin)
+        print(pd.DataFrame(hist[0],index=hist[1][1:]).T)
+        
         hist=np.histogram(pred)
         print(pd.DataFrame(hist[0],index=hist[1][1:]).T)
+
         mask=plt.imread(os.path.join(cfgs.train_mask_path,idx+"_mask.tif"))
         plt.figure(1)
         plt.subplot(221)

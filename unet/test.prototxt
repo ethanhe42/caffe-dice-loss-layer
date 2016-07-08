@@ -1,14 +1,32 @@
 name: "unet"
 layer {
+  name: "label"
+  type: "ImageData"
+  top: "label"
+  top: "nothing"
+  transform_param {
+    scale: 0.00392156862745
+  }
+  image_data_param {
+    source: "data/mask.txt"
+    batch_size: 32
+    is_color: false
+    shuffle: false
+    new_height: 96
+    new_width: 128
+  }
+}
+
+layer {
   name: "data"
   type: "ImageData"
   top: "data"
   top: "aaa"
   transform_param {
-    scale: 0.015784123697
+    scale: 0.00392156862745
   }
   image_data_param {
-    source: "/home/yihuihe/Ultrasound-Nerve-Segmentation/data/train.txt"
+    source: "data/train.txt"
     batch_size: 32
     is_color: false
     shuffle: false
@@ -388,7 +406,7 @@ layer {
   name: "concat6"
   type: "Concat"
   bottom: "up6"
-  bottom: "conv4"
+  bottom: "conv_4_1"
   top: "concat6"
   concat_param {
     axis: 1
@@ -478,7 +496,7 @@ layer {
   name: "concat7"
   type: "Concat"
   bottom: "up7"
-  bottom: "conv3"
+  bottom: "conv_3_1"
   top: "concat7"
   concat_param {
     axis: 1
@@ -568,7 +586,7 @@ layer {
   name: "concat8"
   type: "Concat"
   bottom: "up8"
-  bottom: "conv2"
+  bottom: "conv_2_1"
   top: "concat8"
   concat_param {
     axis: 1
@@ -658,7 +676,7 @@ layer {
   name: "concat9"
   type: "Concat"
   bottom: "up9"
-  bottom: "conv1"
+  bottom: "conv_1_1"
   top: "concat9"
   concat_param {
     axis: 1
@@ -753,24 +771,6 @@ layer {
   type: "Sigmoid"
   bottom: "conv10"
   top: "prob"
-}
-
-layer {
-  name: "label"
-  type: "ImageData"
-  top: "label"
-  top: "nothing"
-  transform_param {
-    scale: 0.00392156862745
-  }
-  image_data_param {
-    source: "data/mask.txt"
-    batch_size: 32
-    is_color: false
-    shuffle: false
-    new_height: 96
-    new_width: 128
-  }
 }
 
 layer {

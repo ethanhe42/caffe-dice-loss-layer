@@ -1,12 +1,9 @@
-layer {
-  name: "data"
-  type: "Input"
-  top: "data"
-  transform_param {
-    scale:  0.015784123697
-  }
-  input_param { shape: { dim: 1 dim: 1 dim: 96 dim: 128 } }
-}
+name: "unet"
+input: "data"
+input_dim: 1
+input_dim: 1
+input_dim: 96
+input_dim: 128
 
 layer {
   name: "conv1"
@@ -39,10 +36,10 @@ layer {
 }
 
 layer {
-  name: "conv11"
+  name: "conv_1_1"
   type: "Convolution"
   bottom: "conv1"
-  top: "conv11"
+  top: "conv_1_1"
   param {
     lr_mult: 1
     decay_mult: 1
@@ -62,16 +59,16 @@ layer {
 }
 
 layer {
-  name: "relu11"
+  name: "relu_1_1"
   type: "ReLU"
-  bottom: "conv11"
-  top: "conv11"
+  bottom: "conv_1_1"
+  top: "conv_1_1"
 }
 
 layer {
   name: "pool1"
   type: "Pooling"
-  bottom: "conv11"
+  bottom: "conv_1_1"
   top: "pool1"
   pooling_param {
     pool: MAX
@@ -111,10 +108,10 @@ layer {
 }
 
 layer {
-  name: "conv21"
+  name: "conv_2_1"
   type: "Convolution"
   bottom: "conv2"
-  top: "conv21"
+  top: "conv_2_1"
   param {
     lr_mult: 1
     decay_mult: 1
@@ -134,16 +131,16 @@ layer {
 }
 
 layer {
-  name: "relu21"
+  name: "relu_2_1"
   type: "ReLU"
-  bottom: "conv21"
-  top: "conv21"
+  bottom: "conv_2_1"
+  top: "conv_2_1"
 }
 
 layer {
   name: "pool2"
   type: "Pooling"
-  bottom: "conv21"
+  bottom: "conv_2_1"
   top: "pool2"
   pooling_param {
     pool: MAX
@@ -183,10 +180,10 @@ layer {
 }
 
 layer {
-  name: "conv31"
+  name: "conv_3_1"
   type: "Convolution"
   bottom: "conv3"
-  top: "conv31"
+  top: "conv_3_1"
   param {
     lr_mult: 1
     decay_mult: 1
@@ -206,16 +203,16 @@ layer {
 }
 
 layer {
-  name: "relu31"
+  name: "relu_3_1"
   type: "ReLU"
-  bottom: "conv31"
-  top: "conv31"
+  bottom: "conv_3_1"
+  top: "conv_3_1"
 }
 
 layer {
   name: "pool3"
   type: "Pooling"
-  bottom: "conv31"
+  bottom: "conv_3_1"
   top: "pool3"
   pooling_param {
     pool: MAX
@@ -255,10 +252,10 @@ layer {
 }
 
 layer {
-  name: "conv41"
+  name: "conv_4_1"
   type: "Convolution"
   bottom: "conv4"
-  top: "conv41"
+  top: "conv_4_1"
   param {
     lr_mult: 1
     decay_mult: 1
@@ -278,16 +275,16 @@ layer {
 }
 
 layer {
-  name: "relu41"
+  name: "relu_4_1"
   type: "ReLU"
-  bottom: "conv41"
-  top: "conv41"
+  bottom: "conv_4_1"
+  top: "conv_4_1"
 }
 
 layer {
   name: "pool4"
   type: "Pooling"
-  bottom: "conv41"
+  bottom: "conv_4_1"
   top: "pool4"
   pooling_param {
     pool: MAX
@@ -327,10 +324,10 @@ layer {
 }
 
 layer {
-  name: "conv51"
+  name: "conv_5_1"
   type: "Convolution"
   bottom: "conv5"
-  top: "conv51"
+  top: "conv_5_1"
   param {
     lr_mult: 1
     decay_mult: 1
@@ -340,7 +337,7 @@ layer {
     decay_mult: 0
   }
   convolution_param {
-    num_output: 2560
+    num_output: 512
     pad: 1
     kernel_size: 3
     weight_filler {
@@ -350,16 +347,16 @@ layer {
 }
 
 layer {
-  name: "relu51"
+  name: "relu_5_1"
   type: "ReLU"
-  bottom: "conv51"
-  top: "conv51"
+  bottom: "conv_5_1"
+  top: "conv_5_1"
 }
 
 layer {
   name: "up6"
   type: "Deconvolution"
-  bottom: "conv51"
+  bottom: "conv_5_1"
   top: "up6"
   param {
     lr_mult: 1
@@ -417,10 +414,10 @@ layer {
 }
 
 layer {
-  name: "conv61"
+  name: "conv_6_1"
   type: "Convolution"
   bottom: "conv6"
-  top: "conv61"
+  top: "conv_6_1"
   param {
     lr_mult: 1
     decay_mult: 1
@@ -440,16 +437,16 @@ layer {
 }
 
 layer {
-  name: "relu61"
+  name: "relu_6_1"
   type: "ReLU"
-  bottom: "conv61"
-  top: "conv61"
+  bottom: "conv_6_1"
+  top: "conv_6_1"
 }
 
 layer {
   name: "up7"
   type: "Deconvolution"
-  bottom: "conv61"
+  bottom: "conv_6_1"
   top: "up7"
   param {
     lr_mult: 1
@@ -507,10 +504,10 @@ layer {
 }
 
 layer {
-  name: "conv71"
+  name: "conv_7_1"
   type: "Convolution"
   bottom: "conv7"
-  top: "conv71"
+  top: "conv_7_1"
   param {
     lr_mult: 1
     decay_mult: 1
@@ -530,16 +527,16 @@ layer {
 }
 
 layer {
-  name: "relu71"
+  name: "relu_7_1"
   type: "ReLU"
-  bottom: "conv71"
-  top: "conv71"
+  bottom: "conv_7_1"
+  top: "conv_7_1"
 }
 
 layer {
   name: "up8"
   type: "Deconvolution"
-  bottom: "conv71"
+  bottom: "conv_7_1"
   top: "up8"
   param {
     lr_mult: 1
@@ -597,10 +594,10 @@ layer {
 }
 
 layer {
-  name: "conv81"
+  name: "conv_8_1"
   type: "Convolution"
   bottom: "conv8"
-  top: "conv81"
+  top: "conv_8_1"
   param {
     lr_mult: 1
     decay_mult: 1
@@ -620,16 +617,16 @@ layer {
 }
 
 layer {
-  name: "relu81"
+  name: "relu_8_1"
   type: "ReLU"
-  bottom: "conv81"
-  top: "conv81"
+  bottom: "conv_8_1"
+  top: "conv_8_1"
 }
 
 layer {
   name: "up9"
   type: "Deconvolution"
-  bottom: "conv81"
+  bottom: "conv_8_1"
   top: "up9"
   param {
     lr_mult: 1
@@ -687,10 +684,10 @@ layer {
 }
 
 layer {
-  name: "conv91"
+  name: "conv_9_1"
   type: "Convolution"
   bottom: "conv9"
-  top: "conv91"
+  top: "conv_9_1"
   param {
     lr_mult: 1
     decay_mult: 1
@@ -710,16 +707,16 @@ layer {
 }
 
 layer {
-  name: "relu91"
+  name: "relu_9_1"
   type: "ReLU"
-  bottom: "conv91"
-  top: "conv91"
+  bottom: "conv_9_1"
+  top: "conv_9_1"
 }
 
 layer {
   name: "conv10"
   type: "Convolution"
-  bottom: "conv91"
+  bottom: "conv_9_1"
   top: "conv10"
   param {
     lr_mult: 1
@@ -745,4 +742,3 @@ layer {
   bottom: "conv10"
   top: "prob"
 }
-

@@ -1,564 +1,564 @@
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/21_38.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/16_21.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/36_47.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/31_3.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/41_74.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/13_76.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/40_120.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/11_17.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/42_94.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/35_101.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/35_47.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/39_38.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/10_64.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/43_74.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/35_11.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/19_14.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/3_34.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/37_86.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/33_9.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/25_41.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/6_86.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/30_102.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/3_14.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/34_106.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/33_92.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/46_115.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/21_113.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/17_114.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/19_49.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/30_104.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/2_47.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/33_98.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/25_25.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/22_79.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/3_105.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/45_110.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/11_30.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/39_33.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/39_24.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/17_84.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/29_9.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/23_70.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/43_40.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/47_40.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/22_118.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/17_57.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/24_116.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/19_8.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/34_32.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/21_74.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/46_9.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/11_86.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/41_114.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/36_34.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/21_48.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/18_5.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/28_26.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/6_76.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/19_46.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/20_67.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/25_110.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/39_64.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/26_95.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/24_60.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/29_46.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/38_77.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/28_68.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/34_47.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/23_21.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/2_74.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/36_4.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/16_3.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/46_38.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/30_47.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/4_7.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/8_6.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/13_2.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/31_90.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/42_91.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/7_9.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/41_44.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/2_54.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/39_54.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/42_21.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/34_105.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/17_94.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/29_42.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/28_61.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/13_44.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/7_77.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/32_43.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/2_109.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/41_98.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/17_48.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/41_79.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/1_37.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/42_93.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/45_77.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/8_89.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/34_42.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/5_30.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/36_119.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/17_66.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/42_24.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/24_64.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/25_113.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/26_4.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/3_84.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/38_76.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/32_73.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/33_1.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/19_40.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/43_6.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/1_106.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/44_14.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/14_26.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/27_9.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/25_32.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/25_40.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/16_58.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/14_27.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/6_9.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/8_92.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/22_5.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/47_16.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/22_47.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/27_91.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/36_27.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/16_57.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/32_120.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/42_46.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/47_119.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/10_89.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/2_107.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/45_4.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/6_74.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/28_100.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/41_38.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/19_66.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/47_5.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/28_10.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/23_19.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/6_18.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/20_4.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/13_46.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/22_14.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/41_16.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/29_49.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/32_97.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/4_8.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/23_2.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/47_53.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/36_68.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/4_114.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/5_52.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/29_21.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/8_116.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/14_29.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/14_32.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/5_65.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/46_101.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/13_111.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/24_108.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/38_111.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/22_46.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/2_43.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/40_108.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/8_28.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/14_43.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/36_111.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/23_110.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/19_101.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/17_87.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/3_95.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/27_72.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/35_89.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/40_97.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/30_64.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/29_34.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/27_44.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/36_102.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/10_15.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/8_49.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/31_35.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/9_79.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/30_37.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/44_63.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/29_85.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/19_45.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/30_60.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/21_59.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/27_15.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/6_120.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/13_66.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/25_61.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/34_52.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/8_52.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/9_30.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/26_52.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/5_50.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/15_98.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/31_36.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/15_89.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/43_12.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/16_46.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/30_1.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/39_10.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/30_111.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/10_50.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/38_90.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/20_8.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/42_53.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/28_43.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/29_13.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/18_88.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/30_35.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/16_20.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/12_39.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/24_96.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/17_100.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/38_36.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/20_86.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/16_90.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/43_63.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/19_68.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/5_77.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/46_40.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/11_25.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/40_80.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/27_109.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/40_70.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/1_91.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/28_11.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/22_2.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/38_33.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/24_78.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/20_9.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/5_88.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/47_62.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/28_101.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/6_60.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/4_36.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/15_38.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/6_31.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/14_62.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/14_41.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/5_58.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/7_16.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/27_27.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/22_99.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/44_2.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/13_112.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/2_21.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/37_110.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/3_4.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/25_27.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/13_4.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/45_49.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/40_36.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/15_53.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/45_72.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/29_52.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/16_36.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/24_110.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/2_89.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/29_61.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/2_62.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/38_19.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/15_23.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/17_39.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/2_52.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/30_29.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/42_3.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/24_100.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/24_72.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/6_117.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/18_117.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/30_80.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/40_23.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/43_71.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/22_25.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/14_6.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/34_91.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/30_32.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/31_12.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/28_80.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/24_106.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/4_49.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/38_61.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/30_100.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/44_15.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/31_17.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/10_4.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/18_21.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/14_2.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/38_109.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/12_108.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/4_113.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/21_45.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/18_53.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/10_104.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/2_17.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/41_39.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/44_103.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/46_52.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/34_20.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/39_74.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/37_33.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/40_13.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/17_69.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/23_84.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/29_87.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/3_1.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/12_25.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/23_10.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/44_49.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/47_115.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/46_66.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/34_103.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/23_112.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/35_62.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/10_31.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/3_50.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/15_13.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/18_109.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/43_81.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/25_109.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/20_110.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/22_112.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/40_54.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/17_9.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/5_99.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/29_113.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/8_15.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/40_101.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/2_99.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/35_48.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/8_95.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/30_99.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/34_8.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/12_74.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/18_42.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/2_45.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/25_89.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/15_99.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/11_44.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/21_92.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/2_71.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/29_63.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/8_93.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/11_74.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/47_109.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/41_59.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/37_55.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/34_48.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/35_1.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/2_42.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/34_17.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/41_100.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/39_40.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/3_36.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/32_72.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/10_78.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/21_37.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/47_92.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/6_52.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/23_56.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/20_94.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/9_78.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/39_61.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/25_33.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/3_110.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/46_82.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/4_52.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/3_63.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/9_44.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/38_88.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/46_92.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/16_107.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/23_29.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/11_112.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/10_27.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/12_26.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/32_27.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/14_98.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/6_93.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/42_13.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/36_45.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/18_3.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/43_38.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/15_119.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/1_104.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/16_106.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/41_71.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/23_53.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/9_47.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/36_70.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/5_120.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/10_52.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/10_96.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/23_99.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/24_80.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/23_119.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/7_28.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/24_27.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/16_78.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/39_83.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/15_18.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/31_28.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/20_30.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/34_2.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/36_101.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/16_41.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/36_92.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/12_17.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/2_30.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/14_34.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/21_88.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/6_72.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/1_56.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/39_31.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/28_99.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/15_74.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/47_54.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/46_49.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/42_99.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/29_96.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/5_89.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/21_75.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/24_24.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/34_92.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/3_97.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/13_63.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/11_2.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/20_7.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/11_120.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/9_88.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/10_66.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/19_89.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/47_28.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/47_14.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/10_22.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/34_51.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/32_22.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/23_17.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/19_12.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/29_5.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/31_89.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/9_36.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/24_26.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/37_40.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/16_19.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/7_4.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/1_42.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/47_22.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/12_87.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/38_82.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/40_77.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/4_65.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/23_38.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/19_99.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/9_114.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/26_70.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/37_63.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/26_25.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/35_21.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/46_113.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/29_60.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/44_52.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/25_114.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/37_90.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/45_120.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/7_15.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/44_65.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/10_76.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/45_107.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/44_86.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/14_78.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/19_22.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/41_36.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/44_69.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/1_73.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/17_25.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/44_22.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/27_92.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/15_105.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/1_58.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/37_6.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/34_26.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/2_1.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/19_28.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/22_23.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/44_80.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/1_38.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/6_104.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/2_79.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/26_101.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/46_36.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/45_16.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/40_16.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/35_27.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/14_110.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/17_7.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/45_28.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/13_103.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/30_105.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/17_55.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/45_10.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/45_17.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/28_45.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/13_58.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/32_59.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/47_68.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/9_54.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/15_20.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/40_87.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/29_70.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/44_73.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/37_108.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/40_45.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/34_104.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/28_65.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/13_119.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/19_70.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/8_59.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/22_7.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/23_98.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/31_84.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/35_49.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/22_58.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/20_44.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/14_104.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/14_115.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/26_87.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/45_3.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/2_77.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/15_19.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/5_27.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/17_18.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/23_91.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/6_88.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/10_71.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/12_92.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/18_97.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/3_11.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/36_29.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/47_73.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/35_12.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/28_17.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/4_27.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/39_13.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/5_61.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/19_31.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/24_98.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/21_25.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/18_24.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/20_115.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/7_96.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/44_104.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/39_118.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/22_32.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/22_119.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/41_67.tif
-/mnt/data1/yihuihe/ultrasound-nerve/train_data/18_82.tif
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/30_66.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/46_51.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/43_5.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/25_16.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/12_62.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/14_37.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/10_96.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/28_12.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/13_100.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/1_35.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/22_83.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/44_25.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/22_32.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/39_85.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/21_91.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/19_81.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/4_15.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/16_119.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/2_69.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/16_45.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/29_116.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/16_42.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/44_31.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/26_22.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/39_51.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/29_26.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/15_54.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/29_117.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/16_1.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/2_48.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/32_109.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/36_115.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/42_36.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/18_77.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/30_106.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/17_93.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/8_20.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/3_56.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/7_4.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/15_24.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/15_7.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/42_19.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/9_92.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/21_32.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/27_3.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/14_16.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/29_5.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/5_25.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/8_10.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/4_46.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/9_56.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/19_30.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/46_47.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/40_96.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/24_65.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/33_64.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/20_18.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/29_60.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/40_98.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/44_84.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/22_28.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/11_114.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/45_52.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/37_79.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/7_105.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/18_8.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/40_66.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/21_117.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/19_56.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/34_45.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/17_31.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/39_31.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/30_26.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/35_69.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/36_69.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/11_83.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/3_19.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/23_120.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/14_17.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/25_89.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/13_54.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/39_22.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/38_103.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/3_52.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/17_101.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/44_26.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/8_112.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/14_68.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/34_106.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/43_102.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/23_112.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/25_5.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/46_65.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/26_38.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/3_55.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/33_5.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/17_12.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/44_68.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/10_90.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/36_98.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/7_80.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/25_74.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/22_107.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/10_59.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/1_115.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/12_28.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/24_46.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/32_34.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/33_87.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/30_2.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/8_25.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/12_73.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/7_9.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/27_47.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/44_4.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/29_62.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/25_99.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/18_106.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/19_58.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/1_18.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/18_94.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/33_26.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/6_37.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/13_79.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/38_9.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/42_21.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/37_75.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/16_120.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/12_104.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/9_35.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/22_15.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/46_13.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/30_61.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/21_58.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/11_22.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/15_61.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/3_88.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/18_12.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/38_91.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/37_22.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/37_42.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/31_21.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/32_75.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/44_43.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/17_27.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/23_119.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/20_63.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/3_70.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/43_110.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/7_42.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/5_89.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/43_105.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/29_113.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/21_34.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/39_24.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/44_76.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/19_5.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/21_102.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/6_109.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/4_110.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/11_106.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/36_88.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/3_51.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/22_30.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/45_41.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/42_66.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/19_49.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/38_93.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/34_85.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/24_6.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/28_26.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/5_59.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/28_32.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/6_95.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/16_88.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/44_21.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/18_37.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/26_67.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/34_15.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/36_3.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/24_68.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/18_113.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/36_53.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/3_90.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/17_92.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/20_53.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/39_94.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/8_67.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/36_4.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/41_57.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/2_60.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/28_106.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/38_55.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/33_66.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/43_79.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/21_92.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/46_119.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/43_20.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/32_55.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/19_86.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/28_75.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/40_81.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/38_10.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/34_19.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/2_31.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/47_7.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/18_76.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/31_89.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/23_84.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/43_44.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/36_92.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/36_8.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/25_113.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/31_70.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/45_56.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/32_62.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/34_93.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/17_8.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/7_96.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/34_99.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/10_42.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/7_112.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/38_4.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/18_73.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/2_15.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/13_69.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/24_2.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/27_27.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/42_79.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/37_35.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/37_96.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/46_89.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/5_81.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/4_94.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/38_119.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/29_83.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/23_83.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/20_34.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/10_40.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/19_46.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/21_85.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/26_8.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/41_58.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/1_97.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/4_31.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/4_79.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/16_94.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/22_66.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/35_48.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/19_38.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/47_17.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/9_82.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/47_10.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/26_77.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/42_29.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/33_55.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/30_40.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/35_7.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/22_102.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/15_114.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/42_25.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/35_104.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/18_32.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/38_63.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/24_12.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/4_27.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/35_116.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/27_85.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/14_73.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/10_27.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/15_55.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/45_34.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/18_5.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/3_115.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/4_35.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/44_23.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/36_39.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/20_56.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/23_1.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/8_52.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/46_76.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/32_106.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/38_80.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/41_73.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/42_17.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/5_111.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/35_47.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/23_109.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/45_88.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/34_22.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/9_34.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/31_3.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/26_16.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/30_112.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/34_114.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/7_103.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/32_49.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/12_98.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/25_104.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/37_95.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/32_1.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/13_83.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/47_26.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/16_15.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/16_71.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/18_110.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/34_62.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/9_62.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/18_117.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/40_83.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/44_108.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/40_56.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/21_114.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/3_37.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/5_20.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/30_93.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/32_36.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/34_60.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/15_84.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/19_80.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/35_73.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/35_120.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/14_9.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/37_3.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/33_42.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/13_58.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/33_52.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/1_111.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/31_83.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/21_67.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/11_43.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/5_106.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/6_20.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/1_54.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/17_2.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/36_25.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/22_45.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/41_65.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/19_104.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/3_112.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/5_21.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/38_8.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/6_97.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/7_111.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/12_58.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/45_117.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/43_64.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/28_21.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/35_44.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/28_108.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/7_53.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/1_33.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/18_97.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/35_16.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/27_118.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/29_54.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/2_10.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/35_54.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/20_40.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/32_99.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/41_50.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/17_102.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/30_111.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/17_65.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/34_89.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/33_50.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/12_92.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/5_77.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/25_6.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/11_52.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/5_5.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/11_84.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/41_49.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/10_65.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/17_18.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/43_15.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/15_28.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/18_66.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/24_96.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/37_81.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/20_6.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/22_79.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/14_100.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/11_40.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/32_120.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/40_8.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/34_63.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/22_84.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/5_91.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/16_20.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/40_73.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/36_43.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/32_57.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/35_70.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/27_7.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/45_96.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/3_39.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/15_79.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/45_23.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/22_80.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/42_90.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/7_82.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/23_51.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/37_91.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/9_85.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/17_89.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/2_36.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/46_86.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/42_119.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/36_66.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/42_50.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/28_52.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/7_43.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/44_67.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/40_89.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/41_22.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/47_11.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/25_72.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/19_50.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/30_91.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/23_8.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/19_99.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/29_64.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/37_44.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/47_69.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/36_31.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/8_15.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/2_105.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/36_93.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/38_109.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/28_117.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/13_10.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/3_34.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/37_58.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/30_55.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/38_82.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/38_12.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/29_95.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/23_67.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/40_99.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/10_20.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/21_115.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/13_18.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/14_93.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/18_26.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/42_67.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/3_96.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/16_95.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/24_44.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/27_5.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/1_41.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/18_18.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/20_36.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/11_15.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/5_30.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/28_68.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/17_45.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/11_115.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/10_79.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/25_40.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/11_61.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/13_50.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/4_62.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/26_12.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/31_104.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/5_61.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/35_58.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/30_9.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/22_31.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/39_108.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/11_91.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/38_32.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/19_76.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/2_2.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/32_88.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/37_101.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/26_76.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/27_2.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/43_42.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/2_93.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/8_110.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/26_49.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/5_90.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/13_107.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/20_46.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/3_2.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/4_75.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/5_48.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/44_30.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/6_63.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/17_38.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/43_36.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/36_38.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/27_96.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/47_40.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/36_29.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/35_107.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/37_30.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/26_28.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/24_83.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/9_111.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/47_117.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/8_33.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/17_78.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/30_110.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/39_29.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/47_53.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/15_12.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/20_64.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/6_18.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/10_29.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/10_94.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/23_77.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/47_5.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/6_24.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/8_5.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/14_103.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/15_58.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/19_95.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/31_107.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/24_11.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/36_116.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/28_11.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/36_71.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/15_100.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/42_44.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/42_47.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/13_11.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/28_96.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/6_94.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/28_74.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/16_35.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/20_80.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/21_61.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/7_16.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/34_112.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/32_8.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/45_110.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/46_30.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/25_91.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/25_34.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/46_90.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/31_31.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/12_106.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/9_119.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/32_12.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/40_101.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/7_31.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/12_49.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/37_23.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/7_26.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/23_13.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/7_110.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/18_34.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/16_68.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/29_22.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/12_5.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/1_11.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/35_102.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/13_33.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/18_107.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/14_105.tif 0
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/41_97.tif 1
+/mnt/data1/yihuihe/ultrasound-nerve/train_data/4_11.tif 1
