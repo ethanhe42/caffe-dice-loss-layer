@@ -4,16 +4,19 @@ layer {
   type: "ImageData"
   top: "label"
   top: "nothing"
+  include {
+    phase: TEST
+  }
   transform_param {
     scale: 0.00392156862745
   }
   image_data_param {
-    source: "data/mask.txt"
-    batch_size: 32
+    source: "data/val_mask.txt"
+    batch_size: 24
     is_color: false
     shuffle: false
-    new_height: 96
-    new_width: 128
+    new_height: 160
+    new_width: 224
   }
 }
 
@@ -22,16 +25,61 @@ layer {
   type: "ImageData"
   top: "data"
   top: "aaa"
+  include {
+    phase: TEST
+  }
+  transform_param {
+    scale: 0.00392156862745
+  }
+  image_data_param {
+    source: "data/val.txt"
+    batch_size: 24
+    is_color: false
+    shuffle: false
+    new_height: 160
+    new_width: 224
+  }
+}
+
+layer {
+  name: "label"
+  type: "ImageData"
+  top: "label"
+  top: "nothing"
+  include {
+    phase: TRAIN
+  }
+  transform_param {
+    scale: 0.00392156862745
+  }
+  image_data_param {
+    source: "data/mask.txt"
+    batch_size: 24
+    is_color: false
+    shuffle: false
+    new_height: 160
+    new_width: 224
+  }
+}
+
+layer {
+  name: "data"
+  type: "ImageData"
+  top: "data"
+  top: "aaa"
+  include {
+    phase: TRAIN
+  }
   transform_param {
     scale: 0.00392156862745
   }
   image_data_param {
     source: "data/train.txt"
-    batch_size: 32
+    batch_size: 24
     is_color: false
     shuffle: false
-    new_height: 96
-    new_width: 128
+    new_height: 160
+    new_width: 224
   }
 }
 
@@ -390,12 +438,42 @@ layer {
   top: "up6"
   param {
     lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 512
+    kernel_size: 2
+    stride: 2
+    bias_filler {
+      type: "constant"
+    }
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+
+layer {
+  name: "conv_6_0"
+  type: "Convolution"
+  bottom: "up6"
+  top: "conv_6_0"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
   }
   convolution_param {
     num_output: 256
-    bias_term: false
-    kernel_size: 2
-    stride: 2
+    pad: 1
+    kernel_size: 3
     weight_filler {
       type: "msra"
     }
@@ -405,7 +483,7 @@ layer {
 layer {
   name: "concat6"
   type: "Concat"
-  bottom: "up6"
+  bottom: "conv_6_0"
   bottom: "conv_4_1"
   top: "concat6"
   concat_param {
@@ -480,12 +558,42 @@ layer {
   top: "up7"
   param {
     lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 256
+    kernel_size: 2
+    stride: 2
+    bias_filler {
+      type: "constant"
+    }
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+
+layer {
+  name: "conv_7_0"
+  type: "Convolution"
+  bottom: "up7"
+  top: "conv_7_0"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
   }
   convolution_param {
     num_output: 128
-    bias_term: false
-    kernel_size: 2
-    stride: 2
+    pad: 1
+    kernel_size: 3
     weight_filler {
       type: "msra"
     }
@@ -495,7 +603,7 @@ layer {
 layer {
   name: "concat7"
   type: "Concat"
-  bottom: "up7"
+  bottom: "conv_7_0"
   bottom: "conv_3_1"
   top: "concat7"
   concat_param {
@@ -570,12 +678,42 @@ layer {
   top: "up8"
   param {
     lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 128
+    kernel_size: 2
+    stride: 2
+    bias_filler {
+      type: "constant"
+    }
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+
+layer {
+  name: "conv_8_0"
+  type: "Convolution"
+  bottom: "up8"
+  top: "conv_8_0"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
   }
   convolution_param {
     num_output: 64
-    bias_term: false
-    kernel_size: 2
-    stride: 2
+    pad: 1
+    kernel_size: 3
     weight_filler {
       type: "msra"
     }
@@ -585,7 +723,7 @@ layer {
 layer {
   name: "concat8"
   type: "Concat"
-  bottom: "up8"
+  bottom: "conv_8_0"
   bottom: "conv_2_1"
   top: "concat8"
   concat_param {
@@ -660,12 +798,42 @@ layer {
   top: "up9"
   param {
     lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 64
+    kernel_size: 2
+    stride: 2
+    bias_filler {
+      type: "constant"
+    }
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+
+layer {
+  name: "conv_9_0"
+  type: "Convolution"
+  bottom: "up9"
+  top: "conv_9_0"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
   }
   convolution_param {
     num_output: 32
-    bias_term: false
-    kernel_size: 2
-    stride: 2
+    pad: 1
+    kernel_size: 3
     weight_filler {
       type: "msra"
     }
@@ -675,7 +843,7 @@ layer {
 layer {
   name: "concat9"
   type: "Concat"
-  bottom: "up9"
+  bottom: "conv_9_0"
   bottom: "conv_1_1"
   top: "concat9"
   concat_param {
@@ -777,7 +945,6 @@ layer {
   name: "silence"
   type: "Silence"
   bottom: "nothing"
-  bottom: "aaa"
 }
 
 layer {
@@ -791,5 +958,84 @@ layer {
     layer: "perClassLossLayer"
   }
   loss_weight: 1
+}
+
+layer {
+  name: "fc"
+  type: "InnerProduct"
+  bottom: "conv_5_1"
+  top: "fc"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 1024
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+
+layer {
+  name: "fc_relu"
+  type: "ReLU"
+  bottom: "fc"
+  top: "fc"
+}
+
+layer {
+  name: "fc_dropout"
+  type: "Dropout"
+  bottom: "fc"
+  top: "fc"
+  dropout_param {
+    dropout_ratio: 0.5
+  }
+  include {
+    phase: TRAIN
+  }
+}
+
+layer {
+  name: "fc1"
+  type: "InnerProduct"
+  bottom: "fc"
+  top: "fc1"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 2
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+
+layer {
+  name: "softmaxwithloss"
+  type: "SoftmaxWithLoss"
+  bottom: "fc1"
+  bottom: "aaa"
+  top: "softmaxwithloss"
+  loss_weight: 0.5
 }
 

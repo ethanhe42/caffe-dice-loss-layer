@@ -360,12 +360,42 @@ layer {
   top: "up6"
   param {
     lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 512
+    kernel_size: 2
+    stride: 2
+    bias_filler {
+      type: "constant"
+    }
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+
+layer {
+  name: "conv_6_0"
+  type: "Convolution"
+  bottom: "up6"
+  top: "conv_6_0"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
   }
   convolution_param {
     num_output: 256
-    bias_term: false
-    kernel_size: 2
-    stride: 2
+    pad: 1
+    kernel_size: 3
     weight_filler {
       type: "msra"
     }
@@ -375,8 +405,8 @@ layer {
 layer {
   name: "concat6"
   type: "Concat"
-  bottom: "up6"
-  bottom: "conv4"
+  bottom: "conv_6_0"
+  bottom: "conv_4_1"
   top: "concat6"
   concat_param {
     axis: 1
@@ -450,12 +480,42 @@ layer {
   top: "up7"
   param {
     lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 256
+    kernel_size: 2
+    stride: 2
+    bias_filler {
+      type: "constant"
+    }
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+
+layer {
+  name: "conv_7_0"
+  type: "Convolution"
+  bottom: "up7"
+  top: "conv_7_0"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
   }
   convolution_param {
     num_output: 128
-    bias_term: false
-    kernel_size: 2
-    stride: 2
+    pad: 1
+    kernel_size: 3
     weight_filler {
       type: "msra"
     }
@@ -465,8 +525,8 @@ layer {
 layer {
   name: "concat7"
   type: "Concat"
-  bottom: "up7"
-  bottom: "conv3"
+  bottom: "conv_7_0"
+  bottom: "conv_3_1"
   top: "concat7"
   concat_param {
     axis: 1
@@ -540,12 +600,42 @@ layer {
   top: "up8"
   param {
     lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 128
+    kernel_size: 2
+    stride: 2
+    bias_filler {
+      type: "constant"
+    }
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+
+layer {
+  name: "conv_8_0"
+  type: "Convolution"
+  bottom: "up8"
+  top: "conv_8_0"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
   }
   convolution_param {
     num_output: 64
-    bias_term: false
-    kernel_size: 2
-    stride: 2
+    pad: 1
+    kernel_size: 3
     weight_filler {
       type: "msra"
     }
@@ -555,8 +645,8 @@ layer {
 layer {
   name: "concat8"
   type: "Concat"
-  bottom: "up8"
-  bottom: "conv2"
+  bottom: "conv_8_0"
+  bottom: "conv_2_1"
   top: "concat8"
   concat_param {
     axis: 1
@@ -630,12 +720,42 @@ layer {
   top: "up9"
   param {
     lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 64
+    kernel_size: 2
+    stride: 2
+    bias_filler {
+      type: "constant"
+    }
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+
+layer {
+  name: "conv_9_0"
+  type: "Convolution"
+  bottom: "up9"
+  top: "conv_9_0"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
   }
   convolution_param {
     num_output: 32
-    bias_term: false
-    kernel_size: 2
-    stride: 2
+    pad: 1
+    kernel_size: 3
     weight_filler {
       type: "msra"
     }
@@ -645,8 +765,8 @@ layer {
 layer {
   name: "concat9"
   type: "Concat"
-  bottom: "up9"
-  bottom: "conv1"
+  bottom: "conv_9_0"
+  bottom: "conv_1_1"
   top: "concat9"
   concat_param {
     axis: 1
@@ -742,3 +862,60 @@ layer {
   bottom: "conv10"
   top: "prob"
 }
+
+
+layer {
+  name: "fc"
+  type: "InnerProduct"
+  bottom: "conv_5_1"
+  top: "fc"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 1024
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "fc1"
+  type: "InnerProduct"
+  bottom: "fc"
+  top: "fc1"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 2
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "softmax"
+  type: "Softmax"
+  bottom: "fc1"
+  top: "softmax"
+}
+

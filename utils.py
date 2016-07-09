@@ -270,7 +270,7 @@ class NetHelper:
         if filters is None:
             # show response of this layer together
             cnts,boundary = np.histogram(response.flatten(),bins=bins)
-            ret=pd.DataFrame(cnts,index=boundary,columns=[layer])
+            ret=pd.DataFrame(cnts,index=boundary[1:],columns=[layer])
             print ret.T
         else:
             # print every filter
@@ -351,6 +351,7 @@ class factory:
     def Data(self, 
         source,
         mean_file=None,
+        mean_value=[],
         name='data', 
         scale=1,
         batch_size=32,
@@ -358,7 +359,8 @@ class factory:
         new_height=None,
         new_width=None,
         is_color=False,
-        label="nothing"):
+        label="nothing",
+        phase='TRAIN'):
         p=[('name',name)]
         if backend=="LMDB":
             p+=[('type','Data'),
@@ -367,10 +369,14 @@ class factory:
             p+=[('type',"ImageData"),
                 ('top',name),
                 ('top',label)]
+        if phase is not None:
+            p+=[('include',[('phase',phase)])]
 
         transform_param=[('scale',scale)]
         if mean_file is not None:
             transform_param+=[('mean_file',mean_file)]
+        for i in mean_value:
+            transform_param+=[('mean_value',i)]
         p+=[('transform_param',transform_param)]
             
         if backend=="LMDB":
@@ -443,23 +449,61 @@ class factory:
         name=self.__start(name,'up')
         conv_param=[
                ('num_output',num_output),
-               ('bias_term','false'),
                ('kernel_size',kernel_size),
                ('stride',stride),
-               ('weight_filler',[
-                   ('type',weight_filler)
+               ('bias_filler',[
+                   ('type','constant')
                ])
            ]
+        weight_filler_list=[('type',weight_filler)]
+        if weight_filler=='gaussian':
+            weight_filler_list.append(('std',0.0001))
+        conv_param.append(('weight_filler',weight_filler_list))
+        
         p=[('name',name),
            ('type',"Deconvolution"),
            ('bottom',bottom),
            ('top',name),
            ('param',[
-               ('lr_mult',1)
+               ('lr_mult',1),
+               ('decay_mult',1)
+           ]),
+           ('param',[
+               ('lr_mult',2),
+               ('decay_mult',0)
            ]),
            ('convolution_param',conv_param)
            ]
         self.__end(p,name)
+    
+    def InnerProduct(self,name, num_output, bottom=None, weight_filler="xavier"):
+        if bottom is None:
+            bottom=self.bottom
+        name=self.__start(name,"dense")
+        p=[('name',name),
+           ('type',"InnerProduct"),
+           ('bottom',bottom),
+           ('top',name),
+           ('param',[
+               ('lr_mult',1),
+               ('decay_mult',1)
+           ]),
+           ('param',[
+               ('lr_mult',2),
+               ('decay_mult',0)
+           ]),
+           ('inner_product_param',[
+               ('num_output',num_output),
+               ('weight_filler',[
+                   ('type',weight_filler)
+               ]),
+               ('bias_filler',[
+                   ('type',"constant"),
+                   ('value',0)
+               ])
+           ])]
+        self.__end(p,name)
+
 
 
     def ReLU(self,name):
@@ -483,15 +527,6 @@ class factory:
            ])]
         self.__end(p,name)
 
-    def conv_relu(self,conv,relu,
-            num_output,
-            bottom=None,
-            kernel_size=3,
-            pad=1,
-            weight_filler="msra",
-            dilation=None):
-        self.Convolution(conv,num_output,bottom,kernel_size,pad,weight_filler,dilation)
-        self.ReLU(relu)
     
     def Dropout(self,name,omit=0.5):
         name=self.__start(name,'drop')
@@ -502,7 +537,45 @@ class factory:
         p+=[('dropout_param',[
             ('dropout_ratio',omit)
         ])]
+        p+=[('include',[
+            ('phase','TRAIN')
+        ])]
         self.proto+=self.__printList(p)
+
+    def Python(self,module,layer, name=None,bottom=[],top=[], other_params=[]):
+        if name is None:
+            name=module
+        p=[('name',name),
+           ('type','Python')]
+        for i in bottom:
+            p+=[('bottom',i)]
+        for i in top:
+            p+=[('top',i)]
+        p+=[('python_param',[
+            ('module',module),
+            ('layer',layer)
+        ])]
+        for param in other_params:
+            p+=[(param[0],param[1])]
+        self.__end(p,name)
+    #-----------------------------combinations---------------------------- 
+    def conv_relu(self,conv,relu,
+            num_output,
+            bottom=None,
+            kernel_size=3,
+            pad=1,
+            weight_filler="msra",
+            dilation=None):
+        self.Convolution(conv,num_output,bottom,kernel_size,pad,weight_filler,dilation)
+        self.ReLU(relu)
+    
+    def fc_relu(self, name, relu, num_output, bottom=None, weight_filler="xavier"):
+        self.InnerProduct(name, num_output, bottom, weight_filler)
+        self.ReLU(relu)
+
+    def fc_relu_dropout(self, name, relu, dropout, num_output, bottom=None, weight_filler="xavier", keep=.5):
+        self.fc_relu(name, relu, num_output, bottom, weight_filler)
+        self.Dropout(dropout,keep)
 
     #-------------------------Loss----------------------------------
     def Sigmoid(self,name="prob",bottom=None):
@@ -527,6 +600,18 @@ class factory:
                ('layer',"perClassLossLayer")
            ]),
            ('loss_weight',1)]
+
+        self.__end(p,name)
+
+    def SoftmaxWithLoss(self,name="softmaxwithloss",bottom2='label',bottom1=None, loss_weight=1):
+        if bottom1 is None:
+            bottom=self.bottom
+        p=[('name',name),
+           ('type','SoftmaxWithLoss'),
+           ('bottom',bottom1),
+           ('bottom',bottom2),
+           ('top',name),
+           ('loss_weight',loss_weight)]
 
         self.__end(p,name)
 

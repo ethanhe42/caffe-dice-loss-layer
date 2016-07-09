@@ -14,18 +14,18 @@ proj=os.path.join(usr_dir,"Ultrasound-Nerve-Segmentation")
 # prototxt
 pt_folder="unet"
 tr_pt=os.path.join(pt_folder,"trainval.prototxt")
-te_pt=os.path.join(pt_folder,"test.prototxt")
+te_pt=os.path.join(pt_folder,"trainval.prototxt")
 solver_pt=os.path.join(pt_folder,"solver.prototxt")
 deploy_pt=os.path.join(pt_folder,"deploy.prototxt")
 
 # saved model
 model_name="ultrasound-nerve"
 model_save_path="/mnt/data1/yihuihe"
-best_model=8000
+best_model=4000
 best_model_dir=os.path.join(model_save_path,
     model_name+'_iter_'+str(best_model)+'.caffemodel')
 # init='/home/yihuihe/medical-image-segmentation/deeplab/init.caffemodel'
-# init=best_model_dir
+init=best_model_dir
 init=None
 
 # solver
@@ -45,17 +45,17 @@ sp['max_iter']=200000
 sp['momentum']=.9
 sp['weight_decay']=0.0005
 sp['test_initialization']= True
-sp['snapshot']=20000
+sp['snapshot']=10000
 if debug:
     sp['test_iter']=20
     sp['test_interval']=1000
-    sp['display']=20
+    sp['display']=100
 sp['snapshot_prefix']=os.path.join('/mnt/data1/yihuihe',model_name)
 sp['train_net']=tr_pt
 sp['test_net']=te_pt
 
 # net
-inShape=(96,128,1)
+inShape=(160,224,1)
 outShape=(420,580,1)
 
 

@@ -10,6 +10,7 @@ output: lmdb dataset files of train or val
 NOTE: label has already been resized to their targetedSize, like say 256x256 in this stage 
 '''
 
+import matplotlib.pyplot as plt
 import caffe
 import unet_cfgs as cfgs
 # import lmdb
@@ -18,6 +19,7 @@ import numpy as np
 import os
 import cv2
 import sys
+import unet_cfgs as cfgs
 
 
 debug=False  # for overfitting of 4 images
@@ -36,22 +38,17 @@ lmdb = 'lmdb_train_val'
 ''' ------------------------------------------------- '''
 
 
-
 ''' resize dim '''
-sz_data = (,256) # image data
-#sz_mask = (128,128)
+sz_data = (cfgs.inShape[1],cfgs.inShape[0]) # image data
+sz_mask = (cfgs.inShape[1],cfgs.inShape[0])
 
 
 ''' path '''
 save_data_root = os.path.join(data_root, lmdb)
 input_lst = input_ + '.txt' # this is a txt file
-#read_data_root = os.path.join(data_root, 'image_crop')
-#read_mask_root = os.path.join(data_root, 'mask_crop_denoise_128')
 save_im_lmdb_root = os.path.join(save_data_root, input_ + '_data')
 save_mask_lmdb_root = os.path.join(save_data_root, input_ + '_mask')
-if not os.path.exists(save_data_root): os.mkdir(save_data_root)
-if not os.path.exists(save_im_lmdb_root): os.mkdir(save_im_lmdb_root)
-if not os.path.exists(save_mask_lmdb_root): os.mkdir(save_mask_lmdb_root)
+
 
 
 ''' read train or val txt files '''
@@ -74,7 +71,7 @@ with in_db.begin(write=True) as in_txn:
             break
 
         if in_idx%100 == 0: print "%d images have been processed" %in_idx
-        path = in_
+        path = in_.split(' ')[0]
         try: 
             im = np.array(Image.open(path), dtype=np.float32) # check if opened successfully
         except:
@@ -85,6 +82,8 @@ with in_db.begin(write=True) as in_txn:
         # from psd we get 4-channel image, RGBA
         # im = img[:,:,0:3] # ignore A channel
         im = imresize(im,sz_data) # can't resize it 
+
+        
         # im = im[:,:,::-1] # in BGR (switch from RGB), opencv in the form of BGR
         tmp = np.uint8(np.zeros(im[:,:,np.newaxis].shape))
         tmp[:,:,0]=im
@@ -112,20 +111,19 @@ with in_db.begin(write=True) as in_txn:
             break
             
         if in_idx%100 == 0: print "%d masks have been processed" %in_idx
-        path = os.path.join(os.path.dirname(in_).replace('train_data', 'train_mask'), os.path.basename(in_).replace('.tif','_mask.tif')) #TODO: replace is a potential bug
-        print path
+        path = os.path.join(os.path.dirname(in_).replace('train_data', 'train_mask'), os.path.basename(in_).replace('.tif','_mask.tif')).split(' ')[0] #TODO: replace is a potential bug
         im = np.array(Image.open(path), dtype=np.uint8)
 
         ''' -------------------------------------------------- '''
-        # im = imresize(img,sz_mask)
+        im = imresize(im,sz_mask)
         # label resize function SHOULD NOT be achieved by 'resize' function
         # instead, it must be done by label_down_sample.py 
         ''' -------------------------------------------------- '''
 
         if debug:
             pass
-            #cv2.imshow('debug.png', im)
-            #cv2.waitKey(-1)
+            cv2.imshow('debug.png', im)
+            cv2.waitKey(-1)
         #fit into caffe
         im[im>0]=1
         ''' mask channel is 1 '''
