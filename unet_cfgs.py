@@ -21,7 +21,7 @@ deploy_pt=os.path.join(pt_folder,"deploy.prototxt")
 # saved model
 model_name="ultrasound-nerve"
 model_save_path="/mnt/data1/yihuihe"
-best_model=4000
+best_model=10000
 best_model_dir=os.path.join(model_save_path,
     model_name+'_iter_'+str(best_model)+'.caffemodel')
 # init='/home/yihuihe/medical-image-segmentation/deeplab/init.caffemodel'
@@ -40,7 +40,7 @@ if sp['lr_policy']=="step":
     sp['gamma']=.1
     sp['stepsize']=300
     sp['power']=1.0
-sp['base_lr']=1e-3
+sp['base_lr']=1e-5
 sp['max_iter']=200000
 sp['momentum']=.9
 sp['weight_decay']=0.0005

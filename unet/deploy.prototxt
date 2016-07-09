@@ -1,14 +1,15 @@
 name: "unet"
-input: "data"
+input: "newdata"
 input_dim: 1
 input_dim: 1
 input_dim: 96
 input_dim: 128
 
+
 layer {
   name: "conv1"
   type: "Convolution"
-  bottom: "data"
+  bottom: "newdata"
   top: "conv1"
   param {
     lr_mult: 1
@@ -22,6 +23,7 @@ layer {
     num_output: 32
     pad: 1
     kernel_size: 3
+    stride: 1
     weight_filler {
       type: "msra"
     }
@@ -52,6 +54,7 @@ layer {
     num_output: 32
     pad: 1
     kernel_size: 3
+    stride: 1
     weight_filler {
       type: "msra"
     }
@@ -94,6 +97,7 @@ layer {
     num_output: 64
     pad: 1
     kernel_size: 3
+    stride: 1
     weight_filler {
       type: "msra"
     }
@@ -124,6 +128,7 @@ layer {
     num_output: 64
     pad: 1
     kernel_size: 3
+    stride: 1
     weight_filler {
       type: "msra"
     }
@@ -166,6 +171,7 @@ layer {
     num_output: 128
     pad: 1
     kernel_size: 3
+    stride: 1
     weight_filler {
       type: "msra"
     }
@@ -196,6 +202,7 @@ layer {
     num_output: 128
     pad: 1
     kernel_size: 3
+    stride: 1
     weight_filler {
       type: "msra"
     }
@@ -238,6 +245,7 @@ layer {
     num_output: 256
     pad: 1
     kernel_size: 3
+    stride: 1
     weight_filler {
       type: "msra"
     }
@@ -268,6 +276,7 @@ layer {
     num_output: 256
     pad: 1
     kernel_size: 3
+    stride: 1
     weight_filler {
       type: "msra"
     }
@@ -310,6 +319,7 @@ layer {
     num_output: 512
     pad: 1
     kernel_size: 3
+    stride: 1
     weight_filler {
       type: "msra"
     }
@@ -340,6 +350,7 @@ layer {
     num_output: 512
     pad: 1
     kernel_size: 3
+    stride: 1
     weight_filler {
       type: "msra"
     }
@@ -396,6 +407,7 @@ layer {
     num_output: 256
     pad: 1
     kernel_size: 3
+    stride: 1
     weight_filler {
       type: "msra"
     }
@@ -430,6 +442,7 @@ layer {
     num_output: 256
     pad: 1
     kernel_size: 3
+    stride: 1
     weight_filler {
       type: "msra"
     }
@@ -460,6 +473,7 @@ layer {
     num_output: 256
     pad: 1
     kernel_size: 3
+    stride: 1
     weight_filler {
       type: "msra"
     }
@@ -516,6 +530,7 @@ layer {
     num_output: 128
     pad: 1
     kernel_size: 3
+    stride: 1
     weight_filler {
       type: "msra"
     }
@@ -550,6 +565,7 @@ layer {
     num_output: 128
     pad: 1
     kernel_size: 3
+    stride: 1
     weight_filler {
       type: "msra"
     }
@@ -580,6 +596,7 @@ layer {
     num_output: 128
     pad: 1
     kernel_size: 3
+    stride: 1
     weight_filler {
       type: "msra"
     }
@@ -636,6 +653,7 @@ layer {
     num_output: 64
     pad: 1
     kernel_size: 3
+    stride: 1
     weight_filler {
       type: "msra"
     }
@@ -670,6 +688,7 @@ layer {
     num_output: 64
     pad: 1
     kernel_size: 3
+    stride: 1
     weight_filler {
       type: "msra"
     }
@@ -700,6 +719,7 @@ layer {
     num_output: 64
     pad: 1
     kernel_size: 3
+    stride: 1
     weight_filler {
       type: "msra"
     }
@@ -756,6 +776,7 @@ layer {
     num_output: 32
     pad: 1
     kernel_size: 3
+    stride: 1
     weight_filler {
       type: "msra"
     }
@@ -790,6 +811,7 @@ layer {
     num_output: 32
     pad: 1
     kernel_size: 3
+    stride: 1
     weight_filler {
       type: "msra"
     }
@@ -820,6 +842,7 @@ layer {
     num_output: 32
     pad: 1
     kernel_size: 3
+    stride: 1
     weight_filler {
       type: "msra"
     }
@@ -850,6 +873,7 @@ layer {
     num_output: 1
     pad: 0
     kernel_size: 1
+    stride: 1
     weight_filler {
       type: "msra"
     }
@@ -864,11 +888,54 @@ layer {
 }
 
 
+
 layer {
-  name: "fc"
-  type: "InnerProduct"
+  name: "conv_classifier"
+  type: "Convolution"
   bottom: "conv_5_1"
-  top: "fc"
+  top: "conv_classifier"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 1024
+    pad: 1
+    kernel_size: 3
+    stride: 2
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+
+layer {
+  name: "classifier_relu"
+  type: "ReLU"
+  bottom: "conv_classifier"
+  top: "conv_classifier"
+}
+
+layer {
+  name: "global_pooling"
+  type: "Pooling"
+  bottom: "conv_classifier"
+  top: "global_pooling"
+  pooling_param {
+    pool: AVE
+    global_pooling: true
+  }
+}
+
+layer {
+  name: "FClayer"
+  type: "InnerProduct"
+  bottom: "global_pooling"
+  top: "FClayer"
   param {
     lr_mult: 1
     decay_mult: 1
@@ -878,7 +945,7 @@ layer {
     decay_mult: 0
   }
   inner_product_param {
-    num_output: 1024
+    num_output: 256
     weight_filler {
       type: "xavier"
     }
@@ -888,11 +955,20 @@ layer {
     }
   }
 }
+
 layer {
-  name: "fc1"
+  name: "fc_relu"
+  type: "ReLU"
+  bottom: "FClayer"
+  top: "FClayer"
+}
+
+
+layer {
+  name: "bool_classifier"
   type: "InnerProduct"
-  bottom: "fc"
-  top: "fc1"
+  bottom: "FClayer"
+  top: "bool_classifier"
   param {
     lr_mult: 1
     decay_mult: 1
@@ -912,10 +988,11 @@ layer {
     }
   }
 }
+
 layer {
-  name: "softmax"
+  name: "Softmax"
   type: "Softmax"
-  bottom: "fc1"
-  top: "softmax"
+  bottom: "bool_classifier"
+  top: "Softmax"
 }
 

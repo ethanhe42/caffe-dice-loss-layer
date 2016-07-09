@@ -233,7 +233,7 @@ class NetHelper:
             pass
         elif len(c_img.shape)==2:
             # grey img
-            tmp = np.uint8(np.zeros(c_img[:,:,np.newaxis].shape))
+            tmp = np.zeros(c_img[:,:,np.newaxis].shape)
             tmp[:,:,0]=c_img
             c_img=tmp
             depth=1
@@ -411,7 +411,8 @@ class factory:
         kernel_size=3,
         pad=1,
         weight_filler="msra",
-        dilation=None):
+        dilation=None,
+        stride=1):
         name=self.__start(name,'conv')
 
         if bottom is None:
@@ -420,6 +421,7 @@ class factory:
                ('num_output',num_output),
                ('pad',pad),
                ('kernel_size',kernel_size),
+               ('stride',stride),
                ('weight_filler',[
                    ('type',weight_filler)
                ])
@@ -514,18 +516,29 @@ class factory:
            ('top',self.bottom)]
         self.proto+=self.__printList(p)
     
-    def Pooling(self,name,pool="MAX",kernel_size=2,stride=2):
+    def Pooling(self,name,pool="MAX",bottom=None, kernel_size=2,stride=2, global_pooling=False):
+        """pooling and global_pooling
+        :param pool: MAX,AVE,STOCHASTIC
+        """
+        if bottom is None:
+            bottom=self.bottom
         name=self.__start(name,'pool')
         p=[('name',name),
            ('type','Pooling'),
-           ('bottom',self.bottom),
-           ('top',name),
-           ('pooling_param',[
-               ('pool',pool),
+           ('bottom',bottom),
+           ('top',name)]
+        
+        pooling_param=[('pool',pool)]
+        if global_pooling:
+            pooling_param+=[('global_pooling',True)]
+        else:
+            pooling_param+=[
                ('kernel_size',kernel_size),
                ('stride',stride)
-           ])]
+            ]
+        p+=[('pooling_param',pooling_param)]
         self.__end(p,name)
+
 
     
     def Dropout(self,name,omit=0.5):
@@ -565,8 +578,9 @@ class factory:
             kernel_size=3,
             pad=1,
             weight_filler="msra",
-            dilation=None):
-        self.Convolution(conv,num_output,bottom,kernel_size,pad,weight_filler,dilation)
+            dilation=None,
+            stride=1):
+        self.Convolution(conv,num_output,bottom,kernel_size,pad,weight_filler,dilation, stride)
         self.ReLU(relu)
     
     def fc_relu(self, name, relu, num_output, bottom=None, weight_filler="xavier"):

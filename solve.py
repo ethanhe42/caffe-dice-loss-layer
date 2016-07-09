@@ -3,7 +3,7 @@
 import sys
 import pandas as pd
 sys.path.append("/home/yihuihe/Ultrasound-Nerve-Segmentation")
-sys.path.insert(0, "/home/yihuihe/deeplab-public-ver2/python")
+sys.path.insert(0, "/home/yihuihe/miscellaneous/caffe/python")
 print sys.path
 import caffe
 print caffe.__file__
@@ -15,6 +15,7 @@ import unet_cfgs as cfgs
 #import score
 #import surgery
 import os
+import matplotlib.pyplot as plt
 
 # gen solver prototxt
 solver=CaffeSolver(debug=cfgs.debug)
@@ -36,12 +37,25 @@ if weights is not None:
 
 for iter in range(500*2000):
     if debug:
-        if iter % 100 == 0:
+        if iter % 100 == 0 and iter !=0:
             nethelper=NetHelper(solver.net)
             # nethelper.hist('data')
             nethelper.hist('label')
             nethelper.hist('prob', filters=2,attr="blob")
             nethelper.hist('data', filters=2,attr="blob")
+
+            if False:
+                for i in range(nethelper.net.blobs['data'].data.shape[0]):
+                    plt.subplot(221)
+                    plt.imshow(nethelper.net.blobs['data'].data[i,0])
+                    plt.subplot(222)
+                    plt.imshow(nethelper.net.blobs['prob'].data[i,0])
+                    plt.subplot(223)
+                    plt.imshow(nethelper.net.blobs['label'].data[i,0])
+                    plt.show()
+                
+            
+
             # TODO: label has float
             # nethelper.value_counts('label')
             

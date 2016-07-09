@@ -2,6 +2,8 @@
 import caffe
 from utils import factory
 import unet_cfgs as cfgs
+import numpy as np
+
 
 use_lmdb=False
 def trainval():
@@ -101,9 +103,11 @@ if __name__ == '__main__':
     n.diceLoss('prob','newlabel')
     
     # has object prediction
-    n.fc_relu_dropout('fc','fc_relu','fc_dropout',1024, bottom='conv_5_1')
-    n.InnerProduct('fc1', 2)
-    n.SoftmaxWithLoss(loss_weight=.5, bottom1='fc1', bottom2='hasObj')
+    n.conv_relu('conv_classifier', "classifier_relu",1024,stride=2, bottom= 'conv_5_1')
+    n.Pooling('global_pooling',pool="AVE", global_pooling=True)
+    n.fc_relu_dropout('FClayer','fc_relu','fc_dropout',256)
+    n.InnerProduct('bool_classifier', 2)
+    n.SoftmaxWithLoss(loss_weight=0, bottom1='bool_classifier', bottom2='hasObj')
     
 
     n.totxt('unet/trainval.prototxt')

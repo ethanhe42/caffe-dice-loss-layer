@@ -23,11 +23,15 @@ onlyClassification=False
 
 def classifier(c_img, nh,thresh=0.5,showIm=True):
     pred=nh.bin_pred_map(c_img)
-    output=nh.prediction(c_img)['softmax'][0]
+    runned=nh.prediction(c_img)
+    output=runned['Softmax'][0]
+    img=nh.net.blobs['newdata'].data[0,0]
+    
     pred_bin=pred.copy()
+    pred_bin=prep(pred_bin, cfgs.outShape[1],cfgs.outShape[0])
     pred_bin[pred>thresh]=1
     pred_bin[pred<=thresh]=0
-    return pred_bin,pred,output
+    return pred_bin,pred,output,img
 
 def prep(img, width,height):
     img = img.astype('float32') # 1./255
@@ -40,7 +44,7 @@ def run_length_enc(label):
     x = label.transpose().flatten()
     y = np.where(x > 0)[0]
     # if onlyClassification==False:
-    if len(y) < 50:  # consider as empty
+    if len(y) < 20:  # consider as empty
         return ''
     z = np.where(np.diff(y) > 1)[0]
     start = np.insert(y[z+1], 0, y[0])
@@ -62,37 +66,32 @@ def func(filename, nh):
     ready=prep(img,cfgs.inShape[1],cfgs.inShape[0]) 
     # print(np.histogram(ready))
     # ready-=128
-    # ready*=0.00392156862745
-    # ready*=.004
-    pred_bin,pred,output=classifier(ready,nh)
-            
-    # print(pd.value_counts(pred_bin.flatten()))
-    prepared_map=prep(pred_bin,cfgs.outShape[1],cfgs.outShape[0])
-    # if onlyClassification:
-    #     prepared_map[...]=0
-    #     if output[1]>.5:
-    #         prepared_map[5:15,5:15]=1
-    result=run_length_enc(prepared_map)
+    ready*=0.00392156862745
+    pred_bin,pred,output, img=classifier(ready,nh)
+
+    result=run_length_enc(pred_bin)
     if debug:
-        print('prob',output)
-        # print(np.histogram(ready))
-        hist=np.histogram(pred_bin)
-        print(pd.DataFrame(hist[0],index=hist[1][1:]).T)
-        
-        hist=np.histogram(pred)
+        # print('org',np.histogram(ready))
+        # print('data', np.histogram(img))
+        # hist=np.histogram(pred_bin)
+        # print(pd.DataFrame(hist[0],index=hist[1][1:]).T)
+        # hist=np.histogram(pred)
         # print(pd.DataFrame(hist[0],index=hist[1][1:]).T)
 
         mask=plt.imread(os.path.join(cfgs.train_mask_path,idx+"_mask.tif"))
         plt.figure(1)
         plt.subplot(221)
+        plt.title('mask')
         plt.imshow(mask)
         plt.subplot(222)
+        plt.title('prediction')
         plt.imshow(pred_bin)
         plt.subplot(223)
+        plt.title('img')
         plt.imshow(img)
         plt.subplot(224)
+        plt.title('heatmap '+str(output[1]))
         plt.imshow(pred)
-        plt.title(str(output[1]))
         plt.show()
         # print(idx,result)
 
