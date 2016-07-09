@@ -26,7 +26,7 @@ best_model_dir=os.path.join(model_save_path,
     model_name+'_iter_'+str(best_model)+'.caffemodel')
 # init='/home/yihuihe/medical-image-segmentation/deeplab/init.caffemodel'
 init=best_model_dir
-init=None
+# init=None
 
 # solver
 model="deeplab"
@@ -55,7 +55,7 @@ sp['train_net']=tr_pt
 sp['test_net']=te_pt
 
 # net
-inShape=(160,224,1)
+inShape=(96,128,1)
 outShape=(420,580,1)
 
 

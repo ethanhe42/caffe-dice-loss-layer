@@ -63,7 +63,10 @@ if __name__ == '__main__':
         n.Python("preprocessing",'transformLayer', bottom=['data','label','aaa','nothing'], top=['newdata','newlabel','hasObj'])
     n_filter=32
     for i in range(1,layers):
-        n.conv_relu(i,i,n_filter)
+        if i ==1:
+            n.conv_relu(i,i,n_filter,bottom='newdata')
+        else:
+            n.conv_relu(i,i,n_filter)
         n.conv_relu([i,1],[i,1],n_filter)
         if omit != 0:
             n.Dropout(i,omit=omit)
@@ -93,12 +96,14 @@ if __name__ == '__main__':
     if use_lmdb:
         n.Data("/mnt/data1/yihuihe/ultrasound-nerve/lmdb_train_val/train_mask",name='label', backend='LMDB')
     else:
-        n.silence('nothing')
-    n.diceLoss('prob','label')
+        pass
+        # n.silence('nothing')
+    n.diceLoss('prob','newlabel')
     
+    # has object prediction
     n.fc_relu_dropout('fc','fc_relu','fc_dropout',1024, bottom='conv_5_1')
     n.InnerProduct('fc1', 2)
-    n.SoftmaxWithLoss(loss_weight=.5, bottom1='fc1', bottom2='aaa')
+    n.SoftmaxWithLoss(loss_weight=.5, bottom1='fc1', bottom2='hasObj')
     
 
     n.totxt('unet/trainval.prototxt')

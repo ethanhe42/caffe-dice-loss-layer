@@ -15,8 +15,8 @@ layer {
     batch_size: 24
     is_color: false
     shuffle: false
-    new_height: 160
-    new_width: 224
+    new_height: 96
+    new_width: 128
   }
 }
 
@@ -36,8 +36,8 @@ layer {
     batch_size: 24
     is_color: false
     shuffle: false
-    new_height: 160
-    new_width: 224
+    new_height: 96
+    new_width: 128
   }
 }
 
@@ -57,8 +57,8 @@ layer {
     batch_size: 24
     is_color: false
     shuffle: false
-    new_height: 160
-    new_width: 224
+    new_height: 96
+    new_width: 128
   }
 }
 
@@ -78,15 +78,31 @@ layer {
     batch_size: 24
     is_color: false
     shuffle: false
-    new_height: 160
-    new_width: 224
+    new_height: 96
+    new_width: 128
+  }
+}
+
+layer {
+  name: "preprocessing"
+  type: "Python"
+  bottom: "data"
+  bottom: "label"
+  bottom: "aaa"
+  bottom: "nothing"
+  top: "newdata"
+  top: "newlabel"
+  top: "hasObj"
+  python_param {
+    module: "preprocessing"
+    layer: "transformLayer"
   }
 }
 
 layer {
   name: "conv1"
   type: "Convolution"
-  bottom: "data"
+  bottom: "newdata"
   top: "conv1"
   param {
     lr_mult: 1
@@ -942,17 +958,11 @@ layer {
 }
 
 layer {
-  name: "silence"
-  type: "Silence"
-  bottom: "nothing"
-}
-
-layer {
   name: "loss"
   type: "Python"
   top: "loss"
   bottom: "prob"
-  bottom: "label"
+  bottom: "newlabel"
   python_param {
     module: "perClassLoss"
     layer: "perClassLossLayer"
@@ -1034,7 +1044,7 @@ layer {
   name: "softmaxwithloss"
   type: "SoftmaxWithLoss"
   bottom: "fc1"
-  bottom: "aaa"
+  bottom: "hasObj"
   top: "softmaxwithloss"
   loss_weight: 0.5
 }

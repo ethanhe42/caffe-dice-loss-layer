@@ -4,6 +4,7 @@ import caffe
 
 import numpy as np
 import cv2
+import matplotlib.pyplot as plt
 
 class transformLayer(caffe.Layer):
 
@@ -15,7 +16,10 @@ class transformLayer(caffe.Layer):
     def setup(self, bottom, top):
         self.nb_top=3
         self.nb_bottom=4
+        self.batch_size=bottom[0].data.shape[0]
         
+        for i in range(self.nb_top):
+            top[i].reshape(*bottom[i].data.shape)
 
         assert len(top)==self.nb_top
         assert len(bottom) == self.nb_bottom
@@ -37,15 +41,26 @@ class transformLayer(caffe.Layer):
         """
         Load data.
         """
-        
-        for i in range(self.nb_top):
-            self.top[i]=np.ndarray(bottom[i].data.shape)
-        
-        for i in range(self.top[0].shape[0]):
-            img=self.bottom[0].data[i,0]
-            label=self.bottom[1].data[i,0]
-            hasObj=self.bottom[2].data[i,0]
+        debug=False
+        grid=220
 
+        self.newdata=np.ndarray(bottom[0].data.shape)
+        self.newlabel=np.ndarray(bottom[1].data.shape)
+        self.hasObj=np.ndarray(bottom[2].data.shape)
+        
+        for i in range(self.batch_size):
+            img=bottom[0].data[i,0]
+            label=bottom[1].data[i,0]
+            hasObj=bottom[2].data[i]
+
+            if debug:
+                plt.subplot(grid+1)
+                plt.imshow(img)
+                plt.subplot(grid+2)
+                plt.imshow(label)
+                plt.title(str(hasObj))
+            
+            # random flip
             if np.random.randint(2):
                 img=cv2.flip(img,0)
                 label=cv2.flip(label,0)
@@ -54,12 +69,20 @@ class transformLayer(caffe.Layer):
                 img=cv2.flip(img,1)
                 label=cv2.flip(label,1)
             
-            self.top[0][i,0]=img
-            self.top[1][i,0]=label
-            self.top[2][i]=hasObj
+            if debug:
+                plt.subplot(grid+3)
+                plt.imshow(img)
+                plt.subplot(grid+4)
+                plt.imshow(label)
+                plt.show()
+            
+            self.newdata[i,0]=img
+            self.newlabel[i,0]=label
+            self.hasObj[i]=hasObj
         
-        for i in range(self.nb_top):
-            top[i].data[...]=self.top[i]
+        top[0].data[...]=self.newdata
+        top[1].data[...]=self.newlabel
+        top[2].data[...]=self.hasObj
             
     def reshape(self, bottom, top):
         """
