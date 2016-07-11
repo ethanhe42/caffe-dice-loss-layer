@@ -19,7 +19,7 @@ solver_pt=os.path.join(pt_folder,"solver.prototxt")
 deploy_pt=os.path.join(pt_folder,"deploy.prototxt")
 
 # saved model
-model_name="ultrasound-nerve"
+model_name="deep_lab"
 model_save_path="/mnt/data1/yihuihe"
 best_model=5000
 best_model_dir=os.path.join(model_save_path,
@@ -39,12 +39,12 @@ if sp['lr_policy']=="step":
     sp['gamma']=.1
     sp['stepsize']=300
     sp['power']=1.0
-sp['base_lr']=1e-1
+sp['base_lr']=1e-3
 sp['max_iter']=200000
 sp['momentum']=.9
 sp['weight_decay']=0.0005
 sp['test_initialization']= True
-sp['snapshot']=2000
+sp['snapshot']=10000
 if debug:
     sp['test_iter']=20
     sp['test_interval']=1000

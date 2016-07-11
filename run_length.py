@@ -6,7 +6,7 @@ import sys
 sys.path.insert(0, "/home/yihuihe/deeplab-public-ver2/python")
 import caffe
 from utils import Data, NetHelper
-import unet_cfgs as cfgs
+import cfgs_saliency as cfgs
 import os
 from PIL import Image
 import pandas as pd
@@ -24,14 +24,15 @@ onlyClassification=False
 def classifier(c_img, nh,thresh=0.5,showIm=True):
     pred=nh.bin_pred_map(c_img)
     runned=nh.prediction(c_img)
-    output=runned['Softmax'][0]
-    img=nh.net.blobs['newdata'].data[0,0]
+    # output=runned['Softmax'][0]
+    img=nh.net.blobs['conv6'].data[0,2]
     
     pred_bin=pred.copy()
     pred_bin=prep(pred_bin, cfgs.outShape[1],cfgs.outShape[0])
     pred_bin[pred>thresh]=1
     pred_bin[pred<=thresh]=0
-    return pred_bin,pred,output,img
+    # return pred_bin,pred,output,img
+    return pred_bin,pred,img
 
 def prep(img, width,height):
     img = img.astype('float32') # 1./255
@@ -65,18 +66,20 @@ def func(filename, nh):
     img=Data.imFromFile(filename)
     ready=prep(img,cfgs.inShape[1],cfgs.inShape[0]) 
     # print(np.histogram(ready))
-    # ready-=128
-    ready*=0.00392156862745
-    pred_bin,pred,output, img=classifier(ready,nh)
+    # ready*=0.00392156862745
+    ready-=128
+    ready*=0.0078431372549
+    pred_bin,pred, img=classifier(ready,nh)
+    # pred_bin,pred,output, img=classifier(ready,nh)
 
     result=run_length_enc(pred_bin)
     if debug:
         # print('org',np.histogram(ready))
         # print('data', np.histogram(img))
-        # hist=np.histogram(pred_bin)
-        # print(pd.DataFrame(hist[0],index=hist[1][1:]).T)
-        # hist=np.histogram(pred)
-        # print(pd.DataFrame(hist[0],index=hist[1][1:]).T)
+        hist=np.histogram(img)
+        print(pd.DataFrame(hist[0],index=hist[1][1:]).T)
+        hist=np.histogram(pred)
+        print(pd.DataFrame(hist[0],index=hist[1][1:]).T)
 
         mask=plt.imread(os.path.join(cfgs.train_mask_path,idx+"_mask.tif"))
         plt.figure(1)
@@ -90,7 +93,7 @@ def func(filename, nh):
         plt.title('img')
         plt.imshow(img)
         plt.subplot(224)
-        plt.title('heatmap '+str(output[1]))
+        # plt.title('heatmap '+str(output[1]))
         plt.imshow(pred)
         plt.show()
         # print(idx,result)
