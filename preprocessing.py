@@ -86,10 +86,11 @@ class transformLayer(caffe.Layer):
                 plt.title('flip')
                 plt.imshow(label)
 
-            im_merge = np.concatenate((img[...,None], label[...,None]), axis=2)
-            im_merge_t = elastic_transform(im_merge, im_merge.shape[1] * 2, im_merge.shape[1] * 0.08, im_merge.shape[1] * 0.08)
-            img= im_merge_t[...,0]
-            label= im_merge_t[...,1]
+            # if np.random.randint(10)!=0:
+            #     im_merge = np.concatenate((img[...,None], label[...,None]), axis=2)
+            #     im_merge_t = elastic_transform(im_merge, im_merge.shape[0] * 2, im_merge.shape[0] * 0.08, im_merge.shape[0] * 0.08)
+            #     img= im_merge_t[...,0]
+            #     label= im_merge_t[...,1]
 
             if debug:
                 plt.subplot(grid+5)

@@ -1,0 +1,354 @@
+name: "SalNet"
+
+layer {
+  name: "label"
+  type: "ImageData"
+  top: "label"
+  top: "nothing"
+  include {
+    phase: TEST
+  }
+  transform_param {
+    scale: 0.00392156862745
+  }
+  image_data_param {
+    source: "data/val_mask.txt"
+    batch_size: 24
+    is_color: false
+    shuffle: false
+    new_height: 192
+    new_width: 256
+  }
+}
+
+layer {
+  name: "data"
+  type: "ImageData"
+  top: "data"
+  top: "aaa"
+  include {
+    phase: TEST
+  }
+  transform_param {
+    mean_value: 128
+    scale: 0.0078431372549
+  }
+  image_data_param {
+    source: "data/val.txt"
+    batch_size: 24
+    is_color: false
+    shuffle: false
+    new_height: 192
+    new_width: 256
+  }
+}
+
+layer {
+  name: "label"
+  type: "ImageData"
+  top: "label"
+  top: "nothing"
+  include {
+    phase: TRAIN
+  }
+  transform_param {
+    scale: 0.00392156862745
+  }
+  image_data_param {
+    source: "data/mask.txt"
+    batch_size: 24
+    is_color: false
+    shuffle: false
+    new_height: 192
+    new_width: 256
+  }
+}
+
+layer {
+  name: "data"
+  type: "ImageData"
+  top: "data"
+  top: "aaa"
+  include {
+    phase: TRAIN
+  }
+  transform_param {
+    mean_value: 128
+    scale: 0.0078431372549
+  }
+  image_data_param {
+    source: "data/train.txt"
+    batch_size: 24
+    is_color: false
+    shuffle: false
+    new_height: 192
+    new_width: 256
+  }
+}
+
+
+layer {
+  name: "preprocessing"
+  type: "Python"
+  bottom: "data"
+  bottom: "label"
+  bottom: "aaa"
+  bottom: "nothing"
+  top: "newdata"
+  top: "newlabel"
+  top: "hasObj"
+  python_param {
+    module: "preprocessing"
+    layer: "transformLayer"
+  }
+}
+
+
+layer {
+  name: "data1"
+  type: "Concat"
+  bottom: "newdata"
+  bottom: "newdata"
+  bottom: "newdata"
+  top: "data1"
+}
+
+layer {
+  name: "conv1"
+  type: "Convolution"
+  bottom: "data1"
+  top: "conv1"
+  convolution_param {
+    num_output: 96
+    kernel_size: 7
+    stride: 1
+    pad: 3
+
+  }
+}
+layer {
+  name: "relu1"
+  type: "ReLU"
+  top: "conv1"
+  bottom: "conv1"
+}
+layer {
+  name: "norm1"
+  type: "LRN"
+  bottom: "conv1"
+  top: "norm1"
+  lrn_param {
+    local_size: 5
+    alpha: 0.0001
+    beta: 0.75
+    norm_region: ACROSS_CHANNELS
+  }
+}
+layer {
+  name: "pool1"
+  type: "Pooling"
+  bottom: "norm1"
+  top: "pool1"
+  pooling_param {
+    pool: MAX
+    kernel_size: 3
+    stride: 2
+    pad: 0
+  }
+}
+layer {
+  name: "conv2"
+  type: "Convolution"
+  bottom: "pool1"
+  top: "conv2"
+  convolution_param {
+    num_output: 256
+    kernel_size: 5
+    stride: 1
+    pad: 2
+  }
+}
+layer {
+  name: "relu2"
+  type: "ReLU"
+  top: "conv2"
+  bottom: "conv2"
+}
+layer {
+  name: "pool2"
+  type: "Pooling"
+  bottom: "conv2"
+  top: "pool2"
+  pooling_param {
+    pool: MAX
+    kernel_size: 3
+    stride: 2
+    pad: 0
+  }
+}
+layer {
+  name: "conv3"
+  type: "Convolution"
+  bottom: "pool2"
+  top: "conv3"
+  convolution_param {
+    num_output: 512
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "relu3"
+  type: "ReLU"
+  top: "conv3"
+  bottom: "conv3"
+}
+layer {
+  name: "conv4"
+  type: "Convolution"
+  bottom: "conv3"
+  top: "conv4"
+  convolution_param {
+    num_output: 512
+    kernel_size: 5
+    stride: 1
+    pad: 2
+  }
+}
+layer {
+  name: "relu4"
+  type: "ReLU"
+  top: "conv4"
+  bottom: "conv4"
+}
+layer {
+  name: "conv5"
+  type: "Convolution"
+  bottom: "conv4"
+  top: "conv5"
+  convolution_param {
+    num_output: 512
+    kernel_size: 5
+    stride: 1
+    pad: 2
+  }
+}
+layer {
+  name: "relu5"
+  type: "ReLU"
+  top: "conv5"
+  bottom: "conv5"
+}
+layer {
+  name: "conv6"
+  type: "Convolution"
+  bottom: "conv5"
+  top: "conv6"
+  convolution_param {
+    num_output: 256
+    kernel_size: 7
+    stride: 1
+    pad: 3
+  }
+}
+layer {
+  name: "relu6"
+  type: "ReLU"
+  top: "conv6"
+  bottom: "conv6"
+}
+layer {
+  name: "conv7"
+  type: "Convolution"
+  bottom: "conv6"
+  top: "conv7"
+  convolution_param {
+    num_output: 128
+    kernel_size: 11
+    stride: 1
+    pad: 5
+  }
+}
+layer {
+  name: "relu7"
+  type: "ReLU"
+  top: "conv7"
+  bottom: "conv7"
+}
+layer {
+  name: "conv8"
+  type: "Convolution"
+  bottom: "conv7"
+  top: "conv8"
+  convolution_param {
+    num_output: 32
+    kernel_size: 11
+    stride: 1
+    pad: 5
+  }
+}
+layer {
+  name: "relu8"
+  type: "ReLU"
+  top: "conv8"
+  bottom: "conv8"
+}
+layer {
+  name: "conv9"
+  type: "Convolution"
+  bottom: "conv8"
+  top: "conv9"
+  convolution_param {
+    num_output: 1
+    kernel_size: 13
+    stride: 1
+    pad: 6
+  }
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+}
+layer {
+  name: "deconv1"
+  type: "Deconvolution"
+  bottom: "conv9"
+  top: "deconv1"
+  convolution_param {
+    num_output: 1
+    kernel_size: 8
+    stride: 4
+    pad: 2
+    bias_term: false
+  }
+}
+
+layer {
+  name: "prob"
+  type: "Sigmoid"
+  bottom: "deconv1"
+  top: "prob"
+}
+
+layer {
+  name: "loss"
+  type: "Python"
+  top: "loss"
+  bottom: "prob"
+  bottom: "newlabel"
+  python_param {
+    module: "perClassLoss"
+    layer: "perClassLossLayer"
+  }
+  loss_weight: 1
+}
+layer {
+  name: "silence"
+  type: "Silence"
+  bottom: "hasObj"
+}

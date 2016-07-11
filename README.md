@@ -18,3 +18,14 @@ Kaggle
 - deeplab
 - msra
 - deep FAIR structure
+
+### related open source codes
+https://github.com/fyu/dilation  
+https://github.com/fvisin/reseg  
+https://github.com/imatge-upc/saliency-2016-cvpr  
+https://github.com/yuhuayc/alignhier  
+https://github.com/ivpshu/Co-Saliency-Detection-Based-on-Hierarchical-Segmentation  
+https://github.com/HyeonwooNoh/DeconvNet  
+deeplab  
+
+
