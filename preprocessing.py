@@ -7,6 +7,9 @@ import cv2
 import matplotlib.pyplot as plt
 from scipy.ndimage.interpolation import map_coordinates
 from scipy.ndimage.filters import gaussian_filter
+
+
+import sys
 class transformLayer(caffe.Layer):
 
     """
@@ -15,11 +18,14 @@ class transformLayer(caffe.Layer):
     """
 
     def setup(self, bottom, top):
+        print 'hhhh'
         self.nb_top=3
         self.nb_bottom=4
         self.batch_size=bottom[0].data.shape[0]
         
         for i in range(self.nb_top):
+            print bottom[i].data.shape
+            sys.stdout.flush()
             top[i].reshape(*bottom[i].data.shape)
 
         assert len(top)==self.nb_top
@@ -43,10 +49,10 @@ class transformLayer(caffe.Layer):
         Load data.
         """
         # skip transformLayer in test phase
-        if self.phase==caffe.TEST:
-            for i in range(self.nb_top):
-                top[i].data[...]=bottom[i].data
-            return
+        # if self.phase==caffe.TEST:
+        #     for i in range(self.nb_top):
+        #         top[i].data[...]=bottom[i].data
+        #     return
         
         debug=False
         grid=230

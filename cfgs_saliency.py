@@ -21,7 +21,7 @@ deploy_pt=os.path.join(pt_folder,"deploy.prototxt")
 # saved model
 model_name="saliency_fix" #ultrasound-nerve
 model_save_path="/mnt/data1/yihuihe"
-best_model=20000
+best_model=8000
 best_model_dir=os.path.join(model_save_path,
     model_name+'_iter_'+str(best_model)+'.caffemodel')
 init="/mnt/data1/yihuihe/deep_net_model.caffemodel"

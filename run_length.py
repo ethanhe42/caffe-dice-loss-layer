@@ -21,7 +21,7 @@ else:
 onlyClassification=False
 
 
-def classifier(c_img, nh,thresh=0.5,showIm=True):
+def classifier(c_img, nh,thresh=0.8,showIm=True):
     pred=nh.bin_pred_map(c_img)
     runned=nh.prediction(c_img)
     # output=runned['Softmax'][0]
@@ -29,8 +29,11 @@ def classifier(c_img, nh,thresh=0.5,showIm=True):
     
     pred_bin=pred.copy()
     pred_bin=prep(pred_bin, cfgs.outShape[1],cfgs.outShape[0])
-    pred_bin[pred>thresh]=1
-    pred_bin[pred<=thresh]=0
+
+
+    pred_bin[pred_bin>thresh]=1
+
+    pred_bin[pred_bin<=thresh]=0
     # return pred_bin,pred,output,img
     return pred_bin,pred,img
 
@@ -45,7 +48,7 @@ def run_length_enc(label):
     x = label.transpose().flatten()
     y = np.where(x > 0)[0]
     # if onlyClassification==False:
-    if len(y) < 20:  # consider as empty
+    if len(y) < 200:  # consider as empty
         return ''
     z = np.where(np.diff(y) > 1)[0]
     start = np.insert(y[z+1], 0, y[0])
@@ -93,7 +96,7 @@ def func(filename, nh):
         plt.title('img')
         plt.imshow(img)
         plt.subplot(224)
-        # plt.title('heatmap '+str(output[1]))
+        plt.title('heatmap ')
         plt.imshow(pred)
         plt.show()
         # print(idx,result)

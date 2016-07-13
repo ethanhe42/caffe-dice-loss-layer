@@ -32,6 +32,7 @@ model="deeplab"
 
 debug=True
 sp=dict()
+sp['iter_size']=16
 sp['average_loss']=20
 sp['lr_policy']="poly"
 sp['power']=.9

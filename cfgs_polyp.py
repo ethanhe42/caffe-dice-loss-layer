@@ -12,26 +12,23 @@ usr_dir="home/yihuihe"
 proj=os.path.join(usr_dir,"Ultrasound-Nerve-Segmentation")
 
 # prototxt
-pt_folder="unet"
+pt_folder="polyp"
 tr_pt=os.path.join(pt_folder,"trainval.prototxt")
 te_pt=os.path.join(pt_folder,"trainval.prototxt")
 solver_pt=os.path.join(pt_folder,"solver.prototxt")
 deploy_pt=os.path.join(pt_folder,"deploy.prototxt")
 
 # saved model
-model_name="only_flip" #ultrasound-nerve
+model_name="polyp" #ultrasound-nerve
 model_save_path="/mnt/data1/yihuihe"
-best_model=8000
+best_model=4000
 best_model_dir=os.path.join(model_save_path,
     model_name+'_iter_'+str(best_model)+'.caffemodel')
-init=os.path.join(model_save_path,
-    'ultrasound-nerve'+'_iter_'+str(best_model)+'.caffemodel')
-init=best_model_dir
-# init=None
+# init=best_model_dir
+# init="/mnt/data1/yihuihe/ultrasound-nerve_iter_52000.caffemodel"
+init=None
 
 # solver
-model="deeplab"
-
 debug=True
 sp=dict()
 sp['average_loss']=20
@@ -56,7 +53,7 @@ sp['train_net']=tr_pt
 sp['test_net']=te_pt
 
 # net
-inShape=(96,128,1)
+inShape=(2*96,2*128,1)
 outShape=(420,580,1)
 
 
