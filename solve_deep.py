@@ -3,7 +3,8 @@
 import sys
 import pandas as pd
 sys.path.append("/home/yihuihe/Ultrasound-Nerve-Segmentation")
-sys.path.insert(0, "/home/yihuihe/miscellaneous/caffe/python")
+# sys.path.insert(0, "/home/yihuihe/miscellaneous/caffe/python")
+sys.path.insert(0, "/home/yihuihe/deeplab-public-ver2/python")
 print sys.path
 import caffe
 print caffe.__file__
@@ -11,23 +12,23 @@ import numpy as np
 import cv2
 from utils import NetHelper, CaffeSolver
 # import cfgs
-import cfgs_saliency as cfgs
+import cfgs
 #import score
 #import surgery
 import os
 import matplotlib.pyplot as plt
 
 # gen solver prototxt
-# solver=CaffeSolver(debug=cfgs.debug)
-# solver.sp=cfgs.sp.copy()
-# solver.write(cfgs.solver_pt)
+solver=CaffeSolver(debug=cfgs.debug)
+solver.sp=cfgs.sp.copy()
+solver.write(cfgs.solver_pt)
 
 debug=True
 
 weights = cfgs.init
 
 # init
-caffe.set_device(3)
+caffe.set_device(2)
 caffe.set_mode_gpu()
 # caffe.set_mode_cpu()
 
@@ -44,7 +45,7 @@ for iter in range(500*2000):
             nethelper.hist('prob', filters=2,attr="blob")
             nethelper.hist('data', filters=2,attr="blob")
 
-            if True:
+            if False:
                 for i in range(nethelper.net.blobs['data'].data.shape[0]):
                     plt.subplot(221)
                     plt.imshow(nethelper.net.blobs['data'].data[i,0])

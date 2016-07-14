@@ -21,12 +21,12 @@ deploy_pt=os.path.join(pt_folder,"deploy.prototxt")
 # saved model
 model_name="polyp" #ultrasound-nerve
 model_save_path="/mnt/data1/yihuihe"
-best_model=4000
+best_model=16000
 best_model_dir=os.path.join(model_save_path,
     model_name+'_iter_'+str(best_model)+'.caffemodel')
-# init=best_model_dir
+init=best_model_dir
 # init="/mnt/data1/yihuihe/ultrasound-nerve_iter_52000.caffemodel"
-init=None
+# init=None
 
 # solver
 debug=True

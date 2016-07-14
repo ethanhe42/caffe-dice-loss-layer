@@ -14,7 +14,7 @@ proj=os.path.join(usr_dir,"Ultrasound-Nerve-Segmentation")
 # prototxt
 pt_folder="deeplab"
 tr_pt=os.path.join(pt_folder,"trainval.prototxt")
-te_pt=os.path.join(pt_folder,"test.prototxt")
+te_pt=os.path.join(pt_folder,"trainval.prototxt")
 solver_pt=os.path.join(pt_folder,"solver.prototxt")
 deploy_pt=os.path.join(pt_folder,"deploy.prototxt")
 
@@ -39,7 +39,7 @@ if sp['lr_policy']=="step":
     sp['gamma']=.1
     sp['stepsize']=300
     sp['power']=1.0
-sp['base_lr']=1e-3
+sp['base_lr']=1e-5
 sp['max_iter']=200000
 sp['momentum']=.9
 sp['weight_decay']=0.0005
