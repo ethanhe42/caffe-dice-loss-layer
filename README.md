@@ -1,11 +1,10 @@
 # ultrasound nerve segmentation
-Kaggle
-
-### TODOs
-- [x] run length
-- [x] lmdb 
-- [ ] U-net
-- [ ] change mean image to whole data
+Solutions for Kaggle Ultrasound nerve segmentation.  
+run `solve_.py` for different models.  
+`cfgs_.py` are configurations for different models.  
+`model/` folders are `.prototxt` files  
+`perClassLoss.py` implement dice loss layer  
+`preprocessing.py` implement elastic distortion and random flip  
 
 ### Loss
 - use dice coeff directly?
